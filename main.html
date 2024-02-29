@@ -14,18 +14,18 @@
     <header class="header">
         <h1 class="title">FRH</h1>
         <ul class="contact-login">
-            <li>Contact Us</li>
-            <li>Login</li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="">Login</a></li>
         </ul>
     </header>
 
     <!-- Navigation -->
     <nav class="nav">
         <ul>
-            <li>Categories</li>
-            <li>Cart</li>
-            <li>Contact Us</li>
-            <li>Profile</li>
+            <li><a href="">Categories</a></li>
+            <li><a href="">Cart</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="">Profile</a></li>
         </ul>
     </nav>
 
@@ -46,6 +46,23 @@
         <div>
             
         </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <p>Have a question? Well, we’ve got some answers</p>
+            <form action="">
+                <label for="name">Name :</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="question">Question :</label>
+                <textarea name="question" id="question" cols="30" rows="10" required></textarea>
+               
+                <input type="submit" value="Send">
+            </form>
+
     </section>
 
 
