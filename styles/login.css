@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --our_maroon: #a62e2e;
+    --mixed_colors: linear-gradient(#cdffd8, #94b9ff);
+    --our_grey: rgba(234, 230, 230, 0.886);
+}
+
+body{
+    /* margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 4rem; */
+    background-color: var(--our_maroon);
+    color: white;
+}
+
+.container{
+    .header{
+        background-color: var(--our_grey);
+        color: var(--our_maroon);
+        text-align: center;
+    }
+}
+
+.main{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 4rem;
+
+    size: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: 'Glacial Indifference', sans-serif;
+    header{
+        width: 100%;
+        background-color: var(--our_grey);
+    }
+}
+
+.left-side{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    img{
+        border-radius: 0% 0% 10% 10%;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.right-side{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    h1, label{
+        /* color: var(--our_maroon); */
+    }
+    h1{
+        margin-bottom: 2rem;
+        font-size: xx-large;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .form-group{
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            label{
+                font-size: larger;
+            }
+            input{
+                width: 100%;
+                height: 45px;
+                border: 1px solid var(--our_maroon);
+                border-radius: 10px;
+                padding: 15px ;
+                background-color: var(--our_grey)
+            }
+        }
+        button{
+            width: 80%;
+            height: 55px;
+            align-self: center;
+            border-radius: 40px;
+            background-color: var(--our_grey);
+            /* box-shadow: rgba(161, 163, 166, 0.2) 0px 8px 8px;; */
+            
+            color: var(--our_maroon);
+            font-size: large;
+        }
+    }
+}
+
+/* Bigger Screen */
+@media (min-width : 50rem){
+    .main{
+        flex-direction: row;
+        margin-top: 2rem;
+        margin-left: 0rem;
+    }
+
+    .left-side{
+        flex: 1;
+        display: flex;
+
+        margin-right: 1rem;
+        justify-content: center;
+        img{
+            border-radius: 0% 10% 10% 0%;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+
