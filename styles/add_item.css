@@ -1,0 +1,140 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --our_palegreen: #d0d3d1;
+    --our_maroon: #a62e2e;
+    --mixed_colors: linear-gradient(#cdffd8, #94b9ff);
+    --our_grey: rgba(234, 230, 230, 0.886);
+}
+
+body{
+    margin: 0rem 1rem 0rem 1rem;
+    font-family: 'Glacial Indifference', sans-serif;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: auto 150px;
+    grid-template-rows: 100%;
+
+    h1 {
+        font-size: 55pt;
+        font-weight: 1;
+        text-align: center;
+        grid-row: 1;
+        grid-column: 1 / 3;
+    }
+    a {
+        grid-column: 2 / 3;
+        grid-row: 1;
+        font-size: 12pt;
+        font-weight: 505;
+        color: var(--our_maroon);
+        display: flex;
+        z-index: 1;
+        justify-content: end;
+        align-items: e;
+        text-decoration: none;
+ 
+    }
+
+    a:hover{
+        text-decoration: underline;
+    }
+}
+
+.page-title{
+    text-align: center;
+    font-weight: 1;
+    font-size: 1.5rem;
+    background-color: var(--our_palegreen);
+}
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .upload-image{
+        margin: 1rem;
+        width: 20rem;
+        border: 15px solid var(--our_palegreen);
+        border-radius: 40px;
+    }
+    a:hover{
+        .upload-image{
+             border-color: var(--our_maroon);
+        }
+     }
+    form{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            width: 80%;
+
+            input, label, textarea{
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            input {
+                width: 100%;
+                height: 45px;
+                border: 1px solid var(--our_maroon);
+                border-radius: 50px;
+                padding: 15px ;
+
+                grid-column: 2/3;
+            }
+            .details{
+                grid-column: 1/3;
+                
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                
+                width: 105%;
+                padding: 1rem;
+                justify-self: center;
+                /* background-color: var(--our_palegreen); */
+                background-color: var(--our_maroon);
+                border-radius: 20px;
+                color: white;
+                h2{
+                    grid-column: 1/3;
+                    text-align: center;
+                    font-weight: 1;
+                    margin: 0.5rem;
+                }
+                
+                textarea{
+                    width: 100%;
+                    border: 1px solid var(--our_maroon);
+                    border-radius: 15px;
+                    padding: 15px ;
+                }
+
+                select{
+                    width: 100%;
+                    border: 1px solid var(--our_maroon);
+                    border-radius: 15px;
+                    padding: 15px;
+                }
+            }
+            .submit-button{
+                grid-column: 1/3;
+                width: 70%;
+                padding: 0.2rem;
+                justify-self: center;
+                background-color: var(--our_maroon);
+                color: white;
+                font-size: 1.2rem;
+            }
+    }
+}

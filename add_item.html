@@ -12,7 +12,7 @@
     <!-- Header -->
      <header class="header">
         <h1 class="title">FRH</h1>
-        <li><a href="#contact">Contact Us</a></li>
+        <a href="#contact">Contact Us</a>
     </header>
 
     <!-- Page Title -->
@@ -20,34 +20,40 @@
 
     <!-- main -->
     <section class="main">
-        <section class="upload-image">
-            <i class="fa-solid fa-cloud-arrow-up"></i>
+        <section>
+            <a href=""><img class="upload-image" src="images/upload-image.png" alt="upload"></a>
         </section>
 
-        <section class="form">
-            <form class="basic-info-form">
-                <label for="item-title">Item Title :</label>
-                <input type="text" id="item-title" name="item-title" required>
+        <form>
+            <label for="item-title">Item Title :</label>
+            <input type="text" id="item-title" name="item-title" required>
                 
-                <label for="quantity">Quantity :</label>
-                <input type="text" id="quantity" name="quantity" required>
+            <label for="quantity">Quantity :</label>
+            <input type="number" id="quantity" name="quantity" required>
                 
-                <label for="price">Price :</label>
-                <input type="number" id="price" name="price" required>
+            <label for="price">Price :</label>
+            <input type="text" id="price" name="price" required>
 
-
-            <section class="details-form">
-
+            <span class="details">
+                <h2>Add Details</h2>
                 <!-- ADD DROPDOWN -->
                 <label for="category">Category :</label>
-                <input type="" id="item-title" name="item-title" required>
-                
-                <label for="description">Description :</label>
-                <input type="text" id="description" name="description" required>
+                <!-- <input type="" id="item-title" name="item-title" required> -->
+                <select name="categories" class="dropdown-categories">
+                    <option id="category-placeholder" selected disabled hidden>Choose a category</option>
+                    <option value="painting">Painting</option>
+                    <option value="sculpture">Sculpture</option>
+                    <option value="pottery">Pottery</option>
+                    <option value="drawing or illustration">Drawing or Illustration</option>
+                    <option value="digital art">Digital Art</option>
+                </select>
 
-            </section>
-            <input type="submit" value="Add to shop">
-            </form>
-        </section>
+                <label for="description">Description :</label>
+                <!-- <input type="text" id="description" name="description" required> -->
+                <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+            </span>
+
+            <input type="submit" value="Add to shop" class="submit-button" required>
+        </form>
             
     </section>
