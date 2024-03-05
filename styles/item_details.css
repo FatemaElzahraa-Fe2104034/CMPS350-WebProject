@@ -95,8 +95,10 @@ body{
 .item-image{
     img{
         display: block;
-        border-radius: 20px;
+        /* border-radius: 20px; */
         align-self: center;
+        border: 25px solid var(--our_palegreen);
+        border-radius: 40px;
     }
 }
 
@@ -123,7 +125,7 @@ body{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        background-color: var(--our_grey);
+        background-color: var(--our_palegreen);
         border-radius: 20px;
         padding: 1.5rem;
         .info-title{
@@ -139,7 +141,6 @@ body{
             color: white;
             padding: 1rem;
             width: 70%;
-            /* height: 55px; */
             align-self: center;
             border-radius: 25px;
             align-self: center;
@@ -153,6 +154,7 @@ body{
 @media (min-width : 60rem){
     .main{
         flex-direction: row;
+
         *{
             margin: 1rem;
         }
