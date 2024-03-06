@@ -8,7 +8,7 @@
     --our_maroon: #a62e2e;
     --our_maroon2:  #a62e2e48;
     --mixed_colors: linear-gradient(#cdffd8, #94b9ff);
-    --our_grey: rgba(234, 230, 230, 0.886);
+    --our_grey: rgba(108, 108, 108, 0.104);
     --our_palegreen: #d0d3d1;
 }
 
@@ -126,7 +126,7 @@ body{
                 border-radius: 50px;
                 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
                 padding: 15px ;
-
+                background-color: var(--our_grey);
                 grid-column: 2/3;
             }
 
@@ -143,6 +143,7 @@ body{
                 border: 1px solid var(--our_maroon);
                 border-radius: 15px;
                 padding: 15px ;
+                background-color: var(--our_grey);
             }
 
             select{
