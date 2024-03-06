@@ -1,0 +1,192 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --our_maroon: #a62e2e;
+    --our_maroon2:  #b058582d;
+    --our_maroon3:#a75050;
+    --mixed_colors: linear-gradient(#cdffd8, #94b9ff);
+    --our_grey: rgba(206, 225, 193, 0.289);
+    --our_palegreen: #d0d3d1;
+}
+
+body{
+    background-color: var(--our_maroon2);
+}
+
+.container{
+    font-family: 'Glacial Indifference', sans-serif;
+
+    .title{
+        background-color: white;
+        font-size: 55pt;
+        font-weight: 1;
+        text-align: center;
+        color: var(--our_maroon);
+        text-align: center;
+        /* border: #a62e2e solid 2px; */
+    }
+}
+
+.main{
+    display: flex; 
+    flex-direction: column;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 4rem;
+
+    width: 100%;
+    color: var(--our_maroon);
+    font-family: 'Glacial Indifference', sans-serif;
+}
+
+/* .left-side{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    img{
+        border-radius: 0% 0% 10% 10%;
+        width: 100%;
+        height: auto;
+    }
+} */
+
+.left-side{
+    h1{
+        font-style: italic;
+        text-align: center;
+        margin-top: 4rem;
+        font-size: 3rem;
+    }
+}
+
+.right-side{
+    /* flex: 1; */
+
+    align-self: center;
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+    margin: 4rem;
+
+    background-color: white;
+    padding: 5rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    a{
+        align-self: center;
+        margin-top: 1rem;
+        color: var(--our_maroon);
+    }
+    a:hover{
+        color: black;
+    }
+    h1, label{
+        /* color: var(--our_maroon); */
+    }
+    h1{
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        font-weight: 1;
+    }
+
+    .login-form{
+        width: 100%;
+        align-self: center;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        width: 100%;
+        .form-group{
+            width: 100%;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            label{
+                font-size: 1.3rem;
+                font-weight: 1.5;
+                margin-bottom: 1.5rem;
+            }
+            input{
+                width: 100%;
+                height: 45px;
+                border: 1px solid var(--our_maroon);
+                border-radius: 20px;
+                padding: 15px ;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+        }
+        button{
+
+            width: 80%;
+            height: 55px;
+            align-self: center;
+
+            background-color: var(--our_maroon3);
+            color: white;
+
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--our_maroon);
+            border-radius: 25px;
+
+            font-size: 1.3rem;
+            font-weight: 1.4;
+
+            
+            padding: 1rem;
+        }
+
+        button:hover{
+            box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.6);
+            background-color: var(--our_maroon2);
+            color: var(--our_maroon);
+        }
+    }
+}
+
+/* Bigger Screen */
+@media (min-width : 60rem){
+    .main{
+        flex-direction: column; /* Keep children aligned horizontally on larger screens */
+        justify-content: center; /* Ensure content is still centered */
+        align-items: center; /* Center content vertically */
+        margin-top: 2rem;
+    }
+
+    .right-side{
+        width: 50%;
+        align-self: center;
+
+        form{
+            /* width: 50%; */
+            /* padding: 4rem;
+            input{
+                width: 50%;
+            } */
+        }
+    }
+    .left-side{
+        /* flex: 1;
+        display: flex;
+
+        margin-right: 1rem;
+        justify-content: center; */
+        /* img{
+            border-radius: 0% 10% 10% 0%;
+            width: 100%;
+            height: auto;
+        } */
+    }
+}
+
+

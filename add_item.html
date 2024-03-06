@@ -20,8 +20,9 @@
 
     <!-- main -->
     <section class="main">
-        <section>
+        <section class="upload">
             <a href=""><img class="upload-image" src="images/upload-image.png" alt="upload"></a>
+            <p>Upload an Image</p>
         </section>
 
         <form>
@@ -34,24 +35,22 @@
             <label for="price">Price :</label>
             <input type="text" id="price" name="price" required>
 
-            <span class="details">
-                <h2>Add Details</h2>
-                <!-- ADD DROPDOWN -->
-                <label for="category">Category :</label>
-                <!-- <input type="" id="item-title" name="item-title" required> -->
-                <select name="categories" class="dropdown-categories">
+            <!-- <h2>Add Details</h2> -->
+            <!-- ADD DROPDOWN -->
+            <label for="category">Category :</label>
+            <!-- <input type="" id="item-title" name="item-title" required> -->
+            <select name="categories" class="dropdown-categories">
                     <option id="category-placeholder" selected disabled hidden>Choose a category</option>
                     <option value="painting">Painting</option>
                     <option value="sculpture">Sculpture</option>
                     <option value="pottery">Pottery</option>
                     <option value="drawing or illustration">Drawing or Illustration</option>
                     <option value="digital art">Digital Art</option>
-                </select>
+            </select>
 
-                <label for="description">Description :</label>
-                <!-- <input type="text" id="description" name="description" required> -->
-                <textarea name="description" id="description" cols="30" rows="10" required></textarea>
-            </span>
+            <label for="description">Description :</label>
+            <!-- <input type="text" id="description" name="description" required> -->
+            <textarea name="description" id="description" cols="30" rows="10" required></textarea>
 
             <input type="submit" value="Add to shop" class="submit-button" required>
         </form>

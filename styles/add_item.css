@@ -5,10 +5,11 @@
 }
 
 :root {
-    --our_palegreen: #d0d3d1;
     --our_maroon: #a62e2e;
+    --our_maroon2:  #a62e2e48;
     --mixed_colors: linear-gradient(#cdffd8, #94b9ff);
     --our_grey: rgba(234, 230, 230, 0.886);
+    --our_palegreen: #d0d3d1;
 }
 
 body{
@@ -58,7 +59,7 @@ body{
     text-align: center;
     font-weight: 1;
     font-size: 1.5rem;
-    background-color: var(--our_palegreen);
+    background-color: var(--our_maroon2);
     margin: 2rem 0rem;
     padding: 0.5rem;
 }
@@ -67,11 +68,28 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-    .upload-image{
-        margin: 1rem;
-        width: 20rem;
-        border: 15px solid var(--our_palegreen);
-        border-radius: 40px;
+    .upload{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .upload{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        .upload-image{
+            margin: 1rem;
+            width: 20rem;
+            border: 15px solid var(--our_maroon2);
+            border-radius: 40px;
+        }
+        p{
+            font-size: 1.2rem;
+            color: var(--our_maroon);
+        }
     }
     a:hover{
         .upload-image{
@@ -80,59 +98,63 @@ body{
      }
     form{
             display: grid;
-            grid-template-columns: repeat(2, auto);
+            grid-template-columns: 1fr 2fr;
             width: 80%;
 
-            input, label, textarea{
-                margin-top: 0.5rem;
-                margin-bottom: 0.5rem;
+            border: var(--our_maroon) 1.8px solid;
+            border-radius: 20px;
+            color: var(--our_maroon);
+            font-weight: 2px;
+            box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.4);
+
+            padding: 3rem;
+            margin: 1rem;
+            margin-bottom: 2rem;
+
+            input, label, textarea, select{
+                margin: 1rem 0rem;
             }
+
             label{
                 font-size: 1.4rem;
             }
+
             input {
                 width: 100%;
                 height: 45px;
                 border: 1px solid var(--our_maroon);
                 border-radius: 50px;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
                 padding: 15px ;
 
                 grid-column: 2/3;
             }
-            .details{
-                grid-column: 1/3;
-                
-                display: grid;
-                grid-template-columns: 1fr 2fr;
-                
-                width: 105%;
-                padding: 1rem;
-                justify-self: center;
-                /* background-color: var(--our_palegreen); */
-                background-color: var(--our_maroon);
-                border-radius: 20px;
-                color: white;
-                h2{
-                    grid-column: 1/3;
-                    text-align: center;
-                    font-weight: 1;
-                    margin: 0.5rem;
-                    font-size: 1.8rem;
-                }
-                
-                textarea{
-                    width: 100%;
-                    border: 1px solid var(--our_maroon);
-                    border-radius: 15px;
-                    padding: 15px ;
-                }
 
-                select{
-                    width: 100%;
-                    border: 1px solid var(--our_maroon);
-                    border-radius: 15px;
-                    padding: 15px;
-                }
+            h2{
+                grid-column: 1/3;
+                text-align: center;
+                /* font-weight: 1px; */
+                margin: 0.5rem;
+                font-size: 1.8rem;
+            }
+            
+            textarea{
+                width: 100%;
+                border: 1px solid var(--our_maroon);
+                border-radius: 15px;
+                padding: 15px ;
+            }
+
+            select{
+                width: 100%;
+                border: 1px solid var(--our_maroon);
+                border-radius: 50px;
+                padding: 15px;
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+                background-color: var(--our_maroon2);
+                font-size: 1rem;
+                /* color: var(--our_maroon); */
+
             }
             .submit-button{
                 grid-column: 1/3;
@@ -150,5 +172,9 @@ body{
     .main{
         display: grid;
         grid-template-columns: repeat(2, auto);
+        .upload-image{
+            align-self: center;
+            justify-self: center;
+        }
     }
 }
