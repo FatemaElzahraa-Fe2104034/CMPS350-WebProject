@@ -266,7 +266,7 @@ li {
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: var(--our_maroon2);
+    background-color: var(--our_lightyellow);
     padding: 4rem;
     margin: 2rem 0rem;
     /* border-radius: 30px; */
