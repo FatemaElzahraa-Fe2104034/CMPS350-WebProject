@@ -9,6 +9,18 @@
     --our_maroon: #a62e2e;
     --mixed_colors: linear-gradient(#cdffd8, #94b9ff);
     --our_grey: rgba(106, 105, 105, 0.53);
+    --our_palegreen: #d0d3d1;
+    --our_maroon: #a62e2e;
+    --our_maroon2:  #b058582d;
+    --our_lightblue: #daeaf6;
+    --our_lightgreen: #ddedea;
+    --our_darkgreen:#49877c;
+    --our_lightyellow: #fcf4dd;
+    --our_lightpurple: #e8dff5;
+    --our_darkpurple:#ceabff;
+    --our_grey: rgba(108, 108, 108, 0.104);
+    --our_pink: #ffeaf0;
+    --mixed_colors: linear-gradient(#cdffd8, #94b9ff);
 }
 
 body{
@@ -75,7 +87,7 @@ body{
     align-items: center;
     padding: 0.2rem;
     margin-bottom: 1.5rem;
-    background-color: var(--our_palegreen);
+    background-color: var(--our_maroon2);
     ul {
         text-align: center;
         li {
@@ -97,9 +109,8 @@ body{
         display: block;
         /* border-radius: 20px; */
         align-self: center;
-        border: 25px solid var(--our_palegreen);
-        border-radius: 40px;
-    }
+        border: 25px solid var(--our_lightblue);
+        border-radius: 40px;    }
 }
 
 .item-details{
@@ -125,9 +136,10 @@ body{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        background-color: var(--our_palegreen);
+        background-color: var(--our_lightgreen);
         border-radius: 20px;
         padding: 1.5rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
         .info-title{
             text-align: center;
             font-size: 1.3rem;
@@ -137,7 +149,7 @@ body{
             margin: 0.5rem;
         }
         button{
-            background-color: var(--our_maroon);
+            background-color: var(--our_darkgreen);
             color: white;
             padding: 1rem;
             width: 70%;
@@ -146,6 +158,12 @@ body{
             align-self: center;
             font-size: 1.1rem;
             font-weight: 1;
+        }
+
+        button:hover{
+            background-color: var(--our_grey);
+            color: black;
+            border: 2px solid var(--our_darkgreen);
         }
 
     }
@@ -159,6 +177,16 @@ body{
             margin: 1rem;
         }
     }
+
+    .nav {
+        ul {
+            width: 60%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            font-size: 14pt;
+        }
+    } 
 
 
 }

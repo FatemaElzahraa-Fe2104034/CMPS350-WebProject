@@ -5,11 +5,17 @@
 }
 
 :root {
-    --our_maroon: #a62e2e;
-    --our_maroon2:  #a62e2e48;
-    --mixed_colors: linear-gradient(#cdffd8, #94b9ff);
-    --our_grey: rgba(108, 108, 108, 0.104);
-    --our_palegreen: #d0d3d1;
+        --our_palegreen: #d0d3d1;
+        --our_maroon: #a62e2e;
+        --our_maroon2:  #b058582d;
+        --our_lightblue: #daeaf6;
+        --our_lightgreen: #ddedea;
+        --our_darkgreen:#49877c;
+        --our_lightyellow: #fcf4dd;
+        --our_lightpurple: #e8dff5;
+        --our_darkpurple:#ceabff;
+        --our_grey: rgba(108, 108, 108, 0.104);
+        --mixed_colors: linear-gradient(#cdffd8, #94b9ff);
 }
 
 body{
@@ -88,7 +94,7 @@ body{
         }
         p{
             font-size: 1.2rem;
-            color: var(--our_maroon);
+            /* color: var(--our_maroon); */
         }
     }
     a:hover{
@@ -103,13 +109,15 @@ body{
 
             border: var(--our_maroon) 1.8px solid;
             border-radius: 20px;
-            color: var(--our_maroon);
+            /* color: var(--our_maroon); */
             font-weight: 2px;
-            box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.4);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
             padding: 3rem;
             margin: 1rem;
             margin-bottom: 2rem;
+
+            /* background-color: --our; */
 
             input, label, textarea, select{
                 margin: 1rem 0rem;
