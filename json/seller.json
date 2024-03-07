@@ -1,0 +1,32 @@
+[
+    {
+        "company_name": "ABC Electronics",
+        "username": "seller1_username",
+        "password": "seller1_password",
+        "bank_account": "111-222-333"
+    },
+    {
+        "company_name": "XYZ Gadgets",
+        "username": "seller2_username",
+        "password": "seller2_password",
+        "bank_account": "444-555-666"
+    },
+    {
+        "company_name": "GHI Appliances",
+        "username": "seller3_username",
+        "password": "seller3_password",
+        "bank_account": "777-888-999"
+    },
+    {
+        "company_name": "PQR Electronics",
+        "username": "seller4_username",
+        "password": "seller4_password",
+        "bank_account": "123-456-789"
+    },
+    {
+        "company_name": "LMN Devices",
+        "username": "seller5_username",
+        "password": "seller5_password",
+        "bank_account": "987-654-321"
+    }
+]
