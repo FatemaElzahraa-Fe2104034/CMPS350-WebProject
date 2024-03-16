@@ -152,7 +152,7 @@ nav ul {
   background-color: #fdf1ec;
 }
 
-/* .image-container {
+.image-container {
   img {
     display: block;
     align-self: center;
@@ -164,7 +164,7 @@ nav ul {
 
     position: relative;
   }
-} */
+}
 
 .wrapper {
   height: 420px;
