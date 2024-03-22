@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Serene Reflections",
+        "price": "150.0 QAR",
+        "category": "Painting",
+        "ID": "001",
+        "description": "An elegant watercolor painting capturing the serene grace of a swan on water, with delicate brush strokes evoking the tranquility of nature.",
+        "artist": "Rouaa",
+        "image_url": "../images/items/item-1.jpg"
+    },
+    {
+        "title": "Lemon Delight",
+        "price": "200.0 QAR",
+        "category": "Painting",
+        "ID": "002",
+        "description": "Vibrant oil painting of freshly picked lemons nestled among rich green leaves, evoking the zest of summer in a classic style.",
+        "artist": "Hams",
+        "image_url": "../images/items/item-2.jpg"
+    },
+    {
+        "title": "Contemplative Beauty",
+        "price": "500.0 QAR",
+        "category": "Sculpture",
+        "ID": "003",
+        "description": "A striking sculpture of a woman's head, capturing a moment of peaceful contemplation in smooth marble curves, echoing classical forms.",
+        "artist": "Fatma",
+        "image_url": "../images/items/item-3.jpg"
+    },
+    {
+        "title": "Stardust Whisper",
+        "price": "100.00 QAR",
+        "category": "Digital Art",
+        "ID": "004",
+        "description": "A whimsical digital artwork depicting a woman amidst the clouds, reaching out as stars and stardust envelop her in a gentle dance.",
+        "artist": "Ally",
+        "image_url": "../images/items/item-4.jpeg"
+    },
+    {
+        "title": "Midnight Enchantress",
+        "price": "120.00 QAR",
+        "category": "Digital Art",
+        "ID": "005",
+        "description": "An enchanting digital illustration of a mysterious witch brewing potions under the moonlight, accompanied by her faithful feline companion.",
+        "artist": "Sara",
+        "image_url": "../images/items/item-5.jpeg"
+    },
+    {
+        "title": "Ethereal Gaze",
+        "price": "350.00 QAR",
+        "category": "Painting",
+        "ID": "006",
+        "description": "A captivating expressionist portrait that conveys raw emotion through chaotic strokes and vibrant color contrasts.",
+        "artist": "Josje",
+        "image_url": "../images/items/item-6.png"
+      }
+]
