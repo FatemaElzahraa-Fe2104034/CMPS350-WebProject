@@ -35,19 +35,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 function showItems(items) {
     const mappedItems = items.map(
         item => `
-        <div class="card">
-        <img src="${item.image_url}" alt="Book's thumbnail">
-        <div class="item-properties">
-            <p> <span class="titles">Title:</span> ${item.title}</p>
-            <p> <span class="titles">Artist:</span> ${item.artist}</p>
-            <p> <span class="titles">Category:</span> ${item.category}</p>
-            <p> <span class="titles">Price:</span> ${item.price}</p>
-        </div>
+        <div class="card" data-id="${item.ID}" onclick="navigateToItemDetail('${item.ID}')">
+            <img src="${item.image_url}" alt="${item.title}'s thumbnail">
+            <div class="item-properties">
+                <p> <span class="titles">Title:</span> ${item.title}</p>
+                <p> <span class="titles">Artist:</span> ${item.artist}</p>
+                <p> <span class="titles">Category:</span> ${item.category}</p>
+                <p> <span class="titles">Price:</span> ${item.price}</p>
+            </div>
         </div>
         `
     ).join('\n');
     
     itemsDIV.innerHTML = mappedItems;
+}
+
+// This function will be called when a card is clicked.
+function navigateToItemDetail(itemId) {
+    window.location.href = `../item_details.html?id=${itemId}`;
 }
 
 function handleSearchBar() {

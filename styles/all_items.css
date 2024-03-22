@@ -27,6 +27,7 @@ li {
 
 /* Classes */
 
+
 .header {
     display: grid;
     grid-template-columns: auto 150px;
@@ -69,16 +70,19 @@ li {
     }
 }
 
-
 .nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     padding: 0.2rem;
     margin-bottom: 1.5rem;
     background-color: var(--our_maroon2);
     ul {
+        display: flex;
+        flex-direction: column;
         text-align: center;
+        justify-content: space-evenly;
         li {
             margin: 0.8rem;
             a {
