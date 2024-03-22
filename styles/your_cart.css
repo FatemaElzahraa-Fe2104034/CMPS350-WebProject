@@ -138,7 +138,6 @@ nav ul {
 .cart {
   width: 100%; /* Take full width of its container */
   background: linear-gradient(to bottom right, #daeaf6, #dadfe6);
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,13 +146,16 @@ nav ul {
 
 .item-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* gap: 20px;  */
+    grid-template-columns: 1fr; /* Ensures one card per row */
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 5%;
+    padding-bottom: 0;
 }
 
 .card {
-    padding-left: 5%;
-    padding-right: 5%;
+    /* padding-left: 5%;
+    padding-right: 5%; */
     width: 100%; /* Take full width of its container */
     height: auto; /* Changed height to auto */
     border-radius: 15px;
@@ -175,7 +177,6 @@ nav ul {
 }
 
 .card .content {
-    padding: 0; /* Remove padding to eliminate the gap */
     background-color: var(--our_LightSlateGray);
     border-radius: 0 0 15px 15px;
     width: 60%; /* Adjust width as needed */
@@ -197,7 +198,7 @@ nav ul {
 
 .checkout {
   width: 100%; /* Take full width of its container */
-  background: linear-gradient(to bottom right, #adc8e7, #b2c2c2);
+  background: linear-gradient(to bottom right, #daeaf6, #a6d2d2);
   /* height: 100vh; */
   display: flex;
   justify-content: center;
@@ -205,19 +206,22 @@ nav ul {
   border-radius: 20px;
 }
 .checkout-image {
-  width: 90%;
-  background-position: center;
-  position: relative;
-  opacity: 0.5;
-  padding-top: 5%;
-  padding-bottom: 5%;
+    width: 90%;
+    height: 100%;
+    background-position: center;
+    position: relative;
+    opacity: 0.5;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    /* Add specific properties for .checkout-image to avoid inheritance */
+    border-radius: 0;
+    overflow: visible;
 
-
- 
-  /* img:hover {
-        opacity: 1.0;
-      } */
-}
+    img {
+        height: 100%;
+    }
+  }
+  
 
 @media (min-width: 100rem) {
   nav ul {
