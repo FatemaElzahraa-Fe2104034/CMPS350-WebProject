@@ -10,9 +10,6 @@ const nav = document.querySelector("#nav")
 
 searchBAR.addEventListener('input', handleSearchBar)
 
-
-// header.innerHTML = load("common/header.html")
-
 // Add event listener to load the items
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -58,7 +55,7 @@ function showItems(items) {
                 <p> <span class="titles">Category:</span> ${item.category}</p>
                 <p> <span class="titles">Price:</span> ${item.price}</p>
             </div>
-            <button class="purchaseBTN" onclick="navigateToItemDetail('${item.ID}')">Purchase</button>
+            <button class="purchaseBTN" id="purchasebutton" onclick="onPurchase('${item.ID}')">Purchase</button>
         </div>
         `
     ).join('\n');
@@ -68,7 +65,7 @@ function showItems(items) {
 
 // This function will be called when a card is clicked.
 function navigateToItemDetail(itemId) {
-    window.location.href = `../html/item_details.html?id=${itemId}`;
+    window.location.href = `/html/item_details.html?id=${itemId}`;
 }
 
 function handleSearchBar() {
@@ -86,5 +83,30 @@ function handleSearchBar() {
         showItems(filteredItems);
     } else {
         showItems(items); // Show all books when there's no filter
+    }
+}
+
+function onPurchase(itemId){
+
+    const items = JSON.parse(localStorage.getItem('items'))
+    const itemIndex = items.findIndex(i => i.ID === itemId)
+
+    if(itemIndex !== -1) {             
+
+        const users = JSON.parse(localStorage.getItem('customers'))
+        const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
+
+        if(loggedInUser!=-1){
+
+            // alert(`purchase activated, user logged in ${users[loggedInUser].username}`)
+            window.location.href = `/html/purchase.html?id=${itemId}`
+
+        }
+        else{
+
+            alert(`Please login-in before purchasing an item.`)
+            window.location.href = `/html/login.html`
+
+        }
     }
 }

@@ -4,6 +4,7 @@ let customers = [];
 
 const loginFORM = document.querySelector("#login-form");
 
+
 loginFORM.addEventListener('submit', handleLogin);
 
 // Add event listener to load the customers
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         customers = await response.json();
         
         // Store the fetched data in Local Storage
-        // localStorage.setItem('customers', JSON.stringify(customers));
+        localStorage.setItem('customers', JSON.stringify(customers));
         
         console.log(customers);
     
@@ -46,7 +47,8 @@ function handleLogin(e) {
             // alert(`Login successful.`);
             userExists.isLoggedIn = true
             localStorage.setItem('customers', JSON.stringify(customers));
-            window.location.href = "../main.html";
+
+            window.location.href = "../html/main.html";
         } else {
             alert(`Incorrect Password. Try Again.`);
             return;
