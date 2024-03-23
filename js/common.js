@@ -19,7 +19,6 @@ async function loadElement(elementId, url) {
 }
 
 async function updateLoginLink() {
-    console.log(`UPDATE INVOKED`)
     try {
         // Fetch the customers
         if (localStorage.getItem('customers')) {
@@ -32,14 +31,10 @@ async function updateLoginLink() {
             // Store the fetched data in Local Storage
             localStorage.customers = JSON.stringify(customers);
         }
-        console.log(`Customers: ${customers}`);
 
         const loggedInUser = customers.findIndex(u => u.isLoggedIn === true)
 
-        console.log(`Logged-in User: ${loggedInUser}`);
-
         if(loggedInUser!=-1){
-            console.log(`LOGGED IN IF`);
             loginLINK.innerHTML = `<a href="#" id="loggedIn" class="login">Logout</a>`
             
             document.querySelector("#loggedIn").addEventListener('click', (e) => {
@@ -48,7 +43,6 @@ async function updateLoginLink() {
             })
         }
         else{
-            console.log(`NOT LOGGED IN IF`);
             loginLINK.innerHTML = `<a href="#" id="loggedOut" class="login">Login</a>`
             
             document.querySelector("#loggedOut").addEventListener('click', (e) => {
@@ -72,7 +66,7 @@ function handleLogout(loggedInUser) {
         localStorage.setItem('customers', JSON.stringify(customers))
 
         alert("You have been successfully logged out.")
-        // window.location.href = "../html/main.html"
+        updateLoginLink()
     }
 }
 
