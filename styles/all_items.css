@@ -5,7 +5,7 @@
 }
 
 :root {
-    --our_palegreen: #d0d3d1;
+    --our_palegreen: #bfcdc4;
     --our_maroon: #a62e2e;
     --our_maroon2:  #b058582d;
     --our_lightblue: #e7f0f6;
@@ -151,6 +151,14 @@ li {
                 margin: 0.5rem;
                 color: black;
             }
+        }
+
+        
+
+        .purchaseBTN{
+            background-color: var(--our_palegreen);
+            padding: 0.5rem;
+            font-size: 15pt;
         }
 
         img {

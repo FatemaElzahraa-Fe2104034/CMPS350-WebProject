@@ -43,6 +43,7 @@ function showItems(items) {
                 <p> <span class="titles">Category:</span> ${item.category}</p>
                 <p> <span class="titles">Price:</span> ${item.price}</p>
             </div>
+            <button class="purchaseBTN" onclick="navigateToItemDetail('${item.ID}')">Purchase</button>
         </div>
         `
     ).join('\n');

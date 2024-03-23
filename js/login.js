@@ -44,6 +44,8 @@ function handleLogin(e) {
     } else {
         if (userExists.password === user.password) {
             // alert(`Login successful.`);
+            userExists.isLoggedIn = true
+            localStorage.setItem('customers', JSON.stringify(customers));
             window.location.href = "../main.html";
         } else {
             alert(`Incorrect Password. Try Again.`);

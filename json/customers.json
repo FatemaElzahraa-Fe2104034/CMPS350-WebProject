@@ -5,7 +5,8 @@
         "shipping_address": "123 Main St, Cityville",
         "username": "john_doe",
         "password": "secure_password",
-        "money_balance": 1000.00
+        "balance": 1000.00,
+        "isLoggedIn": false
     },
     {
         "name": "Jane",
@@ -13,7 +14,8 @@
         "shipping_address": "456 Oak St, Townsville",
         "username": "jane_smith",
         "password": "another_secure_password",
-        "money_balance": 1500.00
+        "balance": 1500.00,
+        "isLoggedIn": false
     },
     {
         "name": "Bob",
@@ -21,7 +23,8 @@
         "shipping_address": "789 Pine St, Villageton",
         "username": "bob_johnson",
         "password": "bobspassword123",
-        "money_balance": 800.00
+        "balance": 800.00,
+        "isLoggedIn": false
     },
     {
         "name": "Alice",
@@ -29,7 +32,8 @@
         "shipping_address": "321 Maple St, Hamletville",
         "username": "alice_williams",
         "password": "password123",
-        "money_balance": 2000.00
+        "balance": 2000.00,
+        "isLoggedIn": false
     },
     {
         "name": "Michael",
@@ -37,6 +41,7 @@
         "shipping_address": "654 Birch St, Boroughburg",
         "username": "michael_brown",
         "password": "mikepass",
-        "money_balance": 1200.00
+        "balance": 1200.00,
+        "isLoggedIn": false
     }
 ]

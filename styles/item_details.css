@@ -116,6 +116,8 @@ body{
 .item-details{
     margin-top: 1rem;
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
     .item-title{
         margin-bottom: 1.5rem;
         font-size: 2rem;
@@ -130,6 +132,24 @@ body{
     .item-price{
         font-size: 1.3rem;
         font-weight: 1;
+    }
+    button{
+        background-color: var(--our_darkgreen);
+        color: white;
+        padding: 1rem;
+        width: 70%;
+        align-self: center;
+        border-radius: 25px;
+        align-self: center;
+        font-size: 18pt;
+        font-weight: 1pt;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    button:hover{
+        background-color: var(--our_grey);
+        color: black;
+        border: 2px solid var(--our_darkgreen);
+        box-shadow: 0 28px 36px 0 rgba(88, 11, 11, 0.2);
     }
 
     .info{
@@ -148,24 +168,36 @@ body{
         p{
             margin: 0.5rem;
         }
+
+    }
+    .quantity{
+        display: flex;
+        flex-direction:row;
+        align-items: center;
+        justify-content: center;
         button{
             background-color: var(--our_darkgreen);
             color: white;
             padding: 1rem;
-            width: 70%;
+            width: 4rem;
             align-self: center;
             border-radius: 25px;
+            border: 0;
             align-self: center;
             font-size: 1.1rem;
             font-weight: 1;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
         }
-
         button:hover{
-            background-color: var(--our_grey);
-            color: black;
+            box-shadow: 0 28px 36px 0 rgba(88, 11, 11, 0.2);
+            background-color: var(--our_grey); 
+            color: black; 
             border: 2px solid var(--our_darkgreen);
         }
-
+        p{
+            font-weight: bold;
+            font-size: 18pt;
+        }
     }
 }
 
