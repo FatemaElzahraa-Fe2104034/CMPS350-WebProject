@@ -4,24 +4,39 @@ let items = []
 
 const itemsDIV = document.querySelector("#all-items") 
 const searchBAR = document.querySelector("#search")
+const header = document.querySelector("#header")
+const nav = document.querySelector("#nav")
+
 
 searchBAR.addEventListener('input', handleSearchBar)
+
+
+// header.innerHTML = load("common/header.html")
 
 // Add event listener to load the items
 document.addEventListener('DOMContentLoaded', async () => {
     try {
+        // Load header
+        const headerResponse = await fetch("common/header.html");
+        const headerHTML = await headerResponse.text();
+        header.innerHTML = headerHTML;
+        
+        //  Load nav
+        const navResponse = await fetch("common/nav.html");
+        const navHTML = await navResponse.text();
+        nav.innerHTML = navHTML;
 
         // // Check if items are in Local Storage
-        // if (localStorage.getItem('items')) {
-        //     items = JSON.parse(localStorage.getItem('items'));
-        // } else {
+        if (localStorage.getItem('items')) {
+            items = JSON.parse(localStorage.getItem('items'));
+        } else {
             // Fetch the data since it's not in Local Storage
             const response = await fetch(itemsURL);
             items = await response.json();
             
             // Store the fetched data in Local Storage
             localStorage.items = JSON.stringify(items);
-        // }
+        }
         
         console.log(items)
         // load items from either Local Storage or fetched data
@@ -53,7 +68,7 @@ function showItems(items) {
 
 // This function will be called when a card is clicked.
 function navigateToItemDetail(itemId) {
-    window.location.href = `../item_details.html?id=${itemId}`;
+    window.location.href = `../html/item_details.html?id=${itemId}`;
 }
 
 function handleSearchBar() {

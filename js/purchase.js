@@ -23,9 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             } catch (error) {
                 console.error("Failed to header and nav", error);
             }
-                
             displayItemDetail(item);
-        
         } else {
             console.error('Item not found');
         }
@@ -49,7 +47,12 @@ function displayItemDetail(item) {
                     <P>Description: ${item.description}</P>
                     <p>Artist: ${item.artist}</p>
                 </section>
-                <button id="purchase">Purchase</button>
+                <div class="quantity">
+                    <button id="decreaseQuantity">-</button>
+                    <p>${item.quantity_to_buy}</p>
+                    <button id="increaseQuantity">+</button>
+                </div>
+                <button id="purchase">Add to Cart</button>
             </section>
             `
 
@@ -83,13 +86,13 @@ function increaseQuantity(itemId) {
 function onPurchase(itemId){
     const items = JSON.parse(localStorage.getItem('items'))
     const itemIndex = items.findIndex(i => i.ID === itemId)
-    const amountToBePaid = items[itemIndex].quantity_to_buy*items[itemIndex].price
+    // const amountToBePaid = items[itemIndex].quantity_to_buy*items[itemIndex].price
     if(itemIndex !== -1) {             
         const users = JSON.parse(localStorage.getItem('customers'))
         const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
         if(loggedInUser!=-1){
-            alert(`purchase activated, user logged in ${users[loggedInUser].username}`)
             window.location.href = `../purchase.html?id=${itemId}`
+            alert(`purchase activated, user logged in ${users[loggedInUser]}`)
             // if(items[itemIndex].quantity_to_buy>0){
             //     if(users[loggedInUser].balance>amountToBePaid){
             //         alert(`Purchase successful.`)
@@ -103,9 +106,8 @@ function onPurchase(itemId){
             // }
         }
         else{
-            alert(`Please login-in before purchasing an item.`)
             window.location.href = `../login.html?id=${itemId}`
-            
+            alert(`Please login-in before purchasing an item.`)
         }
     }
 }

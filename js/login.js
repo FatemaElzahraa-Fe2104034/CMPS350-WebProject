@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         customers = await response.json();
         
         // Store the fetched data in Local Storage
-        localStorage.setItem('customers', JSON.stringify(customers));
+        // localStorage.setItem('customers', JSON.stringify(customers));
         
         console.log(customers);
     
