@@ -183,18 +183,41 @@ nav ul {
     height: 50%; /* Adjust height as needed */
 }
 
-
-/* .card h3 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #333;
+.card input[type="checkbox"] {
+  width: 3.5%;
+  height: 50%;
+  margin-right: 5%;
 }
 
-.card p {
-    margin-bottom: 0;
-    color: #666;
-} */
+.button-container {
+  display: flex;
+  justify-content: center; 
+  margin-top: 20px; 
+  padding-bottom: 8%;
+  gap: 6rem;
+}
 
+.button-container button {
+  margin: 0 10px; 
+  padding: 1.8% 10%; /* Increase padding for larger size */
+  font-size: 1rem; /* Increase font size for larger text */
+  border: none;
+  background-color: var(--our_darkgreen);
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: var(--our_darkSteelBlue);
+}
+
+
+.content{
+  
+}
 
 .checkout {
   width: 100%; /* Take full width of its container */
