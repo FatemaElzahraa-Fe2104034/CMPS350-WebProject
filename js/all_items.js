@@ -14,38 +14,47 @@ searchBAR.addEventListener('input', handleSearchBar)
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         // Load header
-        const headerResponse = await fetch("common/header.html");
-        const headerHTML = await headerResponse.text();
-        header.innerHTML = headerHTML;
+        const headerResponse = await fetch("/html/common/header.html")
+        const headerHTML = await headerResponse.text()
+        header.innerHTML = headerHTML
         
         //  Load nav
-        const navResponse = await fetch("common/nav.html");
-        const navHTML = await navResponse.text();
-        nav.innerHTML = navHTML;
+        const navResponse = await fetch("/html/common/nav.html")
+        const navHTML = await navResponse.text()
+        nav.innerHTML = navHTML
 
-        // // Check if items are in Local Storage
-        if (localStorage.getItem('items')) {
-            items = JSON.parse(localStorage.getItem('items'));
-        } else {
+        const urlParams = new URLSearchParams(window.location.search)
+        const categoryId = urlParams.get('id')
+    
+
+        // Check if items are in Local Storage
+        // if (localStorage.getItem('items')) {
+        //     items = JSON.parse(localStorage.getItem('items'))
+        // } else {
             // Fetch the data since it's not in Local Storage
-            const response = await fetch(itemsURL);
-            items = await response.json();
+            const response = await fetch(itemsURL)
+            items = await response.json()
             
             // Store the fetched data in Local Storage
-            localStorage.items = JSON.stringify(items);
-        }
+            localStorage.items = JSON.stringify(items)
+        // }
         
         console.log(items)
         // load items from either Local Storage or fetched data
-        showItems(items); 
+        if (categoryId) {
+            handleFilter(categoryId)
+        }
+        else{
+        showItems(items)
+        }
     
     } catch (error) {
-        console.error("Failed to load items:", error);
+        console.error("Failed to load items:", error)
     }
 });
 
-function showItems(items) {
-    const mappedItems = items.map(
+function showItems(itemsList) {
+    const mappedItems = itemsList.map(
         item => `
         <div class="card" data-id="${item.ID}" onclick="navigateToItemDetail('${item.ID}')">
             <img src="${item.image_url}" alt="${item.title}'s thumbnail">
@@ -65,11 +74,33 @@ function showItems(items) {
 
 // This function will be called when a card is clicked.
 function navigateToItemDetail(itemId) {
-    window.location.href = `/html/item_details.html?id=${itemId}`;
+    window.location.href = `/html/item_details.html?id=${itemId}`
 }
 
+function handleFilter(categoryId){
+    let filter;
+    if(categoryId == 1){
+        filter="painting";
+    } else if(categoryId == 2){
+        filter="sculpture";
+    } else if(categoryId == 3){
+        filter="pottery";
+    } else if(categoryId == 4){
+        filter="drawing";
+    } else if(categoryId == 5){
+        filter="digital";
+    }
+    console.log(filter);
+    const filteredItems = items.filter(item => {
+        return item.category && typeof item.category === 'string' && item.category.toLowerCase().includes(filter);
+    });
+    console.log(`Filtered items: ${filteredItems.length}`);
+    showItems(filteredItems);
+}
+
+
 function handleSearchBar() {
-    const filter = searchBAR.value.toLowerCase().trim();
+    const filter = searchBAR.value.toLowerCase().trim()
     if (filter) {
         const filteredItems = items.filter(item => {
             // Safe check for title
@@ -77,12 +108,12 @@ function handleSearchBar() {
             const categoryMatch = item.category && typeof item.category === 'string' ? item.category.toLowerCase().includes(filter) : false;
             const artistMatch = item.artist && typeof item.artist === 'string' ? item.artist.toLowerCase().includes(filter) : false;
 
-            return titleMatch || categoryMatch || artistMatch;
+            return titleMatch || categoryMatch || artistMatch
         });
 
-        showItems(filteredItems);
+        showItems(filteredItems)
     } else {
-        showItems(items); // Show all books when there's no filter
+        showItems(items) // Show all books when there's no filter
     }
 }
 

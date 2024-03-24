@@ -1,4 +1,5 @@
 let loginLINK;
+let categoryLINK;
 document.addEventListener('DOMContentLoaded', function() {
     insertCommonElements();
 });
@@ -6,8 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
 async function insertCommonElements() {
     await loadElement("header", "/html/common/header.html")
     await loadElement("nav", "/html/common/nav.html")
+    categoryLINK = document.querySelector("#categories")
     loginLINK = document.querySelector("#login")
+    
     updateLoginLink()
+    categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
 }
 
 async function loadElement(elementId, url) {
@@ -72,4 +76,9 @@ function handleLogout(loggedInUser) {
 
 function handleLogin() {
     window.location.href = "/html/login.html"
+}
+
+function showCategoriesDROPDOWN(){  
+    const dropdownContent = document.getElementById('dropdown-content');
+    dropdownContent.classList.toggle('show-dropdown');
 }
