@@ -69,7 +69,7 @@ function showItems(itemsList) {
         `
     ).join('\n');
     
-    itemsDIV.innerHTML = mappedItems;
+    itemsDIV.innerHTML = mappedItems
 }
 
 // This function will be called when a card is clicked.
