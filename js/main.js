@@ -1,8 +1,11 @@
 const categoriesURL = "/json/categories.json"
+<<<<<<< Updated upstream
 const itemsURL = "/json/items.json"
 const customersURL = "/json/customers.json"
 const artistsURL = "/json/seller.json"
 
+=======
+>>>>>>> Stashed changes
 
 const header = document.querySelector("#header")
 const nav = document.querySelector("#nav")
@@ -14,6 +17,7 @@ let categories =[]
 document.addEventListener('DOMContentLoaded', async () => {
     try {
 
+<<<<<<< Updated upstream
         // Loading categories into local storage
         loadCategories()
 
@@ -26,12 +30,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         //loading artists into local storage
         loadArtists()
         
+=======
+        // Check if categories are in Local Storage
+        if (localStorage.getItem('categories')) {
+            categories = JSON.parse(localStorage.getItem('categories'))
+        } else {
+            // Fetch the data since it's not in Local Storage
+            const response = await fetch(categoriesURL)
+            categories = await response.json()
+            
+            // Store the fetched data in Local Storage
+            localStorage.categories = JSON.stringify(categories)
+        }
+        
+        console.log(categories)
+        // load items from either Local Storage or fetched data
+>>>>>>> Stashed changes
         showCategories(categories)
     } catch (error) {
         console.error("Failed to load categories", error)
     }
 })
 
+<<<<<<< Updated upstream
 // =======================================================Loading Functions================================================
 
 // Function to load categories
@@ -80,6 +101,8 @@ async function loadArtists() {
 // ============================================================================================================================
 
 
+=======
+>>>>>>> Stashed changes
 function showCategories(categories){
     const mappedCategories = categories.map(
         category => 

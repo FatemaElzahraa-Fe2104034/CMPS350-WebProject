@@ -219,31 +219,55 @@ nav ul {
   
 }
 
-.checkout {
-  width: 100%; /* Take full width of its container */
+.sidenav {
+  width: 100%;
   background: linear-gradient(to bottom right, #daeaf6, #a6d2d2);
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+  position: relative; /* Add position relative to establish a positioning context */
 }
-.checkout-image {
-    width: 90%;
-    height: 100%;
-    background-position: center;
-    position: relative;
-    opacity: 0.5;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    /* Add specific properties for .checkout-image to avoid inheritance */
-    border-radius: 0;
-    overflow: visible;
 
-    img {
-        height: 100%;
-    }
+.checkout-image {
+  width: 90%;
+  height: 100%;
+  background-position: center;
+  position: relative;
+  opacity: 0.5;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  /* Add specific properties for .checkout-image to avoid inheritance */
+  border-radius: 0;
+  overflow: visible;
+
+  img {
+      height: 100%;
   }
+}
+
+.sidenav-image {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.7); /* Adjust background color and opacity */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px;
+  text-align: center;
+  z-index: 2; /* Ensure it's above the image */
+}
+
+.overlay-text h2 {
+  margin: 0;
+  color: #000; /* Adjust text color */
+}
+
   
 
 @media (min-width: 100rem) {
