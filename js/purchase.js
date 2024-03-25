@@ -1,8 +1,6 @@
-<<<<<<< Updated upstream
+
 let item;
 
-=======
->>>>>>> Stashed changes
 const itemDetailsDIV = document.querySelector("#itemdetails")
 const quantity = document.querySelector("#quantity")
 const header = document.querySelector("#header")
@@ -72,7 +70,7 @@ function increaseQuantity(itemId) {
     findItemAndUpdateQuantity(itemId, 1)
 }
 
-<<<<<<< Updated upstream
+
 function onPurchase(e){
     e.preventDefault()
 
@@ -111,7 +109,7 @@ function formToObject(form){
     }
 
     return data;
-=======
+}
 function onPurchase(itemId){
     // const items = JSON.parse(localStorage.getItem('items'))
     // const itemIndex = items.findIndex(i => i.ID === itemId)
@@ -139,5 +137,4 @@ function onPurchase(itemId){
     //         alert(`Please login-in before purchasing an item.`)
     //     }
     // }
->>>>>>> Stashed changes
 }
