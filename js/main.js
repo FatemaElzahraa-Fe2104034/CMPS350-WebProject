@@ -1,4 +1,7 @@
 const categoriesURL = "/json/categories.json"
+const itemsURL = "../json/items.json"
+const customersURL = "../json/customers.json"
+
 
 const header = document.querySelector("#header")
 const nav = document.querySelector("#nav")
@@ -10,19 +13,31 @@ let categories =[]
 document.addEventListener('DOMContentLoaded', async () => {
     try {
 
-        // Check if categories are in Local Storage
+        // Loading categories into local storage
         if (localStorage.getItem('categories')) {
             categories = JSON.parse(localStorage.getItem('categories'))
         } else {
-            // Fetch the data since it's not in Local Storage
             const response = await fetch(categoriesURL)
             categories = await response.json()
-            
-            // Store the fetched data in Local Storage
             localStorage.categories = JSON.stringify(categories)
         }
-        
-        console.log(categories)
+
+        //loading items into local storage
+        if (!localStorage.getItem('items')){
+            const response = await fetch(itemsURL)
+            items = await response.json()
+            localStorage.items = JSON.stringify(items)
+        }
+
+
+        //loading customers into local storage
+        if(!localStorage.getItem('customers')){
+            const response = await fetch(customersURL);
+            customers = await response.json();
+            localStorage.setItem('customers', JSON.stringify(customers));
+        }
+
+        // console.log(categories)
         // load items from either Local Storage or fetched data
         showCategories(categories)
     } catch (error) {
