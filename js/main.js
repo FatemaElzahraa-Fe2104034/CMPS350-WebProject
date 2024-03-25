@@ -14,36 +14,57 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
 
         // Loading categories into local storage
-        if (localStorage.getItem('categories')) {
-            categories = JSON.parse(localStorage.getItem('categories'))
-        } else {
-            const response = await fetch(categoriesURL)
-            categories = await response.json()
-            localStorage.categories = JSON.stringify(categories)
-        }
+        loadCategories()
 
         //loading items into local storage
-        if (!localStorage.getItem('items')){
-            const response = await fetch(itemsURL)
-            items = await response.json()
-            localStorage.items = JSON.stringify(items)
-        }
-
+        loadItems()
 
         //loading customers into local storage
-        if(!localStorage.getItem('customers')){
-            const response = await fetch(customersURL);
-            customers = await response.json();
-            localStorage.setItem('customers', JSON.stringify(customers));
-        }
+        loadCustomers()
 
-        // console.log(categories)
-        // load items from either Local Storage or fetched data
         showCategories(categories)
     } catch (error) {
         console.error("Failed to load categories", error)
     }
 })
+
+// =======================================================Loading Functions================================================
+
+// Function to load categories
+async function loadCategories() {
+    let categories;
+    if (localStorage.getItem('categories')) {
+        categories = JSON.parse(localStorage.getItem('categories'));
+    } else {
+        const response = await fetch(categoriesURL);
+        categories = await response.json();
+        localStorage.setItem('categories', JSON.stringify(categories));
+    }
+    return categories;
+}
+
+// Function to load items
+async function loadItems() {
+    let items;
+    if (!localStorage.getItem('items')) {
+        const response = await fetch(itemsURL);
+        items = await response.json();
+        localStorage.setItem('items', JSON.stringify(items));
+    }
+}
+
+// Function to load customers
+async function loadCustomers() {
+    let customers;
+    if (!localStorage.getItem('customers')) {
+        const response = await fetch(customersURL);
+        customers = await response.json();
+        localStorage.setItem('customers', JSON.stringify(customers));
+    }
+}
+
+// ============================================================================================================================
+
 
 function showCategories(categories){
     const mappedCategories = categories.map(
