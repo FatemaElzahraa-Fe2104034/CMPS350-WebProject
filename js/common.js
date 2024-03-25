@@ -1,5 +1,7 @@
 let loginLINK;
 let categoryLINK;
+let categoryDD;
+
 document.addEventListener('DOMContentLoaded', function() {
     insertCommonElements();
 });
@@ -9,6 +11,7 @@ async function insertCommonElements() {
     await loadElement("nav", "/html/common/nav.html")
     categoryLINK = document.querySelector("#categories")
     loginLINK = document.querySelector("#login")
+    categoryDD = document.querySelector("#dropdown-content")
     
     updateLoginLink()
     categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
@@ -79,6 +82,15 @@ function handleLogin() {
 }
 
 function showCategoriesDROPDOWN(){  
-    const dropdownContent = document.getElementById('dropdown-content');
-    dropdownContent.classList.toggle('show-dropdown');
+    // const dropdownContent = document.getElementById('dropdown-content');
+    // dropdownContent.classList.toggle('show-dropdown');
+    const mappedCategories = categories.map(c => `
+        <a onclick="navigateToFilteredItems(${c.id})">${c.name}</a>
+    `).join('\n')
+    categoryDD.innerHTML = mappedCategories
+    categoryDD.classList.toggle('show-dropdown')
+}
+
+function navigateToFilteredItems(categoryId){
+    window.location.href = `/html/all_Items.html?id=${categoryId}`
 }
