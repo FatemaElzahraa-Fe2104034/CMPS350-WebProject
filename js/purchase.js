@@ -72,7 +72,8 @@ function increaseQuantity(itemId) {
 function onPurchase(e){
     e.preventDefault()
 
-    const purchase = formToObject(e.target);
+    // const purchase = formToObject(e.target);
+    const artist = JSON.parse(localStorage.getItem('artists'))
     const amountToBePaid = item.quantity_to_buy*item.price
     console.log(`quantity:${item.quantity_to_buy}`);
     console.log(`price: ${item.price}`)

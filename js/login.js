@@ -12,14 +12,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
 
         customers = JSON.parse(localStorage.getItem('customers'))
-        // Fetch the data since it's not in Local Storage
-        // const response = await fetch(customersURL);
-        // customers = await response.json();
-        
-        // // Store the fetched data in Local Storage
-        // localStorage.setItem('customers', JSON.stringify(customers));
-        
-        // console.log(customers);
     
     } catch (error) {
         console.error("Failed to load customers:", error);

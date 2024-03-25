@@ -1,6 +1,7 @@
 const categoriesURL = "/json/categories.json"
-const itemsURL = "../json/items.json"
-const customersURL = "../json/customers.json"
+const itemsURL = "/json/items.json"
+const customersURL = "/json/customers.json"
+const artistsURL = "/json/seller.json"
 
 
 const header = document.querySelector("#header")
@@ -22,6 +23,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         //loading customers into local storage
         loadCustomers()
 
+        //loading artists into local storage
+        loadArtists()
+        
         showCategories(categories)
     } catch (error) {
         console.error("Failed to load categories", error)
@@ -60,6 +64,16 @@ async function loadCustomers() {
         const response = await fetch(customersURL);
         customers = await response.json();
         localStorage.setItem('customers', JSON.stringify(customers));
+    }
+}
+
+//Function to load artists
+async function loadArtists() {
+    let artists;
+    if (!localStorage.getItem('artists')) {
+        const response = await fetch(artistsURL);
+        artists = await response.json();
+        localStorage.setItem('artists', JSON.stringify(artists));
     }
 }
 
