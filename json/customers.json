@@ -6,7 +6,8 @@
         "username": "john_doe",
         "password": "secure_password",
         "balance": 1000.00,
-        "isLoggedIn": false
+        "isLoggedIn": false,
+        "purchaseHistory": []
     },
     {
         "name": "Jane",
@@ -15,7 +16,8 @@
         "username": "jane_smith",
         "password": "another_secure_password",
         "balance": 1500.00,
-        "isLoggedIn": false
+        "isLoggedIn": false,
+        "purchaseHistory": []
     },
     {
         "name": "Bob",
@@ -24,7 +26,8 @@
         "username": "bob_johnson",
         "password": "bobspassword123",
         "balance": 800.00,
-        "isLoggedIn": false
+        "isLoggedIn": false,
+        "purchaseHistory": []
     },
     {
         "name": "Alice",
@@ -33,7 +36,8 @@
         "username": "alice_williams",
         "password": "password123",
         "balance": 2000.00,
-        "isLoggedIn": false
+        "isLoggedIn": false,
+        "purchaseHistory": []
     },
     {
         "name": "Michael",
@@ -42,6 +46,7 @@
         "username": "michael_brown",
         "password": "mikepass",
         "balance": 1200.00,
-        "isLoggedIn": false
+        "isLoggedIn": false,
+        "purchaseHistory": []
     }
 ]
