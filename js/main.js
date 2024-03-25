@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Function to load categories
 async function loadCategories() {
-    let categories;
+    // let categories;
     if (localStorage.getItem('categories')) {
         categories = JSON.parse(localStorage.getItem('categories'));
     } else {
