@@ -1,32 +1,58 @@
 [
     {
-        "company_name": "ABC Electronics",
-        "username": "seller1_username",
+        "username": "rouaa",
         "password": "seller1_password",
-        "bank_account": "111-222-333"
+        "id": 1,
+        "name": "Rouaa",
+        "soldItems": [],
+        "itemsOnSale": []
     },
     {
-        "company_name": "XYZ Gadgets",
-        "username": "seller2_username",
+        "username": "hams",
         "password": "seller2_password",
-        "bank_account": "444-555-666"
+        "id": 2,
+        "name": "Hams",
+        "soldItems": [],
+        "itemsOnSale": []
     },
     {
-        "company_name": "GHI Appliances",
-        "username": "seller3_username",
+        "username": "fatma",
         "password": "seller3_password",
-        "bank_account": "777-888-999"
+        "id": 3,
+        "name": "Fatma",
+        "soldItems": [],
+        "itemsOnSale": []
     },
     {
-        "company_name": "PQR Electronics",
-        "username": "seller4_username",
+        "username": "sara",
         "password": "seller4_password",
-        "bank_account": "123-456-789"
+        "id": 4,
+        "name": "Sara",
+        "soldItems": [],
+        "itemsOnSale": []
     },
     {
-        "company_name": "LMN Devices",
-        "username": "seller5_username",
+        "username": "yasmeen",
         "password": "seller5_password",
-        "bank_account": "987-654-321"
+        "id": 5,
+        "name": "Yasmeen",
+        "soldItems": [],
+        "itemsOnSale": []
+    },
+    {
+        "username": "josje",
+        "password": "seller6_password",
+        "id": 6,
+        "name": "Josje",
+        "soldItems": [],
+        "itemsOnSale": []
+    },
+    {
+        "username": "ally",
+        "password": "seller7_password",
+        "id": 7,
+        "name": "Ally",
+        "soldItems": [],
+        "itemsOnSale": []
     }
 ]

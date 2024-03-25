@@ -9,7 +9,8 @@
         "artist": "Rouaa",
         "image_url": "../images/items/item-1.jpg",
         "available_quantity": 7,
-        "quantity_to_buy": 0
+        "quantity_to_buy": 0,
+        "artistID": 1
     },
     {
         "title": "Lemon Delight",
@@ -21,7 +22,8 @@
         "artist": "Hams",
         "image_url": "../images/items/item-2.jpg",
         "available_quantity": 3,
-        "quantity_to_buy": 0
+        "quantity_to_buy": 0,
+        "artistID": 2
     },
     {
         "title": "Contemplative Beauty",
@@ -33,42 +35,46 @@
         "artist": "Fatma",
         "image_url": "../images/items/item-3.jpg",
         "available_quantity": 5,
-        "quantity_to_buy": 0
+        "quantity_to_buy": 0,
+        "artistID": 3
     },
     {
         "title": "Stardust Whisper",
-        "price": 100.00,
+        "price": 100.0,
         "currency": "QAR",
         "category": "Digital Art",
         "ID": "004",
         "description": "A whimsical digital artwork depicting a woman amidst the clouds, reaching out as stars and stardust envelop her in a gentle dance.",
         "artist": "Ally",
-        "image_url": "../images/items/item-4.jpeg",
+        "image_url": "/images/items/item-4.jpeg",
         "available_quantity": 10,
-        "quantity_to_buy": 0
+        "quantity_to_buy": 0,
+        "artistID": 7
     },
     {
         "title": "Midnight Enchantress",
-        "price": 120.00,
+        "price": 120.0,
         "currency": "QAR",
         "category": "Digital Art",
         "ID": "005",
         "description": "An enchanting digital illustration of a mysterious witch brewing potions under the moonlight, accompanied by her faithful feline companion.",
         "artist": "Sara",
-        "image_url": "../images/items/item-5.jpeg",
+        "image_url": "/images/items/item-5.jpeg",
         "available_quantity": 1,
-        "quantity_to_buy": 0
+        "quantity_to_buy": 0,
+        "artistID": 4
     },
     {
         "title": "Ethereal Gaze",
-        "price": 350.00,
+        "price": 350.0,
         "currency": "QAR",
         "category": "Painting",
         "ID": "006",
         "description": "A captivating expressionist portrait that conveys raw emotion through chaotic strokes and vibrant color contrasts.",
         "artist": "Josje",
-        "image_url": "../images/items/item-6.png",
+        "image_url": "/images/items/item-6.png",
         "available_quantity": 8,
-        "quantity_to_buy": 0
+        "quantity_to_buy": 0,
+        "artistID": 6
     }
 ]

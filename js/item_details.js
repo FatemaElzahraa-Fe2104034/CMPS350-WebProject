@@ -10,19 +10,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const items = JSON.parse(localStorage.getItem('items'));
         const item = items.find(i => i.ID === itemId);
         if (item) {
-            try {
-                // Load header
-                const headerResponse = await fetch("common/header.html");
-                const headerHTML = await headerResponse.text();
-                header.innerHTML = headerHTML;
-                
-                //  Load nav
-                const navResponse = await fetch("common/nav.html");
-                const navHTML = await navResponse.text();
-                nav.innerHTML = navHTML;
-            } catch (error) {
-                console.error("Failed to header and nav", error);
-            }
                 
             displayItemDetail(item);
         
@@ -53,8 +40,8 @@ function displayItemDetail(item) {
             </section>
             `
 
-    document.querySelector("#decreaseQuantity").addEventListener('click', () => decreaseQuantity(item.ID))
-    document.querySelector("#increaseQuantity").addEventListener('click', () => increaseQuantity(item.ID))
+    // document.querySelector("#decreaseQuantity").addEventListener('click', () => decreaseQuantity(item.ID))
+    // document.querySelector("#increaseQuantity").addEventListener('click', () => increaseQuantity(item.ID))
     document.querySelector("#purchase").addEventListener('click', () => onPurchase(item.ID))
 }
 
@@ -83,13 +70,13 @@ function increaseQuantity(itemId) {
 function onPurchase(itemId){
     const items = JSON.parse(localStorage.getItem('items'))
     const itemIndex = items.findIndex(i => i.ID === itemId)
-    const amountToBePaid = items[itemIndex].quantity_to_buy*items[itemIndex].price
+    // const amountToBePaid = items[itemIndex].quantity_to_buy*items[itemIndex].price
     if(itemIndex !== -1) {             
         const users = JSON.parse(localStorage.getItem('customers'))
         const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
         if(loggedInUser!=-1){
             alert(`purchase activated, user logged in ${users[loggedInUser].username}`)
-            window.location.href = `../purchase.html?id=${itemId}`
+            window.location.href = `/html/purchase.html?id=${itemId}`
             // if(items[itemIndex].quantity_to_buy>0){
             //     if(users[loggedInUser].balance>amountToBePaid){
             //         alert(`Purchase successful.`)
@@ -104,7 +91,7 @@ function onPurchase(itemId){
         }
         else{
             alert(`Please login-in before purchasing an item.`)
-            window.location.href = `../login.html?id=${itemId}`
+            window.location.href = `/html/login.html?id=${itemId}`
             
         }
     }

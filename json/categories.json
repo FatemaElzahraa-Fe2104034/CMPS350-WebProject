@@ -1,0 +1,7 @@
+[
+    {"id": 1, "name": "Paintings", "image": "/images/paintings-category.jpg"}, 
+    {"id": 2, "name": "Sculptures", "image": "/images/sculptures-category.jpg"}, 
+    {"id": 3, "name": "Pottery", "image": "/images/pottery-category.jpg"}, 
+    {"id": 4, "name": "Drawings & Illustrations", "image": "/images/drawings-category.jpg"}, 
+    {"id": 5, "name": "Digital Art", "image": "/images/digital-art-category.jpg"}
+]

@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>FRH - Item Details</title>
-        <link rel="stylesheet" href="styles/item_details.css">       
+        <title>FRH - Purchase Item</title>
+        <link rel="stylesheet" href="/styles/purchase.css">       
     </head>
 
 
@@ -16,9 +16,31 @@
     <div id="nav"></div>
 
     <section class="main" id="main">
-        
+        <div class= "itemdetails" id="itemdetails"></div>
 
+        <form id="purchase-form">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" placeholder="e.g. Qatar" required>
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="e.g. Doha" required >
+
+            <label for="streetnum">Sreet Number</label>
+            <input type="text" id="streetnum" name="streetnum" placeholder="e.g. 720" required>
+
+            <label for="areanum">Area Number</label>
+            <input type="text" id="areanum" name="areanum" placeholder="e.g. 44" required>
+
+            <label for="quantity">Quantity</label>
+            <div id="quantity" class="quantity"></div>
+            <!-- <input type="number" id="quantity" name="quantity" required> -->
+            
+            <div id="quantity"></div>
+
+            <button type="submit" id="submit">Confirm</button>
+        </form>
     </section>
 </body>
-<script src="../js/purchase.js"></script>
+<script src="/js/purchase.js"></script>
+<script src="/js/common.js"></script>
 </html>
