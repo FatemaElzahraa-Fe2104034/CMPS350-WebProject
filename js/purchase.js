@@ -72,12 +72,9 @@ function increaseQuantity(itemId) {
 function onPurchase(e){
     e.preventDefault()
 
-    // const purchase = formToObject(e.target);
-    const artist = JSON.parse(localStorage.getItem('artists'))
+    const artists = JSON.parse(localStorage.getItem('artists'))
+    const artist = artists.find(a=> a.id == item.artistID)
     const amountToBePaid = item.quantity_to_buy*item.price
-    console.log(`quantity:${item.quantity_to_buy}`);
-    console.log(`price: ${item.price}`)
-    console.log(`amount to be paid:${amountToBePaid}`);
 
     const users = JSON.parse(localStorage.getItem('customers'))
     const loggedInUser = users.find(u => u.isLoggedIn === true)
@@ -85,11 +82,16 @@ function onPurchase(e){
     if(loggedInUser.balance>amountToBePaid){
         loggedInUser.balance-=amountToBePaid
         item.quantity-=1
+
+        //Update purchase/sale histories
+        loggedInUser.purchaseHistory.push(item)
+        artist.soldItems.push(item)
+
+        console.log(`purchase history ${loggedInUser.purchaseHistory.toString()}`)
+        console.log(`sale history ${artist.soldItems.toString()}`)
+
         alert(`Purchase sucessful\nNew balance: ${loggedInUser.balance}`)
         window.location.href = `/html/main.html`
-        // Update purchase/sale histories
-        loggedInUser.purchaseHistory.push(item)
-        console.log(`purchase history ${loggedInUser.purchaseHistory}`)
     }
     else{
         alert("Insufficient balance.")
