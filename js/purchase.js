@@ -1,5 +1,6 @@
 
-let item;
+let currentItem
+const items = JSON.parse(localStorage.getItem('items'))
 
 const itemDetailsDIV = document.querySelector("#itemdetails")
 const quantity = document.querySelector("#quantity")
@@ -15,100 +16,98 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (itemId) {
         const items = JSON.parse(localStorage.getItem('items'));
-        item = items.find(i => i.ID === itemId);
-        if (item) {
-            displayItemInfo(item);
+        currentItem = items.find(i => i.ID === itemId);
+        if (currentItem) {
+            displayItemInfo();
         } else {
             console.error('Item not found');
         }
     }
 });
 
-function displayItemInfo(item) {
+function displayItemInfo() {
     itemDetailsDIV.innerHTML=`
             <section class="item-details info">
                 <p class="info-title">Information</p>
-                <p class="item-title">Title: ${item.title}</p>
-                <p class="item-quantity">Number of Items Available: ${item.available_quantity}</p>
-                <p class="item-price">Price: ${item.price}</p> 
-                <p>Category: ${item.category}</p>
-                <p>ID: ${item.ID}</p>
-                <p>Artist: ${item.artist}</p>
+                <p class="item-title">Title: ${currentItem.title}</p>
+                <p class="item-quantity">Number of Items Available: ${currentItem.available_quantity}</p>
+                <p class="item-price">Price: ${currentItem.price}</p> 
+                <p>Category: ${currentItem.category}</p>
+                <p>ID: ${currentItem.ID}</p>
+                <p>Artist: ${currentItem.artist}</p>
                 
             </section>
             `
     quantity.innerHTML =`
-    <div class="quantity">
-        <button id="decreaseQuantity">-</button>
-        <p>${item.quantity_to_buy}</p>
-        <button id="increaseQuantity">+</button>
-    </div>
+        <button id="decreaseQuantity" type="button">-</button>
+        <p>${currentItem.quantity_to_buy}</p>
+        <button id="increaseQuantity" type="button">+</button>
     `
     document.querySelector("#decreaseQuantity").addEventListener('click', decreaseQuantity)
     document.querySelector("#increaseQuantity").addEventListener('click', increaseQuantity)
 }
 
-function findItemAndUpdateQuantity(itemId, change) {
-    const items = JSON.parse(localStorage.getItem('items'))
-    const itemIndex = items.findIndex(i => i.ID === itemId)
-    let valid = true
+function findItemAndUpdateQuantity(change) {
+    // const currentItem = items.find(item=> item.ID = itemId)
+    if(currentItem){
+        const newQuantity = currentItem.quantity_to_buy+change
 
-    if(itemIndex !== -1) {
-        const newQuantity = items[itemIndex].quantity_to_buy + change
-        if(newQuantity<0){
-            valid=false
-            // if(newQuantity<=items[itemIndex].quantity){
-                // items[itemIndex].quantity_to_buy += change
-                // localStorage.setItem('items', JSON.stringify(items))
-                // displayItemInfo(items[itemIndex])
-            // }   
-        }
-        if(newQuantity>item.available_quantity){
-            valid=false
-        }
-        if(valid){
-            items[itemIndex].quantity_to_buy += change
+        if(newQuantity>=0 && currentItem.available_quantity>=newQuantity){
+            currentItem.quantity_to_buy=newQuantity
             localStorage.setItem('items', JSON.stringify(items))
-            displayItemInfo(items[itemIndex])
+            displayItemInfo(currentItem)
         }
+
         else{
-            alert("ERROR")
-        }           
-        
+            alert("Quantity is less than 0 or greater than available quantity")
+        }
+    }
+    else{
+        alert("Item not found.")
     }
 }
 
 function decreaseQuantity() {
-    findItemAndUpdateQuantity(item.ID, -1)
+    findItemAndUpdateQuantity(-1)
 }
 
 function increaseQuantity() {
-    findItemAndUpdateQuantity(item.ID, 1)
+    findItemAndUpdateQuantity(1)
 }
 
 
 function onPurchase(e){
+
     e.preventDefault()
 
     const artists = JSON.parse(localStorage.getItem('artists'))
-    const artist = artists.find(a=> a.id == item.artistID)
-    const amountToBePaid = item.quantity_to_buy*item.price
+    const artist = artists.find(a=> a.id == currentItem.artistID)
+    const amountToBePaid = currentItem.quantity_to_buy*currentItem.price
 
     const users = JSON.parse(localStorage.getItem('customers'))
     const loggedInUser = users.find(u => u.isLoggedIn === true)
 
-    if(loggedInUser.balance>amountToBePaid){
+    if(loggedInUser.balance>amountToBePaid && currentItem.quantity_to_buy > 0 && currentItem.quantity_to_buy <= currentItem.available_quantity){
         loggedInUser.balance-=amountToBePaid
-        item.quantity-=1
+        currentItem.available_quantity-=currentItem.quantity_to_buy
+
+        //Update available quantity
+        const itemIndex = items.findIndex(item => item.ID == currentItem.ID);
+        if (itemIndex !== -1) {
+            items[itemIndex] =currentItem;
+        }else{
+            alert("item not found.")
+        }
+        localStorage.setItem('items', JSON.stringify(items))
 
         //Update purchase/sale histories
-        loggedInUser.purchaseHistory.push(item)
-        artist.soldItems.push(item)
+        loggedInUser.purchaseHistory.push(currentItem)
+        artist.soldItems.push(currentItem)
 
         console.log(`purchase history ${loggedInUser.purchaseHistory.toString()}`)
         console.log(`sale history ${artist.soldItems.toString()}`)
 
-        alert(`Purchase sucessful\nNew balance: ${loggedInUser.balance}`)
+        alert(`Purchase sucessful\nNew balance: ${loggedInUser.balance}\nNew available quantity: ${currentItem.available_quantity}`)
         window.location.href = `/html/main.html`
     }
     else{

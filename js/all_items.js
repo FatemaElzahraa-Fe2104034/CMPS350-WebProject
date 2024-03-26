@@ -26,18 +26,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const urlParams = new URLSearchParams(window.location.search)
         const categoryId = urlParams.get('id')
     
-
-        // Check if items are in Local Storage
-        // if (localStorage.getItem('items')) {
-        //     items = JSON.parse(localStorage.getItem('items'))
-        // } else {
-            // Fetch the data since it's not in Local Storage
-            const response = await fetch(itemsURL)
-            items = await response.json()
-            
-            // Store the fetched data in Local Storage
-            localStorage.items = JSON.stringify(items)
-        // }
+        items = JSON.parse(localStorage.getItem('items'))
+        
         
         console.log(items)
         // load items from either Local Storage or fetched data
@@ -68,6 +58,7 @@ function showItems(itemsList) {
                 <p> <span class="titles">Artist:</span> ${item.artist}</p>
                 <p> <span class="titles">Category:</span> ${item.category}</p>
                 <p> <span class="titles">Price:</span> ${item.price}</p>
+                <p> <span class="titles">Availability:</span> ${item.available_quantity}</p>
             </div>
             <button class="purchaseBTN" id="purchasebutton" onclick="onPurchase('${item.ID}')">Purchase</button>
         </div>
