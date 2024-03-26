@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const urlParams = new URLSearchParams(window.location.search)
         const categoryId = urlParams.get('id')
-<<<<<<< HEAD
     
 
         // Check if items are in Local Storage
@@ -42,12 +41,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         console.log(items)
         // load items from either Local Storage or fetched data
-=======
+
         
         //fetch from local storage
         items = JSON.parse(localStorage.getItem('items'))
 
->>>>>>> 65601c4df0819f8c3c5eb8578c709ffdade037a7
         if (categoryId) {
             handleFilter(categoryId)
         }

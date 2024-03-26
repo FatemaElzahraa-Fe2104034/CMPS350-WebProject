@@ -44,30 +44,46 @@ function displayItemInfo(item) {
         <button id="increaseQuantity">+</button>
     </div>
     `
-    document.querySelector("#decreaseQuantity").addEventListener('click', () => decreaseQuantity(item.ID))
-    document.querySelector("#increaseQuantity").addEventListener('click', () => increaseQuantity(item.ID))
+    document.querySelector("#decreaseQuantity").addEventListener('click', decreaseQuantity)
+    document.querySelector("#increaseQuantity").addEventListener('click', increaseQuantity)
 }
 
 function findItemAndUpdateQuantity(itemId, change) {
     const items = JSON.parse(localStorage.getItem('items'))
     const itemIndex = items.findIndex(i => i.ID === itemId)
+    let valid = true
+
     if(itemIndex !== -1) {
         const newQuantity = items[itemIndex].quantity_to_buy + change
-        if(newQuantity>=0){
+        if(newQuantity<0){
+            valid=false
+            // if(newQuantity<=items[itemIndex].quantity){
+                // items[itemIndex].quantity_to_buy += change
+                // localStorage.setItem('items', JSON.stringify(items))
+                // displayItemInfo(items[itemIndex])
+            // }   
+        }
+        if(newQuantity>item.available_quantity){
+            valid=false
+        }
+        if(valid){
             items[itemIndex].quantity_to_buy += change
             localStorage.setItem('items', JSON.stringify(items))
             displayItemInfo(items[itemIndex])
-        }               
+        }
+        else{
+            alert("ERROR")
+        }           
         
     }
 }
 
-function decreaseQuantity(itemId) {
-    findItemAndUpdateQuantity(itemId, -1)
+function decreaseQuantity() {
+    findItemAndUpdateQuantity(item.ID, -1)
 }
 
-function increaseQuantity(itemId) {
-    findItemAndUpdateQuantity(itemId, 1)
+function increaseQuantity() {
+    findItemAndUpdateQuantity(item.ID, 1)
 }
 
 
@@ -109,32 +125,4 @@ function formToObject(form){
     }
 
     return data;
-}
-function onPurchase(itemId){
-    // const items = JSON.parse(localStorage.getItem('items'))
-    // const itemIndex = items.findIndex(i => i.ID === itemId)
-    // // const amountToBePaid = items[itemIndex].quantity_to_buy*items[itemIndex].price
-    // if(itemIndex !== -1) {             
-    //     const users = JSON.parse(localStorage.getItem('customers'))
-    //     const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
-    //     if(loggedInUser!=-1){
-    //         window.location.href = `../purchase.html?id=${itemId}`
-    //         alert(`purchase activated, user logged in ${users[loggedInUser]}`)
-    //         // if(items[itemIndex].quantity_to_buy>0){
-    //         //     if(users[loggedInUser].balance>amountToBePaid){
-    //         //         alert(`Purchase successful.`)
-    //         //     }
-    //         //     else{
-    //         //         alert(`You don't have sufficient balance.`)
-    //         //     }
-    //         // }
-    //         // else{
-    //         //     alert(`You don't have sufficient balance.`)
-    //         // }
-    //     }
-    //     else{
-    //         window.location.href = `../login.html?id=${itemId}`
-    //         alert(`Please login-in before purchasing an item.`)
-    //     }
-    // }
 }
