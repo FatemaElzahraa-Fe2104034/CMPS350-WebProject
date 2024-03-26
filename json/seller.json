@@ -5,7 +5,8 @@
         "id": 1,
         "name": "Rouaa",
         "soldItems": [],
-        "itemsOnSale": []
+        "itemsOnSale": [],
+        "isLoggedIn": false
     },
     {
         "username": "hams",
@@ -13,7 +14,8 @@
         "id": 2,
         "name": "Hams",
         "soldItems": [],
-        "itemsOnSale": []
+        "itemsOnSale": [],
+        "isLoggedIn": false
     },
     {
         "username": "fatma",
@@ -21,7 +23,8 @@
         "id": 3,
         "name": "Fatma",
         "soldItems": [],
-        "itemsOnSale": []
+        "itemsOnSale": [],
+        "isLoggedIn": false
     },
     {
         "username": "sara",
@@ -29,7 +32,8 @@
         "id": 4,
         "name": "Sara",
         "soldItems": [],
-        "itemsOnSale": []
+        "itemsOnSale": [],
+        "isLoggedIn": false
     },
     {
         "username": "yasmeen",
@@ -37,7 +41,8 @@
         "id": 5,
         "name": "Yasmeen",
         "soldItems": [],
-        "itemsOnSale": []
+        "itemsOnSale": [],
+        "isLoggedIn": false
     },
     {
         "username": "josje",
@@ -45,7 +50,8 @@
         "id": 6,
         "name": "Josje",
         "soldItems": [],
-        "itemsOnSale": []
+        "itemsOnSale": [],
+        "isLoggedIn": false
     },
     {
         "username": "ally",
@@ -53,6 +59,7 @@
         "id": 7,
         "name": "Ally",
         "soldItems": [],
-        "itemsOnSale": []
+        "itemsOnSale": [],
+        "isLoggedIn": false
     }
 ]
