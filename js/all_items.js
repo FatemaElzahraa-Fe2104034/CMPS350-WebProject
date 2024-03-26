@@ -6,9 +6,16 @@ const itemsDIV = document.querySelector("#all-items")
 const searchBAR = document.querySelector("#search")
 const header = document.querySelector("#header")
 const nav = document.querySelector("#nav")
+const ascDD = document.querySelector("#price-asc")
+const descDD = document.querySelector("#price-desc")
 
 
 searchBAR.addEventListener('input', handleSearchBar)
+// ascDD.addEventListener('click', sortItemsByPrice('asc'))
+// descDD.addEventListener('click', sortItemsByPrice('desc'))
+ascDD.addEventListener('click', () => sortItemsByPrice('asc'));
+descDD.addEventListener('click', () => sortItemsByPrice('desc'));
+
 
 // Add event listener to load the items
 document.addEventListener('DOMContentLoaded', async () => {
@@ -27,14 +34,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const categoryId = urlParams.get('id')
     
         items = JSON.parse(localStorage.getItem('items'))
-        
-        
-        console.log(items)
-        // load items from either Local Storage or fetched data
-
-        
-        //fetch from local storage
-        items = JSON.parse(localStorage.getItem('items'))
 
         if (categoryId) {
             handleFilter(categoryId)
@@ -47,6 +46,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Failed to load items:", error)
     }
 });
+
+function sortItemsByPrice(order) {
+    console.log("called sort");
+    let sortedItems 
+    if (order == 'asc') {
+        sortedItems = items.sort((a, b) => a.price - b.price);
+    } else if (order == 'desc') {
+        sortedItems = items.sort((a, b) => b.price - a.price);
+    }
+    showItems(sortedItems);
+}
 
 function showItems(itemsList) {
     const mappedItems = itemsList.map(
