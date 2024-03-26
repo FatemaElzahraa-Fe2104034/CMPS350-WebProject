@@ -9,10 +9,10 @@
   </head>
   <body>
     <!-- Header -->
-    <div id="header"></div>
+    <div id="headerContainer"></div>
 
     <!-- Navigation -->
-    <div id="nav"></div>
+    <div id="navContainer"></div>
 
     <div class="page-name">
       <h2>Your Profile</h2>
@@ -25,7 +25,7 @@
           <header class="avatar">
             <img src="../images/Design/Untitled.png" />
             <!-- Here add customer username -->
-            <h2>ME</h2>
+            <h2 id="user_username"></h2>
             <form action="" class="customer_info" id="customer_info">
               <label for="name">Name: </label>
               <input type="text" id="name" name="name" class="centered-input" readonly>
@@ -35,6 +35,9 @@
 
               <label for="totalPur">Total Number of purchaces: </label>
               <input type="text" id="totalPur" name="totalPur"  class="centered-input" readonly>
+
+              <label for="totalAmount">Total Amount: </label>
+              <input type="text" id="totalAmount" name="totalAmount"  class="centered-input" readonly>
             </form>
           </header>
         </nav>
@@ -47,16 +50,13 @@
       <section class="item-cards" id="history_container">
         <!-- Here load History Items -->
         <!-- <div class="card">
-          <input type="checkbox" name="cart_item[]" value="item1" />
-          <div class="image">
-            <img src="./images/MexNogLt.jpg" alt="Placeholder Image" />
-          </div> -->
+          <img src="./images/MexNogLt.jpg" alt="Placeholder Image">
+          <div class="content">
+            <h3>Card Title</h3>
+            <p>This is a simple card with an image and text.</p>
+          </div>
+      </div> -->
       </section>
-      
-      <form action="" class="total">
-        <label for="total">Total: </label>
-        <input type="text" id="total" name="total" placeholder="Hello WORLD" class="centered-input" readonly>
-      </form>
 
           
       <!-- <section class="sidenav">
