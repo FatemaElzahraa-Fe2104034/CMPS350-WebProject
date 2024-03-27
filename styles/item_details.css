@@ -35,15 +35,19 @@ body{
 }
 
 .item-image{
+    flex: 1;
     img{
         display: block;
         /* border-radius: 20px; */
         align-self: center;
         border: 25px solid var(--our_lightblue);
-        border-radius: 40px;    }
+        border-radius: 40px;
+        height: 400pt;    
+    }
 }
 
 .item-details{
+    flex: 1;
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: flex;
