@@ -34,7 +34,7 @@ li {
 
 .header {
     display: grid;
-    grid-template-columns: auto 150px;
+    grid-template-columns: auto auto;
     grid-template-rows: 100%;
 
     h1 {
@@ -51,6 +51,7 @@ li {
         font-weight: 505;
         color: var(--our_maroon);
         display: flex;
+        flex-direction: row;
         z-index: 1;
         justify-content: end;
         align-items: center;

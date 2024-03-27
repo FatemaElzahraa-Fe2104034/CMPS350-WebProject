@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
 async function insertCommonElements() {
     await loadElement("header", "/html/common/header.html")
     await loadElement("nav", "/html/common/nav.html")
-    categoryLINK = document.querySelector("#categories")
+    // categoryLINK = document.querySelector("#categories")
     loginLINK = document.querySelector("#login")
-    categoryDD = document.querySelector("#dropdown-content")
+    // categoryDD = document.querySelector("#dropdown-content")
     profileB = document.querySelector('#profile');
     updateLoginLink()
-    categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
+    // categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
     profileB.addEventListener('click', profileCheck)
 }
 
@@ -73,19 +73,19 @@ function handleLogin() {
     window.location.href = "/html/login.html"
 }
 
-function showCategoriesDROPDOWN(){  
-    // const dropdownContent = document.getElementById('dropdown-content');
-    // dropdownContent.classList.toggle('show-dropdown');
-    const mappedCategories = categories.map(c => `
-        <a onclick="navigateToFilteredItems(${c.id})">${c.name}</a>
-    `).join('\n')
-    categoryDD.innerHTML = mappedCategories
-    categoryDD.classList.toggle('show-dropdown')
-}
+// function showCategoriesDROPDOWN(){  
+//     // const dropdownContent = document.getElementById('dropdown-content');
+//     // dropdownContent.classList.toggle('show-dropdown');
+//     const mappedCategories = categories.map(c => `
+//         <a onclick="navigateToFilteredItems(${c.id})">${c.name}</a>
+//     `).join('\n')
+//     categoryDD.innerHTML = mappedCategories
+//     categoryDD.classList.toggle('show-dropdown')
+// }
 
-function navigateToFilteredItems(categoryId){
-    window.location.href = `/html/all_Items.html?id=${categoryId}`
-}
+// function navigateToFilteredItems(categoryId){
+//     window.location.href = `/html/all_Items.html?id=${categoryId}`
+// }
 
 // function profileCheck(){
 //     console.log("entered profilecheck");
