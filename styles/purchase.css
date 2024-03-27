@@ -74,6 +74,7 @@ form {
 .item-details{
     /* margin-top: 1rem;
     margin-bottom: 1rem; */
+    /* height: 80%; */
     margin: 1rem;
     display: flex;
     flex-direction: column;
