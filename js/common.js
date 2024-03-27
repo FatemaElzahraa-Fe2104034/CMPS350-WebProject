@@ -12,7 +12,7 @@ async function insertCommonElements() {
     // categoryLINK = document.querySelector("#categories")
     loginLINK = document.querySelector("#login")
     // categoryDD = document.querySelector("#dropdown-content")
-    profileB = document.querySelector('#profile');
+    profileB = document.querySelector("#profile");
     updateLoginLink()
     // categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
     profileB.addEventListener('click', profileCheck)
