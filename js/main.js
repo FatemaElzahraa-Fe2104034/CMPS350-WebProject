@@ -7,11 +7,11 @@ const artistsURL = "/json/seller.json"
 const header = document.querySelector("#header")
 const nav = document.querySelector("#nav")
 const categoriesDIV = document.querySelector("#categoriesDivs")
-const profileB = document.querySelector('#profile');
+// const profileB = document.querySelector('#profile');
 
 let categories =[]
 
-profileB.addEventListener('click', profileCheck)
+
 // Add event listener to load the items
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -101,14 +101,15 @@ function navigateToFilteredItems(categoryId){
 
 
 
-function profileCheck(){
-    const usersCustomer = JSON.parse(localStorage.getItem('customers'))
-    const nusersSeller = JSON.parse(localStorage.getItem('seller'))
-    const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
-    if (loggedInUser!=-1) {
-        window.location.href = "../html/history.html"
-    }
-    else {
-        window.location.href = "../html/historySeller.html"
-    }
-}
+// function profileCheck(){
+//     console.log("entered profilecheck");
+//     const usersCustomer = JSON.parse(localStorage.getItem('customers'))
+//     const nusersSeller = JSON.parse(localStorage.getItem('seller'))
+//     const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
+//     if (loggedInUser!=-1) {
+//         window.location.href = "/html/history.html"
+//     }
+//     else {
+//         window.location.href = "/html/historySeller.html"
+//     }
+// }
