@@ -99,13 +99,16 @@ function profileCheck(){
     // }
 
     const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
-    if(loggedInUser!=-1){
+    console.log(loggedInUser);
+    if(loggedInUser != -1){
         const user = users[loggedInUser]
         if(user.type=="customer"){
             //Handle customer here
+            window.location.href = "/html/history.html"
         }
         else if(user.type=="seller"){
             //Handle seller here
+            window.location.href = "/html/historySeller.html"
         }
         else{
             alert("An error occured")

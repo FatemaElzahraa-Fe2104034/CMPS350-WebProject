@@ -97,14 +97,36 @@ function navigateToFilteredItems(categoryId){
 }
 
 function profileCheck(){
-    console.log("entered profilecheck");
-    const usersCustomer = JSON.parse(localStorage.getItem('customers'))
-    const nusersSeller = JSON.parse(localStorage.getItem('seller'))
-    const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
-    if (loggedInUser!=-1) {
-        window.location.href = "/html/history.html"
+    // console.log("entered profilecheck");
+    // const usersCustomer = JSON.parse(localStorage.getItem('customers'))
+    // const nusersSeller = JSON.parse(localStorage.getItem('seller'))
+    // const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
+    // if (loggedInUser!=-1) {
+    //     window.location.href = "/html/history.html"
+    // }
+    // else {
+    //     window.location.href = "/html/historySeller.html"
+    // }
+    const users = JSON.parse(localStorage.getItem('users'));
+    const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
+    console.log(loggedInUser);
+    if(loggedInUser != -1){
+        const user = users[loggedInUser]
+        if(user.type=="customer"){
+            //Handle customer here
+            window.location.href = "/html/history.html"
+        }
+        else if(user.type=="seller"){
+            //Handle seller here
+            window.location.href = "/html/historySeller.html"
+        }
+        else{
+            alert("An error occured")
+        }
     }
-    else {
-        window.location.href = "/html/historySeller.html"
+    else{
+        alert("Login before proceeding.")
+        window.location.href ="/html/login.html"
     }
+    
 }
