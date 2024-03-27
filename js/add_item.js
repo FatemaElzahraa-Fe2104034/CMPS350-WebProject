@@ -1,5 +1,5 @@
-const itemsURL = "../json/items.json";
-let items = JSON.parse(localStorage.getItem("items")) || []; 
+const itemsURL = "/json/items.json"
+let items = []; 
 
 const uploadForm = document.querySelector("#upload-form");
 
@@ -15,11 +15,21 @@ document.addEventListener('DOMContentLoaded', async () => {
       const navResponse = await fetch("/html/common/nav.html")
       const navHTML = await navResponse.text()
       nav.innerHTML = navHTML
+
+      loadItems()
   
   } catch (error) {
       console.error("Failed to load items:", error)
   }
 });
+
+async function loadItems() {
+  if (!localStorage.getItem('items')) {
+      const response = await fetch(itemsURL);
+      items = await response.json();
+      localStorage.setItem('items', JSON.stringify(items));
+  }
+}
 
 
 function setItemArtist(item) {
@@ -62,10 +72,11 @@ function updateItem(id) {
   }
 }
 
+uploadForm.addEventListener("submit", handleSubmit);
 
 function handleSubmit(e) {
-  alert("Start submiting")
-  console.log("Inside handle submission")
+  alert("Start submitting");
+  console.log("Inside handle submission");
   e.preventDefault();
   console.log("Form submitted");
   const item = formToObject(e.target);
@@ -81,7 +92,7 @@ function handleSubmit(e) {
   const exist = items.findIndex((i) => i.id == item.id);
   if (exist != -1) {
     //handle update
-    updateItem(item.id)
+    updateItem(item.id);
     alert("Already there !");
     items[exist] = item;
   } else {
@@ -89,8 +100,11 @@ function handleSubmit(e) {
   }
 
   localStorage.setItem("items", JSON.stringify(items));
-  window.location.href = "/html/all_Items.html"
+  
+  console.log("Item added");
+  
+  // window.location.href = "/html/all_Items.html";
 }
 
-uploadForm.addEventListener("submit", handleSubmit);
+
 
