@@ -1,7 +1,8 @@
 const itemsURL = "/json/items.json"
 let items = []; 
 
-const uploadForm = document.querySelector("#upload-form");
+const uploadForm = document.querySelector("#upload-form")
+uploadForm.addEventListener("submit", handleSubmit)
 
 // Add event listener to load the items
 document.addEventListener('DOMContentLoaded', async () => {
@@ -16,20 +17,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       const navHTML = await navResponse.text()
       nav.innerHTML = navHTML
 
-      loadItems()
+      // loadItems()
   
   } catch (error) {
-      console.error("Failed to load items:", error)
+      console.error("Failed to load nav or header:", error)
   }
 });
 
-async function loadItems() {
-  if (!localStorage.getItem('items')) {
-      const response = await fetch(itemsURL);
-      items = await response.json();
-      localStorage.setItem('items', JSON.stringify(items));
-  }
-}
+// async function loadItems() {
+//   if (!localStorage.getItem('items')) {
+//       const response = await fetch(itemsURL);
+//       items = await response.json();
+//       localStorage.setItem('items', JSON.stringify(items));
+//   }
+// }
 
 
 function setItemArtist(item) {
@@ -73,7 +74,7 @@ function updateItem(id) {
   }
 }
 
-uploadForm.addEventListener("submit", handleSubmit);
+
 
 function handleSubmit(e) {
   alert("Start submitting");
