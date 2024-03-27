@@ -1,7 +1,7 @@
 let loginLINK;
 let categoryLINK;
 let categoryDD;
-
+let profileB;
 document.addEventListener('DOMContentLoaded', function() {
     insertCommonElements();
 });
@@ -12,9 +12,10 @@ async function insertCommonElements() {
     categoryLINK = document.querySelector("#categories")
     loginLINK = document.querySelector("#login")
     categoryDD = document.querySelector("#dropdown-content")
-    
+    profileB = document.querySelector('#profile');
     updateLoginLink()
     categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
+    profileB.addEventListener('click', profileCheck)
 }
 
 async function loadElement(elementId, url) {
@@ -84,4 +85,17 @@ function showCategoriesDROPDOWN(){
 
 function navigateToFilteredItems(categoryId){
     window.location.href = `/html/all_Items.html?id=${categoryId}`
+}
+
+function profileCheck(){
+    console.log("entered profilecheck");
+    const usersCustomer = JSON.parse(localStorage.getItem('customers'))
+    const nusersSeller = JSON.parse(localStorage.getItem('seller'))
+    const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
+    if (loggedInUser!=-1) {
+        window.location.href = "/html/history.html"
+    }
+    else {
+        window.location.href = "/html/historySeller.html"
+    }
 }

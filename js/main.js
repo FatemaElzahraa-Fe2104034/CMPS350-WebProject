@@ -6,12 +6,12 @@ const usersURL = "/json/users.json"
 const header = document.querySelector("#header")
 const nav = document.querySelector("#nav")
 const categoriesDIV = document.querySelector("#categoriesDivs")
-const profileB = document.querySelector('#profile');
+// const profileB = document.querySelector('#profile');
 
 let categories =[]
 let users =[]
 
-profileB.addEventListener('click', profileCheck)
+
 // Add event listener to load the items
 document.addEventListener('DOMContentLoaded', async () => {
     try {
