@@ -9,7 +9,7 @@ const itemssold = document.querySelector('#totalSold');
 const cutsomerUsername = document.querySelector('#user_username');
 const totalAmountSold = document.querySelector('#totalAmount');
 
-const users = JSON.parse(localStorage.getItem('sellers'));
+const users = JSON.parse(localStorage.getItem('users'));
 const loggedInUser = users.findIndex(u => u.isLoggedIn === true);
 
 let itemsSold = [];

@@ -27,19 +27,10 @@ async function loadElement(elementId, url) {
 
 async function updateLoginLink() {
     try {
-        // Fetch the customers
-        if (localStorage.getItem('customers')) {
-            customers = JSON.parse(localStorage.getItem('customers'));
-        } else {
-            // Fetch the data since it's not in Local Storage
-            const response = await fetch(customersURL);
-            customers = await response.json();
-            
-            // Store the fetched data in Local Storage
-            localStorage.customers = JSON.stringify(customers);
-        }
+        // Fetch the users
+        users = JSON.parse(localStorage.getItem('users'));
 
-        const loggedInUser = customers.findIndex(u => u.isLoggedIn === true)
+        const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
 
         if(loggedInUser!=-1){
             loginLINK.innerHTML = `<a href="#" id="loggedIn" class="login">Logout</a>`
@@ -69,8 +60,8 @@ function handleLogout(loggedInUser) {
         alert(`The user does not exist.`)
         return;
     } else {
-        customers[loggedInUser].isLoggedIn = false
-        localStorage.setItem('customers', JSON.stringify(customers))
+        users[loggedInUser].isLoggedIn = false
+        localStorage.setItem('users', JSON.stringify(users))
 
         alert("You have been successfully logged out.")
         updateLoginLink()

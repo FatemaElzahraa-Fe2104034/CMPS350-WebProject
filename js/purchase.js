@@ -80,12 +80,12 @@ function onPurchase(e){
 
     e.preventDefault()
 
-    const artists = JSON.parse(localStorage.getItem('artists'))
-    const artist = artists.find(a=> a.id == currentItem.artistID)
-    const amountToBePaid = currentItem.quantity_to_buy*currentItem.price
-
-    const users = JSON.parse(localStorage.getItem('customers'))
+    const users = JSON.parse(localStorage.getItem('users'))
+    const artist = users.find(a=> a.id == currentItem.artistID)
     const loggedInUser = users.find(u => u.isLoggedIn === true)
+
+    const amountToBePaid = currentItem.quantity_to_buy*currentItem.price
+    
 
     if(loggedInUser.balance>amountToBePaid && currentItem.quantity_to_buy > 0 && currentItem.quantity_to_buy <= currentItem.available_quantity){
         loggedInUser.balance-=amountToBePaid

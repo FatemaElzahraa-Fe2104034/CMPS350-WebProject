@@ -1,20 +1,19 @@
-const customersURL = "../json/customers.json";
 
-let customers = [];
+let users = [];
 
 const loginFORM = document.querySelector("#login-form");
 
 
 loginFORM.addEventListener('submit', handleLogin);
 
-// Add event listener to load the customers
+// Add event listener to load the users
 document.addEventListener('DOMContentLoaded', async () => {
     try {
 
-        customers = JSON.parse(localStorage.getItem('customers'))
+        users = JSON.parse(localStorage.getItem('users'))
     
     } catch (error) {
-        console.error("Failed to load customers:", error);
+        console.error("Failed to load users:", error);
     }
 });
 
@@ -32,7 +31,7 @@ function handleLogin(e) {
     }
 
     // Find user by username
-    const userExists = customers.find(c => c.username === user.username);
+    const userExists = users.find(c => c.username === user.username);
     if (!userExists) {
         alert(`The username does not exist.`);
         return;
@@ -40,7 +39,7 @@ function handleLogin(e) {
         if (userExists.password === user.password) {
             // alert(`Login successful.`);
             userExists.isLoggedIn = true
-            localStorage.setItem('customers', JSON.stringify(customers));
+            localStorage.setItem('users', JSON.stringify(users));
 
             window.location.href = "../html/main.html";
         } else {
