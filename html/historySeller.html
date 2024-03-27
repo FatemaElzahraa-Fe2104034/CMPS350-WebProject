@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-    <link rel="stylesheet" href="../styles/history_seller.css" />
+    <link rel="stylesheet" href="../styles/history_seller_updated.css" />
     <link href="https://fonts.cdnfonts.com/css/jonathan" rel="stylesheet" />
   </head>
   <body>
@@ -14,68 +14,74 @@
     <!-- Navigation -->
     <div id="nav"></div>
 
-    <div class="page-name">
+    <!-- <div class="page-name">
       <h2>Your Profile</h2>
-    </div>
+    </div> -->
+
+    <h2 class="page-title">Your Profile</h2>
 
     <div class="main">
+      <section class="info">
+        <img src="/images/Design/Untitled.png" />
+        <!-- Here add customer username -->
+        <h2 id="user_username"></h2>
+        <form action="" class="customer_info" id="customer_info">
+       
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" class="centered-input" readonly>
+          
 
-      <div class="side-menu">
-        <nav class="menu" tabindex="0">
-          <header class="avatar">
-            <img src="../images/Design/Untitled.png" />
-            <!-- Here add customer username -->
-            <h2 id="user_username"></h2>
-            <form action="" class="customer_info" id="customer_info">
-              <label for="name">Name: </label>
-              <input type="text" id="name" name="name" class="centered-input" readonly>
+          
+            <label for="totalSold">Total Sold Items: </label>
+            <input type="text" id="totalSold" name="totalSold"  class="centered-input" readonly>
+          
 
-              <label for="totalSold">Total Sold Items: </label>
-              <input type="text" id="totalSold" name="totalSold"  class="centered-input" readonly>
+          
+            <label for="totalAmount">Total Amount: </label>
+            <input type="text" id="totalAmount" name="totalAmount"  class="centered-input" readonly>
+          
 
-              <label for="totalAmount">Total Amount: </label>
-              <input type="text" id="totalAmount" name="totalAmount"  class="centered-input" readonly>
+          
+            <label for="totalOnsale">Total Items On Sale: </label>
+            <input type="text" id="totalOnsale" name="totalOnsale"  class="centered-input" readonly>
+          
 
-              <label for="totalOnsale">Total Items On Sale: </label>
-              <input type="text" id="totalOnsale" name="totalOnsale"  class="centered-input" readonly>
-            </form>
-          </header>
-        </nav>
-      </div>
-
-
-      <div class="container">
-      <div class="history-header history-onsale">
-        <h2>View Items On Sale</h2>
-      </div>
-      <section class="item-cards history-onsale-container" id="onsale_container">
-        <!-- Here load History Items -->
-        <!-- <div class="card">
-          <img src="./images/MexNogLt.jpg" alt="Placeholder Image">
-          <div class="content">
-            <h3>Card Title</h3>
-            <p>This is a simple card with an image and text.</p>
-          </div>
-      </div> -->
-      <button id="addItemButton" class="addItemButton" onclick="addItemBEvent()">Add Item!</button>
+        </form>
       </section>
 
-      <div class="history-header history-sold">
-        <h2>View Sold Items</h2>
-      </div>
-      <section class="item-cards" id="sold_container">
-        <!-- Here load History Items -->
-        <!-- <div class="card">
-          <img src="./images/MexNogLt.jpg" alt="Placeholder Image">
-          <div class="content">
-            <h3>Card Title</h3>
-            <p>This is a simple card with an image and text.</p>
-          </div>
-      </div> -->
+      <section class="onsale">
+        <h2 class="section-title">View Items On Sale</h2>
+        <section class="item-cards history-onsale-container" id="onsale_container">
+          <!-- Here load History Items -->
+        </section>
+        <button id="addItemButton" class="addItemButton" onclick="addItemBEvent()">Add Item!</button>
       </section>
-    </div>
 
-    </div>
+      <section class="solditems">
+        <h2 class="section-title">View Sold Items</h2>
+        <section class="item-cards" id="sold_container">
+          <!-- Here load History Items -->
+        </section>
+      </section>
+
+
+      <!-- <div class="container">
+        <div class="history-header history-onsale">
+          <h2 class="section-title">View Items On Sale</h2>
+        </div>
+        <section class="item-cards history-onsale-container" id="onsale_container"> -->
+          <!-- Here load History Items -->
+        <!-- <button id="addItemButton" class="addItemButton" onclick="addItemBEvent()">Add Item!</button>
+        </section>
+
+        <div class="history-header history-sold">
+          <h2 class="section-title">View Sold Items</h2>
+        </div>
+        <section class="item-cards" id="sold_container"> -->
+          <!-- Here load History Items -->
+        <!-- </section> -->
+    </div> 
+    
     <script src="/js/history_seller.js"></script>
     <script src="/js/common.js"></script>
   </body>
