@@ -1,7 +1,6 @@
 const categoriesURL = "/json/categories.json"
 const itemsURL = "/json/items.json"
 const usersURL = "/json/users.json"
-// const artistsURL = "/json/seller.json"
 
 
 const header = document.querySelector("#header")
@@ -10,6 +9,7 @@ const categoriesDIV = document.querySelector("#categoriesDivs")
 const profileB = document.querySelector('#profile');
 
 let categories =[]
+let users =[]
 
 profileB.addEventListener('click', profileCheck)
 // Add event listener to load the items
@@ -24,13 +24,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         //loading users into local storage
         loadUsers()
-
-
-        // //loading customers into local storage
-        // loadCustomers()
-
-        // //loading artists into local storage
-        // loadArtists()
         
         showCategories(categories)
     } catch (error) {
@@ -64,33 +57,12 @@ async function loadItems() {
 
 // Function to load users
 async function loadUsers() {
-    let users;
     if (!localStorage.getItem('users')) {
         const response = await fetch(usersURL);
         users = await response.json();
         localStorage.setItem('users', JSON.stringify(users));
     }
 }
-
-// // Function to load customers
-// async function loadCustomers() {
-//     let customers;
-//     if (!localStorage.getItem('customers')) {
-//         const response = await fetch(customersURL);
-//         customers = await response.json();
-//         localStorage.setItem('customers', JSON.stringify(customers));
-//     }
-// }
-
-// //Function to load artists
-// async function loadArtists() {
-//     let artists;
-//     if (!localStorage.getItem('artists')) {
-//         const response = await fetch(artistsURL);
-//         artists = await response.json();
-//         localStorage.setItem('artists', JSON.stringify(artists));
-//     }
-// }
 
 // ============================================================================================================================
 
@@ -116,13 +88,31 @@ function navigateToFilteredItems(categoryId){
 
 
 function profileCheck(){
-    const usersCustomer = JSON.parse(localStorage.getItem('customers'))
-    const nusersSeller = JSON.parse(localStorage.getItem('seller'))
-    const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
-    if (loggedInUser!=-1) {
-        window.location.href = "../html/history.html"
+    // const usersCustomer = JSON.parse(localStorage.getItem('customers'))
+    // const nusersSeller = JSON.parse(localStorage.getItem('seller'))
+    // const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
+    // if (loggedInUser!=-1) {
+    //     window.location.href = "../html/history.html"
+    // }
+    // else {
+    //     window.location.href = "../html/historySeller.html"
+    // }
+
+    const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
+    if(loggedInUser!=-1){
+        const user = users[loggedInUser]
+        if(user.type=="customer"){
+            //Handle customer here
+        }
+        else if(user.type=="seller"){
+            //Handle seller here
+        }
+        else{
+            alert("An error occured")
+        }
     }
-    else {
-        window.location.href = "../html/historySeller.html"
+    else{
+        alert("Login before proceeding.")
+        window.location.href ="/html/login.html"
     }
 }
