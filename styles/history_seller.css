@@ -150,7 +150,7 @@
   .container {
     display: grid;
     grid-column: 100%;
-    grid-template-rows: 4rem auto 4rem auto;
+    grid-template-rows: 4rem auto 4rem 4rem auto;
     grid-auto-flow: column;
     justify-items: center;
   }
@@ -160,6 +160,14 @@
   }
 
   .sold_container {
+    grid-row: 4/5;
+  }
+
+  .history-onsale-container {
+    grid-row: 2/3;
+  }
+
+  .addItemButton {
     grid-row: 3/4;
   }
   

@@ -8,12 +8,11 @@ const itemsOnsale = document.querySelector('#totalOnsale');
 const itemssold = document.querySelector('#totalSold');
 const cutsomerUsername = document.querySelector('#user_username');
 const totalAmountSold = document.querySelector('#totalAmount');
-const addItemB = document.querySelector('#addItemButton');
 
 const users = JSON.parse(localStorage.getItem('users'));
 const loggedInUser = users.findIndex(u => u.isLoggedIn === true);
 
-let itemsSold = users[loggedInUser].itemsSold;
+let itemsSold = users[loggedInUser].soldItems;
 let itemsOnSale = users[loggedInUser].itemsOnSale;
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -28,7 +27,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const navHTML = await navResponse.text()
         nav.innerHTML = navHTML
 
-        showItems();
+        showItemsOnSale();
+        showitemsSold();
         completeSellerInfo();
         getTotalAmount();
 
@@ -38,24 +38,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-addItemB.addEventListener('click', addItemBEvent);
-
-
-function showItems() {
+function showItemsOnSale() {
     if (itemsOnSale.length != 0) {
         const itemsOnSaleHTML = itemsOnSale.map(i => itemsToHTML(i)).join(' ');
         onsaleContainer.innerHTML = itemsOnSaleHTML;
     }
     else{
-        onsaleContainer.innerHTML = "<p>Currently No Items Are On-Sale!</p>"
+        onsaleContainer.innerHTML += "<p>Currently No Items Are On-Sale!</p>"
     }
-    
+}
+
+function showitemsSold(){
     if (itemsSold.length != 0) {
         const itemsSoldHTML = itemsSold.map(i => itemsToHTML(i)).join(' ');
         soldContainer.innerHTML = itemsSoldHTML;
     }
     else{
-        soldContainer.innerHTML = "<p>No Items Are Sold Yet!</p>"
+        soldContainer.innerHTML += "<p>No Items Are Sold Yet!</p>"
     }
 }
 
@@ -75,11 +74,11 @@ function getTotalAmount() {
     if (itemsSold.length != 0) {
         sum = itemsSold.reduce(((acc, b) => acc+b.price), 0);
     } 
-    totalAmountSold.value = sum;
+    totalAmountSold.value = `${sum} $`;
 }
 
-function completeCustomerInfo(){
-    cutsomerUsername.innerHTML = `${loggedInUser.username}`;
+function completeSellerInfo(){
+    cutsomerUsername.innerHTML = `${users[loggedInUser].username}`;
     customerName.value = users[loggedInUser].name;
     itemsOnsale.value = itemsOnSale.length;
     itemssold.value = itemsSold.length;
