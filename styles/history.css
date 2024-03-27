@@ -35,8 +35,6 @@ body {
   height: 100%;
   width: 95%;
   font-family: "Glacial Indifference", sans-serif;
-  /* color: var(--our_maroon); */
-  /* background-color: var(--our_lightyellow); */
 }
 
 li {
@@ -228,7 +226,7 @@ ul{
   }
 }
 
-.nav {
+/* .nav {
   padding: 0.2rem;
   margin-bottom: 1.5rem;
   background-color: var(--our_LightSlateGray);
@@ -247,13 +245,13 @@ ul{
       color: var(--our_DarkSlateGray);
     }
   }
-}
+} */
 
-nav ul {
+/* nav ul {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
+} */
 
 
 .cart {
@@ -392,8 +390,8 @@ nav ul {
   
 
 @media (min-width: 100rem) {
-  nav ul {
+  /* nav ul {
     flex-direction: row;
     flex-wrap: wrap;
-  }
+  } */
 }

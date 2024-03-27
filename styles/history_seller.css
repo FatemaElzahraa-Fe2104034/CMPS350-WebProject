@@ -247,33 +247,6 @@
     }
   }
   
-  .nav {
-    padding: 0.2rem;
-    margin-bottom: 1.5rem;
-    background-color: var(--our_LightSlateGray);
-    ul {
-      text-align: center;
-      li {
-        margin: 0.8rem;
-        a {
-          text-decoration: none;
-          color: var(--our_DarkSteelBlue);
-          font-family: Courier New;
-          font-weight: 750;
-        }
-      }
-      li a:hover {
-        color: var(--our_DarkSlateGray);
-      }
-    }
-  }
-  
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  
   
   .cart {
     width: 100%; /* Take full width of its container */

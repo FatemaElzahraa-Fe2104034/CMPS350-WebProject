@@ -63,7 +63,7 @@ function updateItem(id) {
     Object.entries(item).forEach(([key, value]) => {
       const element = document.querySelector(`#${key}`);
       if (element) {
-        if (key !== "quantity") {
+        if (key !="quantity") {
           element.setAttribute("readonly", true);
         }
         element.value = value;
@@ -83,11 +83,11 @@ function handleSubmit(e) {
   // console.log("Form submitted")
   const item = formToObject(e.target)
   setItemArtist(item)
-  let validating = true
+  // let validating = true
 
   for (const [k, value] of Object.entries(item)) {
     if (value == "") {
-      validating = false
+      // validating = false
       alert("Please fill all fields")
       return
     }
