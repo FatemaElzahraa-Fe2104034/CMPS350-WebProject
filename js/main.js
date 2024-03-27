@@ -7,10 +7,10 @@ const header = document.querySelector("#header")
 const nav = document.querySelector("#nav")
 const categoriesDIV = document.querySelector("#categoriesDivs")
 
-categoryLINK = document.querySelector("#categories")
-loginLINK = document.querySelector("#login")
-categoryDD = document.querySelector("#dropdown-content")
-profileB = document.querySelector('#profile');
+const categoryLINK = document.querySelector("#categories")
+const loginLINK = document.querySelector("#login")
+const categoryDD = document.querySelector("#dropdown-content")
+const profileB = document.querySelector('#profile');
 
 categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
 profileB.addEventListener('click', profileCheck)

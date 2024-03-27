@@ -1,5 +1,4 @@
 let loginLINK;
-let categoryLINK;
 let categoryDD;
 let profileB;
 document.addEventListener('DOMContentLoaded', function() {
@@ -9,12 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
 async function insertCommonElements() {
     await loadElement("header", "/html/common/header.html")
     await loadElement("nav", "/html/common/nav.html")
-    // categoryLINK = document.querySelector("#categories")
+
     loginLINK = document.querySelector("#login")
-    // categoryDD = document.querySelector("#dropdown-content")
     profileB = document.querySelector("#profile");
     updateLoginLink()
-    // categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
+    
     profileB.addEventListener('click', profileCheck)
 }
 
