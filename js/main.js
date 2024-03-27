@@ -1,7 +1,7 @@
 const categoriesURL = "/json/categories.json"
 const itemsURL = "/json/items.json"
-const customersURL = "/json/customers.json"
-const artistsURL = "/json/seller.json"
+const usersURL = "/json/users.json"
+// const artistsURL = "/json/seller.json"
 
 
 const header = document.querySelector("#header")
@@ -20,11 +20,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         //loading items into local storage
         loadItems()
 
-        //loading customers into local storage
-        loadCustomers()
+        //loading users into local storage
+        loadUsers()
 
-        //loading artists into local storage
-        loadArtists()
+
+        // //loading customers into local storage
+        // loadCustomers()
+
+        // //loading artists into local storage
+        // loadArtists()
         
         showCategories(categories)
     } catch (error) {
@@ -56,25 +60,35 @@ async function loadItems() {
     }
 }
 
-// Function to load customers
-async function loadCustomers() {
-    let customers;
-    if (!localStorage.getItem('customers')) {
-        const response = await fetch(customersURL);
-        customers = await response.json();
-        localStorage.setItem('customers', JSON.stringify(customers));
+// Function to load users
+async function loadUsers() {
+    let users;
+    if (!localStorage.getItem('users')) {
+        const response = await fetch(usersURL);
+        users = await response.json();
+        localStorage.setItem('users', JSON.stringify(users));
     }
 }
 
-//Function to load artists
-async function loadArtists() {
-    let artists;
-    if (!localStorage.getItem('artists')) {
-        const response = await fetch(artistsURL);
-        artists = await response.json();
-        localStorage.setItem('artists', JSON.stringify(artists));
-    }
-}
+// // Function to load customers
+// async function loadCustomers() {
+//     let customers;
+//     if (!localStorage.getItem('customers')) {
+//         const response = await fetch(customersURL);
+//         customers = await response.json();
+//         localStorage.setItem('customers', JSON.stringify(customers));
+//     }
+// }
+
+// //Function to load artists
+// async function loadArtists() {
+//     let artists;
+//     if (!localStorage.getItem('artists')) {
+//         const response = await fetch(artistsURL);
+//         artists = await response.json();
+//         localStorage.setItem('artists', JSON.stringify(artists));
+//     }
+// }
 
 // ============================================================================================================================
 

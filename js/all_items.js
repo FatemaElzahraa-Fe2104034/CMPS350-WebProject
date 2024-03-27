@@ -134,16 +134,14 @@ function onPurchase(itemId){
         const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
 
         if(loggedInUser!=-1){
-
             // alert(`purchase activated, user logged in ${users[loggedInUser].username}`)
             window.location.href = `/html/purchase.html?id=${itemId}`
-
         }
         else{
 
             alert(`Please login-in before purchasing an item.`)
             window.location.href = `/html/login.html`
-
         }
     }
 }
+
