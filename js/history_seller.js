@@ -1,8 +1,8 @@
 const onsaleContainer = document.querySelector('#onsale_container');
 const soldContainer = document.querySelector('#sold_container');
 const customerInfo = document.querySelector('#customer_info');
-const header = document.querySelector("#headerContainer")
-const nav = document.querySelector("#navContainer");
+const header = document.querySelector("#header")
+const nav = document.querySelector("#nav");
 const customerName = document.querySelector('#name');
 const itemsOnsale = document.querySelector('#totalOnsale');
 const itemssold = document.querySelector('#totalSold');
@@ -18,12 +18,12 @@ let itemsOnSale = users[loggedInUser].itemsOnSale;
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         // Load header
-        const headerResponse = await fetch("../html/common/header.html")
+        const headerResponse = await fetch("/html/common/header.html")
         const headerHTML = await headerResponse.text()
         header.innerHTML = headerHTML
         
         //  Load nav
-        const navResponse = await fetch("../html/common/nav.html")
+        const navResponse = await fetch("/html/common/nav.html")
         const navHTML = await navResponse.text()
         nav.innerHTML = navHTML
 

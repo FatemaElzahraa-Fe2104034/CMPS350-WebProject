@@ -1,4 +1,4 @@
-const itemsURL = "../json/items.json";
+const itemsURL = "/json/items.json";
 
 let items = []
 

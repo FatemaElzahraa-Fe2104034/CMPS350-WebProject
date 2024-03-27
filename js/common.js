@@ -29,9 +29,9 @@ async function loadElement(elementId, url) {
 async function updateLoginLink() {
     try {
         // Fetch the users
-        users = JSON.parse(localStorage.getItem('users'));
+        let users = JSON.parse(localStorage.getItem('users'));
 
-        const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
+        const loggedInUser = users.findIndex(u => u.isLoggedIn == true)
 
         if(loggedInUser!=-1){
             loginLINK.innerHTML = `<a href="#" id="loggedIn" class="login">Logout</a>`
