@@ -12,7 +12,7 @@ async function insertCommonElements() {
     // categoryLINK = document.querySelector("#categories")
     loginLINK = document.querySelector("#login")
     // categoryDD = document.querySelector("#dropdown-content")
-    profileB = document.querySelector('#profile');
+    profileB = document.querySelector("#profile");
     updateLoginLink()
     // categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
     profileB.addEventListener('click', profileCheck)
@@ -29,7 +29,7 @@ async function loadElement(elementId, url) {
 async function updateLoginLink() {
     try {
         // Fetch the users
-        users = JSON.parse(localStorage.getItem('users'));
+        let users = JSON.parse(localStorage.getItem('users'));
 
         const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
 
