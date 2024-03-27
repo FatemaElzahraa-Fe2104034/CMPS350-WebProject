@@ -26,6 +26,7 @@ function setItemArtist(item) {
   const artists = JSON.parse(localStorage.getItem("users"));
   console.log(artists)
   const loggedInArtist = artists.find((u) => u.isLoggedIn === true);
+  console.log(loggedInArtist)
   item.id = Date.now();
   item.currency = "QAR";
   item.artist = loggedInArtist.name;
