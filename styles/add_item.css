@@ -29,7 +29,7 @@ body{
     align-items: center;
 }
 
-.header {
+/* .header {
     display: grid;
     grid-template-columns: auto 150px;
     grid-template-rows: 100%;
@@ -59,7 +59,7 @@ body{
     a:hover{
         text-decoration: underline;
     }
-}
+} */
 
 .page-title{
     text-align: center;

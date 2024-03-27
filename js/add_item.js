@@ -3,10 +3,26 @@ let items = JSON.parse(localStorage.getItem("items")) || [];
 
 const uploadForm = document.querySelector("#upload-form");
 
+// Add event listener to load the items
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+      // Load header
+      const headerResponse = await fetch("/html/common/header.html")
+      const headerHTML = await headerResponse.text()
+      header.innerHTML = headerHTML
+      
+      //  Load nav
+      const navResponse = await fetch("/html/common/nav.html")
+      const navHTML = await navResponse.text()
+      nav.innerHTML = navHTML
+  
+  } catch (error) {
+      console.error("Failed to load items:", error)
+  }
+});
 
 
-
-function setItemArtiest(item) {
+function setItemArtist(item) {
   const artists = JSON.parse(localStorage.getItem("users"));
   console.log(artists)
   const loggedInArtist = artists.find((u) => u.isLoggedIn === true);
@@ -52,7 +68,7 @@ function handleSubmit(e) {
   e.preventDefault();
   console.log("Form submitted");
   const item = formToObject(e.target);
-  setItemArtiest(item);
+  setItemArtist(item);
   let validating = true;
   for (const [k, value] of Object.entries(item)) {
     if (value == "") {
