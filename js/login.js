@@ -8,7 +8,9 @@ loginFORM.addEventListener('submit', handleLogin);
 
 // Add event listener to load the users
 document.addEventListener('DOMContentLoaded', async () => {
+    
     try {
+
         users = JSON.parse(localStorage.getItem('users'))
     
     } catch (error) {
@@ -40,7 +42,7 @@ function handleLogin(e) {
             userExists.isLoggedIn = true
             localStorage.setItem('users', JSON.stringify(users));
 
-            window.location.href = "/html/main.html";
+            window.location.href = "../html/main.html";
         } else {
             alert(`Incorrect Password. Try Again.`);
             return;

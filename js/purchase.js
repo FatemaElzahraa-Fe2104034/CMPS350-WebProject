@@ -103,6 +103,7 @@ function onPurchase(e){
         //Update purchase/sale histories
         loggedInUser.purchaseHistory.push(currentItem)
         artist.soldItems.push(currentItem)
+        currentItem.clients.push(loggedInUser.username)
 
         console.log(`purchase history ${loggedInUser.purchaseHistory.toString()}`)
         console.log(`sale history ${artist.soldItems.toString()}`)

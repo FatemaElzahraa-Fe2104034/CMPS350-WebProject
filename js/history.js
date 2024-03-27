@@ -1,6 +1,6 @@
 const historyContainer = document.querySelector('#history_container');
 const customerInfo = document.querySelector('#customer_info');
-const totalAmount = document.querySelector('#total');
+const totalAmount = document.querySelector('#totalAmount');
 const header = document.querySelector("#headerContainer")
 const nav = document.querySelector("#navContainer");
 const customerName = document.querySelector('#name');
@@ -10,8 +10,7 @@ const cutsomerUsername = document.querySelector('#user_username');
 
 const users = JSON.parse(localStorage.getItem('users'));
 const loggedInUser = users.findIndex(u => u.isLoggedIn === true);
-
-let items = [];
+let items = users[loggedInUser].purchaseHistory;
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -25,12 +24,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         const navHTML = await navResponse.text()
         nav.innerHTML = navHTML
 
-        items = loggedInUser.purchaseHistory;
-        localStorage.items = JSON.stringify(items)
-        console.log(items)
+        // items = loggedInUser.purchaseHistory;
+        // localStorage.items = JSON.stringify(items)
+        // console.log(items)
 
 
         showItems();
+        getTotalAmount();
+        completeCustomerInfo();
 
     
     } catch (error) {
@@ -39,10 +40,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function showItems() {
-    const itemsHTML = items.map(i => itemsToHTML(i)).join(' ');
-    historyContainer.innerHTML = itemsHTML;
-    getTotalAmount();
-    completeCustomerInfo();
+    console.log("in showItems function");
+    items = users[loggedInUser].purchaseHistory;
+    if (items.length == 0) {
+        historyContainer.innerHTML = `<p> You didn't buy items  yet!!</p>`
+    }
+    else{
+        const itemsHTML = items.map(i => itemsToHTML(i)).join(' ');
+        historyContainer.innerHTML = itemsHTML;
+    }
 }
 
 function itemsToHTML(item){
@@ -57,15 +63,20 @@ function itemsToHTML(item){
 }
 
 function getTotalAmount() {
-    const sum = items.reduce(((acc, b) => acc+b.price), 0);
-    totalAmount.Placeholder = `${sum}`;
+    console.log("in getTotalAmount function");
+    const sum = 0;
+    if (items.length != 0) {
+        sum = items.reduce(((acc, b) => acc+b.price), 1);
+    }
+    totalAmount.value = `${sum} $`;
 }
 
 function completeCustomerInfo(){
-    cutsomerUsername.innerHTML = `${loggedInUser.username}`;
-    customerName.Placeholder = `${loggedInUser.name} ${loggedInUser.surname}`;
-    customerAdd.Placeholder = `${loggedInUser.shipping_address}`;
-    customerPurchaces = `${items.length}`;
+    console.log("in completeCustomerInfo function");
+    cutsomerUsername.innerHTML = `${users[loggedInUser].username}`;
+    customerName.value = users[loggedInUser].name;
+    customerAdd.value = users[loggedInUser].shipping_address;
+    customerPurchaces.value = items.length;
 }
 
 

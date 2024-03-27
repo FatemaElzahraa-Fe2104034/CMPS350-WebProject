@@ -8,12 +8,13 @@ const itemsOnsale = document.querySelector('#totalOnsale');
 const itemssold = document.querySelector('#totalSold');
 const cutsomerUsername = document.querySelector('#user_username');
 const totalAmountSold = document.querySelector('#totalAmount');
+const addItemB = document.querySelector('#addItemButton');
 
 const users = JSON.parse(localStorage.getItem('users'));
 const loggedInUser = users.findIndex(u => u.isLoggedIn === true);
 
-let itemsSold = [];
-let itemsOnSale = [];
+let itemsSold = users[loggedInUser].itemsSold;
+let itemsOnSale = users[loggedInUser].itemsOnSale;
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -27,15 +28,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         const navHTML = await navResponse.text()
         nav.innerHTML = navHTML
 
-        itemsSold = loggedInUser.soldItems;
-        localStorage.itemsSold = JSON.stringify(itemsSold)
-        console.log(itemsSold)
-
-        itemsOnSale = loggedInUser.itemsOnSale;
-        localStorage.itemsOnSale = JSON.stringify(itemsOnSale)
-        console.log(itemsOnSale)
-
         showItems();
+        completeSellerInfo();
+        getTotalAmount();
 
     
     } catch (error) {
@@ -43,14 +38,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-function showItems() {
-    const itemsOnSaleHTML = itemsOnSale.map(i => itemsToHTML(i)).join(' ');
-    onsaleContainer.innerHTML = itemsOnSaleHTML;
+addItemB.addEventListener('click', addItemBEvent);
 
-    const itemsSoldHTML = itemsSold.map(i => itemsToHTML(i)).join(' ');
-    soldContainer.innerHTML = itemsSoldHTML;
-    completeSellerInfo();
-    getTotalAmount();
+
+function showItems() {
+    if (itemsOnSale.length != 0) {
+        const itemsOnSaleHTML = itemsOnSale.map(i => itemsToHTML(i)).join(' ');
+        onsaleContainer.innerHTML = itemsOnSaleHTML;
+    }
+    else{
+        onsaleContainer.innerHTML = "<p>Currently No Items Are On-Sale!</p>"
+    }
+    
+    if (itemsSold.length != 0) {
+        const itemsSoldHTML = itemsSold.map(i => itemsToHTML(i)).join(' ');
+        soldContainer.innerHTML = itemsSoldHTML;
+    }
+    else{
+        soldContainer.innerHTML = "<p>No Items Are Sold Yet!</p>"
+    }
 }
 
 function itemsToHTML(item){
@@ -65,15 +71,22 @@ function itemsToHTML(item){
 }
 
 function getTotalAmount() {
-    const sum = itemsSold.reduce(((acc, b) => acc+b.price), 0);
-    totalAmountSold.Placeholder = `${sum}`;
+    const sum =0;
+    if (itemsSold.length != 0) {
+        sum = itemsSold.reduce(((acc, b) => acc+b.price), 0);
+    } 
+    totalAmountSold.value = sum;
 }
 
 function completeCustomerInfo(){
     cutsomerUsername.innerHTML = `${loggedInUser.username}`;
-    customerName.Placeholder = `${loggedInUser.name}`;
-    itemsOnsale.Placeholder = `${itemsOnSale.length}`;
-    itemssold.Placeholder = `${itemsSold.length}`
+    customerName.value = users[loggedInUser].name;
+    itemsOnsale.value = itemsOnSale.length;
+    itemssold.value = itemsSold.length;
+}
+
+function addItemBEvent(){
+    window.location.href = "/html/add_item.html";
 }
 
 

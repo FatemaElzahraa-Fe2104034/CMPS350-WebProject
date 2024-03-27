@@ -87,21 +87,28 @@ function navigateToFilteredItems(categoryId){
     window.location.href = `/html/all_Items.html?id=${categoryId}`
 }
 
-function profileCheck(){
-    // console.log("entered profilecheck");
-    // const usersCustomer = JSON.parse(localStorage.getItem('customers'))
-    // const nusersSeller = JSON.parse(localStorage.getItem('seller'))
-    // const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
-    // if (loggedInUser!=-1) {
-    //     window.location.href = "/html/history.html"
-    // }
-    // else {
-    //     window.location.href = "/html/historySeller.html"
-    // }
+// function profileCheck(){
+//     console.log("entered profilecheck");
+//     const users = JSON.parse(localStorage.getItem('users'))
+//     const nusersSeller = JSON.parse(localStorage.getItem('seller'))
+//     const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
+//     if (loggedInUser!=-1) {
+//         window.location.href = "/html/history.html"
+//     }
+//     else {
+//         window.location.href = "/html/historySeller.html"
+//     }
+// }
+
+function profileCheck() {
+    // Retrieve customer data from local storage and parse it
     const users = JSON.parse(localStorage.getItem('users'));
-    const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
-    console.log(loggedInUser);
-    if(loggedInUser != -1){
+
+    // Find index of logged-in user in the usersCustomer array
+    const loggedInUser = users.findIndex(u => u.isLoggedIn === true);
+
+    // Check if a logged-in user is found
+    if(loggedInUser!=-1){
         const user = users[loggedInUser]
         if(user.type=="customer"){
             //Handle customer here
@@ -109,7 +116,7 @@ function profileCheck(){
         }
         else if(user.type=="seller"){
             //Handle seller here
-            window.location.href = "/html/historySeller.html"
+            window.location.href = "/html/history_seller.html"
         }
         else{
             alert("An error occured")
@@ -119,5 +126,6 @@ function profileCheck(){
         alert("Login before proceeding.")
         window.location.href ="/html/login.html"
     }
-    
+
+
 }
