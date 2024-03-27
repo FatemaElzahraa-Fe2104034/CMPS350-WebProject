@@ -116,7 +116,7 @@ function profileCheck() {
         }
         else if(user.type=="seller"){
             //Handle seller here
-            window.location.href = "/html/history_seller.html"
+            window.location.href = "/html/historySeller.html"
         }
         else{
             alert("An error occured")
@@ -126,6 +126,4 @@ function profileCheck() {
         alert("Login before proceeding.")
         window.location.href ="/html/login.html"
     }
-
-
 }
