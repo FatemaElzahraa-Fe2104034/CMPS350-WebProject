@@ -11,8 +11,6 @@ const descDD = document.querySelector("#price-desc")
 
 
 searchBAR.addEventListener('input', handleSearchBar)
-// ascDD.addEventListener('click', sortItemsByPrice('asc'))
-// descDD.addEventListener('click', sortItemsByPrice('desc'))
 ascDD.addEventListener('click', () => sortItemsByPrice('asc'));
 descDD.addEventListener('click', () => sortItemsByPrice('desc'));
 
@@ -130,7 +128,7 @@ function onPurchase(itemId){
 
     if(itemIndex !== -1) {             
 
-        const users = JSON.parse(localStorage.getItem('customers'))
+        const users = JSON.parse(localStorage.getItem('users'))
         const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
 
         if(loggedInUser!=-1){

@@ -32,7 +32,7 @@ async function handleSubmit(e) {
 }
 
 function setItemArtiest(item) {
-  const artists = JSON.parse(localStorage.getItem("artists"));
+  const artists = JSON.parse(localStorage.getItem("users"));
   const loggedInArtist = artists.find((u) => u.isLoggedIn === true);
   item._id = Date.now();
   item.currency = "QAR";

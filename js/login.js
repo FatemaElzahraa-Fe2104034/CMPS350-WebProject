@@ -1,4 +1,3 @@
-const usersURL = "../json/users.json";
 
 let users = [];
 
@@ -7,10 +6,9 @@ const loginFORM = document.querySelector("#login-form");
 
 loginFORM.addEventListener('submit', handleLogin);
 
-// Add event listener to load the customers
+// Add event listener to load the users
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-
         users = JSON.parse(localStorage.getItem('users'))
     
     } catch (error) {

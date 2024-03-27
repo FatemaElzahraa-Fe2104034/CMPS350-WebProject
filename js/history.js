@@ -8,7 +8,7 @@ const customerAdd = document.querySelector('#shipAdd');
 const customerPurchaces = document.querySelector('#totalPur');
 const cutsomerUsername = document.querySelector('#user_username');
 
-const users = JSON.parse(localStorage.getItem('customers'));
+const users = JSON.parse(localStorage.getItem('users'));
 const loggedInUser = users.findIndex(u => u.isLoggedIn === true);
 
 let items = [];

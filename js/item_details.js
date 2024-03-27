@@ -72,22 +72,11 @@ function onPurchase(itemId){
     const itemIndex = items.findIndex(i => i.ID === itemId)
     // const amountToBePaid = items[itemIndex].quantity_to_buy*items[itemIndex].price
     if(itemIndex !== -1) {             
-        const users = JSON.parse(localStorage.getItem('customers'))
-        const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
+        const users = JSON.parse(localStorage.getItem('users'))
+        const loggedInUser = users.findIndex(u => u.isLoggedIn == true)
         if(loggedInUser!=-1){
             alert(`purchase activated, user logged in ${users[loggedInUser].username}`)
             window.location.href = `/html/purchase.html?id=${itemId}`
-            // if(items[itemIndex].quantity_to_buy>0){
-            //     if(users[loggedInUser].balance>amountToBePaid){
-            //         alert(`Purchase successful.`)
-            //     }
-            //     else{
-            //         alert(`You don't have sufficient balance.`)
-            //     }
-            // }
-            // else{
-            //     alert(`You don't have sufficient balance.`)
-            // }
         }
         else{
             alert(`Please login-in before purchasing an item.`)
