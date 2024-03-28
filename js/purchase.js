@@ -82,7 +82,7 @@ function onPurchase(e){
 
     const users = JSON.parse(localStorage.getItem('users'))
     const artist = users.find(a=> a.id == currentItem.artistID)
-    const loggedInUser = users.find(u => u.isLoggedIn === true)
+    const loggedInUser = users.find(u => u.isLoggedIn == true)
 
     const amountToBePaid = currentItem.quantity_to_buy*currentItem.price
     
@@ -98,12 +98,20 @@ function onPurchase(e){
         }else{
             alert("item not found.")
         }
-        localStorage.setItem('items', JSON.stringify(items))
+        // localStorage.setItem('items', JSON.stringify(items))
 
         //Update purchase/sale histories
         loggedInUser.purchaseHistory.push(currentItem)
-        artist.soldItems.push(currentItem)
+        if(artist){
+            artist.soldItems.push(currentItem)
+        }
+        else{
+            console.log("artist not found.");
+        }
         currentItem.clients.push(loggedInUser.username)
+
+        localStorage.setItem('users', JSON.stringify(users))
+        localStorage.setItem('items', JSON.stringify(items))
 
         console.log(`purchase history ${loggedInUser.purchaseHistory.toString()}`)
         console.log(`sale history ${artist.soldItems.toString()}`)
