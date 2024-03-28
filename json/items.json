@@ -11,7 +11,8 @@
         "available_quantity": 7,
         "quantity_to_buy": 0,
         "artistID": 1,
-        "clients": []
+        "clients": [],
+        "sold": 0
     },
     {
         "title": "Lemon Delight",
@@ -25,7 +26,8 @@
         "available_quantity": 3,
         "quantity_to_buy": 0,
         "artistID": 2,
-        "clients": []
+        "clients": [],
+        "sold": 0
     },
     {
         "title": "Contemplative Beauty",
@@ -39,7 +41,8 @@
         "available_quantity": 5,
         "quantity_to_buy": 0,
         "artistID": 3,
-        "clients": []
+        "clients": [],
+        "sold": 0
     },
     {
         "title": "Stardust Whisper",
@@ -53,7 +56,8 @@
         "available_quantity": 10,
         "quantity_to_buy": 0,
         "artistID": 7,
-        "clients": []
+        "clients": [],
+        "sold": 0
     },
     {
         "title": "Midnight Enchantress",
@@ -67,7 +71,8 @@
         "available_quantity": 1,
         "quantity_to_buy": 0,
         "artistID": 4,
-        "clients": []
+        "clients": [],
+        "sold": 0
     },
     {
         "title": "Ethereal Gaze",
@@ -81,6 +86,7 @@
         "available_quantity": 8,
         "quantity_to_buy": 0,
         "artistID": 6,
-        "clients": []
+        "clients": [],
+        "sold": 0
     }
 ]

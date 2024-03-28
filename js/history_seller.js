@@ -14,8 +14,7 @@ const loggedInUser = users.findIndex(u => u.isLoggedIn == true);
 
 let itemsSold = users[loggedInUser].soldItems;
 let itemsOnSale = users[loggedInUser].itemsOnSale;
-
-
+let numberOfItemsSold =0;
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -52,7 +51,7 @@ function showItemsOnSale() {
 
 function showitemsSold(){
     if (itemsSold.length != 0) {
-        const itemsSoldHTML = itemsSold.map(i => itemsToHTML(i)).join(' ')
+        const itemsSoldHTML = itemsSold.map(i => itemsSoldToHTML(i)).join(' ')
         soldContainer.innerHTML = itemsSoldHTML
     }
     else{
@@ -68,12 +67,23 @@ function itemsToHTML(item){
             <div class="content">
               <h3>${item.title}</h3>
               <p>${item.description}</p>
+            </div>
+        </div>`
+}
+
+function itemsSoldToHTML(item){
+    const clientsHTML = clientsToHTML(item.clients);
+    numberOfItemsSold += item.sold;
+    return `
+    <div class="card">
+            <img src="${item.image_url}">
+            <div class="content">
+              <h3>${item.title}</h3>
+              <p>${item.description}</p>
+              <p><b>Price: </b>${item.price}</p>
+              <p><b>${item.sold}</b> Items got sold</p>
               <h4> Who bought this item :</h4>
-              <div class="hoverOverHere">Clients Usernames
-              <p class="hoverText">
-                  ${item.clients.join(', ')}
-              </p>
-              </div>
+              <p>${item.clients.join(', ')}</p>
             </div>
         </div>`
 }
@@ -94,7 +104,7 @@ function completeSellerInfo(){
     cutsomerUsername.innerHTML = `${users[loggedInUser].username}`;
     customerName.value = users[loggedInUser].name;
     TotalitemsOnsale.value = itemsOnSale.length;
-    itemssold.value = itemsSold.length;
+    itemssold.value = numberOfItemsSold;
 }
 
 function addItemBEvent(){
