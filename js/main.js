@@ -2,7 +2,6 @@ const categoriesURL = "/json/categories.json"
 const itemsURL = "/json/items.json"
 const usersURL = "/json/users.json"
 
-
 const header = document.querySelector("#header")
 const nav = document.querySelector("#nav")
 const categoriesDIV = document.querySelector("#categoriesDivs")

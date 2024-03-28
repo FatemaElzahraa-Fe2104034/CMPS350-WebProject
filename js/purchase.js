@@ -90,7 +90,7 @@ function onPurchase(e){
     if(loggedInUser.balance>amountToBePaid && currentItem.quantity_to_buy > 0 && currentItem.quantity_to_buy <= currentItem.available_quantity){
         loggedInUser.balance-=amountToBePaid
         currentItem.available_quantity-=currentItem.quantity_to_buy
-
+        currentItem.sold += currentItem.quantity_to_buy
         //Update available quantity
         const itemIndex = items.findIndex(item => item.ID == currentItem.ID);
         if (itemIndex !== -1) {

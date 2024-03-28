@@ -4,7 +4,7 @@ const totalAmount = document.querySelector('#totalAmount');
 const header = document.querySelector("#header")
 const nav = document.querySelector("#nav");
 const customerName = document.querySelector('#name');
-const customerAdd = document.querySelector('#shipAdd');
+// const customerAdd = document.querySelector('#shipAdd');
 const customerPurchaces = document.querySelector('#totalPur');
 const cutsomerUsername = document.querySelector('#user_username');
 
@@ -70,7 +70,7 @@ function completeCustomerInfo(){
     console.log("in completeCustomerInfo function");
     cutsomerUsername.innerHTML = `${users[loggedInUser].username}`;
     customerName.value = users[loggedInUser].name;
-    customerAdd.value = users[loggedInUser].shipping_address;
+    // customerAdd.value = users[loggedInUser].shipping_address;
     customerPurchaces.value = items.length;
 }
 

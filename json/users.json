@@ -6,8 +6,7 @@
         "isLoggedIn": false,
         "purchaseHistory": [],
         "type": "customer",
-        "name": "John Doe",
-        "shipping_address": "123 Main St, Anytown, USA"
+        "name": "John Doe"
     },
     {
         "username": "jane_smith",
@@ -16,8 +15,7 @@
         "isLoggedIn": false,
         "purchaseHistory": [],
         "type": "customer",
-        "name": "Jane Smith",
-        "shipping_address": "456 Elm St, Othertown, USA"
+        "name": "Jane Smith"
     },
     {
         "username": "bob_johnson",
@@ -26,8 +24,7 @@
         "isLoggedIn": false,
         "purchaseHistory": [],
         "type": "customer",
-        "name": "Bob Johnson",
-        "shipping_address": "789 Oak St, Anotherplace, USA"
+        "name": "Bob Johnson"
     },
     {
         "username": "alice_williams",
@@ -36,8 +33,7 @@
         "isLoggedIn": false,
         "purchaseHistory": [],
         "type": "customer",
-        "name": "Alice Williams",
-        "shipping_address": "101 Pine St, Somewhere, USA"
+        "name": "Alice Williams"
     },
     {
         "username": "michael_brown",
@@ -46,8 +42,7 @@
         "isLoggedIn": false,
         "purchaseHistory": [],
         "type": "customer",
-        "name": "Michael Brown",
-        "shipping_address": "555 Cedar St, Anytown, USA"
+        "name": "Michael Brown"
     },
     {
         "username": "rouaa",
