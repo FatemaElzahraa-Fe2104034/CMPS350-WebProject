@@ -4,13 +4,13 @@ const customerInfo = document.querySelector('#customer_info');
 const header = document.querySelector("#header")
 const nav = document.querySelector("#nav");
 const customerName = document.querySelector('#name');
-const itemsOnsale = document.querySelector('#totalOnsale');
+// const itemsOnsale = document.querySelector('#totalOnsale');
 const itemssold = document.querySelector('#totalSold');
 const cutsomerUsername = document.querySelector('#user_username');
 const totalAmountSold = document.querySelector('#totalAmount');
 
 const users = JSON.parse(localStorage.getItem('users'));
-const loggedInUser = users.findIndex(u => u.isLoggedIn === true);
+const loggedInUser = users.findIndex(u => u.isLoggedIn == true);
 
 let itemsSold = users[loggedInUser].soldItems;
 let itemsOnSale = users[loggedInUser].itemsOnSale;
@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function showItemsOnSale() {
     if (itemsOnSale.length != 0) {
-        const itemsOnSaleHTML = itemsOnSale.map(i => itemsToHTML(i)).join(' ');
-        onsaleContainer.innerHTML = itemsOnSaleHTML;
+        const itemsOnSaleHTML = itemsOnSale.map(i => itemsToHTML(i)).join(' ')
+        onsaleContainer.innerHTML = itemsOnSaleHTML
     }
     else{
         onsaleContainer.innerHTML += "<p>Currently No Items Are On-Sale!</p>"
@@ -50,8 +50,8 @@ function showItemsOnSale() {
 
 function showitemsSold(){
     if (itemsSold.length != 0) {
-        const itemsSoldHTML = itemsSold.map(i => itemsToHTML(i)).join(' ');
-        soldContainer.innerHTML = itemsSoldHTML;
+        const itemsSoldHTML = itemsSold.map(i => itemsToHTML(i)).join(' ')
+        soldContainer.innerHTML = itemsSoldHTML
     }
     else{
         soldContainer.innerHTML += "<p>No Items Are Sold Yet!</p>"

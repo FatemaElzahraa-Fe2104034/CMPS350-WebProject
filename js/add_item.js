@@ -34,9 +34,8 @@ function handleSubmit(e) {
   //working
   const item = formToObject(e.target)
   console.log(item)
+
   //working
-  setItemArtist(item)
-  // let validating = true
   for (const [k, value] of Object.entries(item)) {
     if (value == "") {
       // validating = false
@@ -44,15 +43,20 @@ function handleSubmit(e) {
       return
     }
   }
-  const exist = items.findIndex(i => i.ID == item.ID)
-  if (exist != -1) {
-    //handle update
-    updateItem(item.ID)
-    alert("Already there !")
-    items[exist] = item
-  } else {
-    // console.log(items)
-  }
+
+  setItemArtist(item)
+  item.quantity_to_buy = 0
+
+  // const exist = items.findIndex(i => i.ID == item.ID)
+  // if (exist != -1) {
+  //   //handle update
+  //   updateItem(item.ID)
+  //   alert("Already there !")
+  //   items[exist] = item
+  // } else {
+  //   // console.log(items)
+  // }
+  
   items.push(item);
   localStorage.setItem('items', JSON.stringify(items))
   console.log("Item added")
@@ -67,14 +71,17 @@ function setItemArtist(item) {
   console.log(users)
 
   let artist = users.filter(u => u.type == "seller")
-  let loggedInArtist = artist.find((u) => u.isLoggedIn === true)
+  let loggedInArtist = artist.find((u) => u.isLoggedIn == true)
 
   console.log(loggedInArtist)
   item.ID = Date.now()
   item.currency = "QAR"
   item.artist = loggedInArtist.name
   item.artistID = Date.now()
+  // item.quantity_to_buy = 0
   loggedInArtist.itemsOnSale.push(item)
+  localStorage.setItem('users', JSON.stringify(users))
+
 }
 
 
