@@ -9,6 +9,13 @@ const nav = document.querySelector("#nav")
 const ascDD = document.querySelector("#price-asc")
 const descDD = document.querySelector("#price-desc")
 
+const params = new URLSearchParams(window.location.search);
+const parameterValue = params.get('parameter');
+console.log(parameterValue);
+if (parameterValue) {
+    searchBAR.value = parameterValue;
+    handleSearchBar();
+}
 
 searchBAR.addEventListener('input', handleSearchBar);
 ascDD.addEventListener('click', () => sortItemsByPrice('asc'));
@@ -53,10 +60,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-function setSearchBarValueAndTriggerSearch(value) {
-    searchBAR.value = value;
-    searchBAR.dispatchEvent(new Event('input'));
-}
+// function setSearchBarValueAndTriggerSearch(value) {
+//     searchBAR.value = value;
+//     searchBAR.dispatchEvent(new Event('input'));
+// }
 
 function sortItemsByPrice(order) {
     console.log("called sort");
@@ -131,14 +138,10 @@ function handleSearchBar() {
             return titleMatch || categoryMatch || artistMatch
         });
         console.log(filteredItems);
-        showItems(filteredItems)
+        showItems(filteredItems);
     } else {
         console.log("inside filter else");
         showItems(items) // Show all books when there's no filter
-    }
-    if (localStorage.getItem('lastSearchTerm') != 'null') {
-        localStorage.setItem('lastSearchTerm', 'null');
-        searchBAR.value = filter;
     }
 }
 
