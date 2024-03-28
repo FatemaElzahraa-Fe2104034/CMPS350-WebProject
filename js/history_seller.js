@@ -154,8 +154,7 @@ function deleteItem(itemId) {
   function updateItem(id) {
     const item = items.find(i => i.ID == id);
     if (item) {
-      const queryString = `?id=${id}`;
-      window.location.href = `/html/add_item.html${queryString}`;
+      window.location.href = `/html/add_item.html?id=${item.ID}`
     } else {
       console.log("Item not found");
     }
