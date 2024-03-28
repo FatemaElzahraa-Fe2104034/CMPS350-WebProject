@@ -1,6 +1,7 @@
 const itemsURL = "/json/items.json"
 let items = []
 let itemOnSale =[]
+let itemId
 
 const uploadForm = document.querySelector("#upload-form")
 
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       itemOnSale = JSON.parse(localStorage.getItem('itemOnSale'));
 
       const urlParams = new URLSearchParams(window.location.search);
-      const itemId = urlParams.get('id'); // Get the 'id' query parameter.
+      itemId = urlParams.get('id'); // Get the 'id' query parameter.
       console.log(itemId);
 
       if(itemId){
@@ -154,25 +155,50 @@ function formToObject(form) {
 
 
 
+// function updateItem(imageUrl) {
+//   const item = items.find(i => i.image_url == imageUrl);
+//   // if (item) {
+//   //   // const newQuantity = prompt("Item Exist! Enter new quantity:", item.available_quantity);
+//   //   if (newQuantity !== null) {
+//   //     const parsedQuantity = parseInt(newQuantity);
+//   //     if (!isNaN(parsedQuantity) && parsedQuantity >= 0) {
+//   //       item.available_quantity = parsedQuantity;
+//   //       localStorage.setItem('items', JSON.stringify(items));
+//   //       console.log("Item updated");
+//   //       window.location.href = "/html/historySeller.html"; 
+//   //     } else {
+//   //       alert("Invalid quantity entered.");
+//   //     }
+//   //   }
+//   // } else {
+//   //   console.log("Item not found");
+//   // }
+// }
+
 function updateItem(imageUrl) {
-  const item = items.find(i => i.image_url === imageUrl);
-  if (item) {
-    const newQuantity = prompt("Item Exist! Enter new quantity:", item.available_quantity);
-    if (newQuantity !== null) {
-      const parsedQuantity = parseInt(newQuantity);
-      if (!isNaN(parsedQuantity) && parsedQuantity >= 0) {
-        item.available_quantity = parsedQuantity;
-        localStorage.setItem('items', JSON.stringify(items));
-        console.log("Item updated");
-        window.location.href = "/html/historySeller.html"; 
-      } else {
-        alert("Invalid quantity entered.");
-      }
-    }
+
+  const itemIndex = items.findIndex(i => i.image_url === imageUrl);
+  
+  if (itemIndex !== -1) {
+    const updatedItemDetails = formToObject(uploadForm);
+    
+    // Update the item's details except for the image URL, which is read-only.
+    items[itemIndex].title = updatedItemDetails.title;
+    items[itemIndex].available_quantity = updatedItemDetails.available_quantity;
+    items[itemIndex].price = updatedItemDetails.price;
+    items[itemIndex].description = updatedItemDetails.description;
+    items[itemIndex].category = updatedItemDetails.category;
+    
+    localStorage.setItem('items', JSON.stringify(items));
+    
+    console.log("Item updated");
+    window.location.href = "/html/historySeller.html"; 
   } else {
-    console.log("Item not found");
+    console.log("Item with provided image URL not found");
+    alert("Item not found");
   }
 }
+
 
 
 
