@@ -43,15 +43,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error("Failed to load items:", error)
     }
-});
 
-if (localStorage.getItem('lastSearchTerm') != 'null'){
-    console.log("inside if statement");
-    const retrievedSearchValue = localStorage.getItem('lastSearchTerm');
-    if (retrievedSearchValue.trim() !== '') {
-        setSearchBarValueAndTriggerSearch(retrievedSearchValue);
+    if (localStorage.getItem('lastSearchTerm') != 'null'){
+        console.log("inside if statement");
+        const retrievedSearchValue = localStorage.getItem('lastSearchTerm');
+        if (retrievedSearchValue.trim() !== '') {
+            setSearchBarValueAndTriggerSearch(retrievedSearchValue);
+        }
     }
-}
+});
 
 function setSearchBarValueAndTriggerSearch(value) {
     searchBAR.value = value;
