@@ -15,6 +15,8 @@ const loggedInUser = users.findIndex(u => u.isLoggedIn == true);
 let itemsSold = users[loggedInUser].soldItems;
 let itemsOnSale = users[loggedInUser].itemsOnSale;
 
+
+
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         // Load header
@@ -59,14 +61,25 @@ function showitemsSold(){
 }
 
 function itemsToHTML(item){
+    const clientsHTML = clientsToHTML(item.clients);
     return `
     <div class="card">
             <img src="${item.image_url}">
             <div class="content">
               <h3>${item.title}</h3>
               <p>${item.description}</p>
+              <h4> Who bought this item :</h4>
+              <div class="hoverOverHere">Clients Usernames
+              <p class="hoverText">
+                  ${item.clients.join(', ')}
+              </p>
+              </div>
             </div>
         </div>`
+}
+
+function clientsToHTML(clientsArray){
+    return clientsArray.map(c => `<li> ${c} </li>`).join('');
 }
 
 function getTotalAmount() {
@@ -87,8 +100,6 @@ function completeSellerInfo(){
 function addItemBEvent(){
     window.location.href = "/html/add_item.html";
 }
-
-
 
 
 
