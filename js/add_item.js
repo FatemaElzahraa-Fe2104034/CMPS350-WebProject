@@ -66,31 +66,32 @@ uploadForm.addEventListener("submit", handleSubmit)
 
 
 function handleSubmit(e) {
-  e.preventDefault();
+  e.preventDefault()
   const item = formToObject(e.target);
 
   for (const [k, value] of Object.entries(item)) {
     if (value == "") {
-      alert("Please fill all fields");
+      alert("Please fill all fields")
       return;
     }
   }
 
-  const exist = items.findIndex(i => i.image_url === item.image_url);
+  const exist = items.findIndex(i => i.image_url === item.image_url)
   if (exist !== -1) {
     // Handle update
-    updateItem(item.image_url);
-    alert("Item updated !");
+    updateItem(item.image_url)
+    alert("Item updated !")
     return; // Prevent further execution after updating
   } else {
-    setItemArtist(item);
-    item.quantity_to_buy = 0;
+    setItemArtist(item)
+    item.quantity_to_buy = 0
+    item.clients = []
 
     items.push(item);
-    localStorage.setItem('items', JSON.stringify(items));
-    localStorage.setItem('itemOnSale', JSON.stringify(itemOnSale));
-    console.log("Item added");
-    window.location.href = "/html/historySeller.html";
+    localStorage.setItem('items', JSON.stringify(items))
+    localStorage.setItem('itemOnSale', JSON.stringify(itemOnSale))
+    console.log("Item added")
+    window.location.href = "/html/historySeller.html"
   }
 }
 

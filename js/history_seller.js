@@ -98,6 +98,7 @@ function itemsToHTML(item) {
 
 function itemsSoldToHTML(item) {
   const clientsHTML = clientsToHTML(item.clients);
+  console.log(`Clients array: ${item.clients}`);
   numberOfItemsSold += item.sold;
   return `
     <div class="card">
