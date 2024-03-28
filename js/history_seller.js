@@ -4,7 +4,7 @@ const customerInfo = document.querySelector('#customer_info');
 const header = document.querySelector("#header")
 const nav = document.querySelector("#nav");
 const customerName = document.querySelector('#name');
-// const itemsOnsale = document.querySelector('#totalOnsale');
+const TotalitemsOnsale = document.querySelector('#totalOnsale');
 const itemssold = document.querySelector('#totalSold');
 const cutsomerUsername = document.querySelector('#user_username');
 const totalAmountSold = document.querySelector('#totalAmount');
@@ -105,7 +105,7 @@ function clientsToHTML(clientsArray){
 }
 
 function getTotalAmount() {
-    const sum =0;
+    let sum =0;
     if (itemsSold.length != 0) {
         sum = itemsSold.reduce(((acc, b) => acc+b.price), 0);
     } 
@@ -115,7 +115,7 @@ function getTotalAmount() {
 function completeSellerInfo(){
     cutsomerUsername.innerHTML = `${users[loggedInUser].username}`;
     customerName.value = users[loggedInUser].name;
-    itemsOnsale.value = itemsOnSale.length;
+    TotalitemsOnsale.value = itemsOnSale.length;
     itemssold.value = itemsSold.length;
 }
 
