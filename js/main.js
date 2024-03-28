@@ -11,9 +11,20 @@ const loginLINK = document.querySelector("#login")
 const categoryDD = document.querySelector("#dropdown-content")
 const profileB = document.querySelector('#profile');
 
+const searchText = document.querySelector('#searchBar');
+
 categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
 profileB.addEventListener('click', profileCheck)
 // const profileB = document.querySelector('#profile');
+searchBar.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" || event.keyCode === 13) {
+        // Execute your function here
+        // For example:
+        event.preventDefault()
+        searchFunction();
+    }
+});
+
 
 let categories =[]
 let users =[]
@@ -178,4 +189,10 @@ function profileCheck() {
         alert("Login before proceeding.")
         window.location.href ="/html/login.html"
     }
+}
+
+function searchFunction() {
+    console.log(searchText.value.toLowerCase());
+    localStorage.setItem("lastSearchTerm", searchText.value);
+    window.location.href ="/html/all_Items.html"
 }

@@ -10,7 +10,7 @@ const ascDD = document.querySelector("#price-asc")
 const descDD = document.querySelector("#price-desc")
 
 
-searchBAR.addEventListener('input', handleSearchBar)
+searchBAR.addEventListener('input', handleSearchBar);
 ascDD.addEventListener('click', () => sortItemsByPrice('asc'));
 descDD.addEventListener('click', () => sortItemsByPrice('desc'));
 
@@ -44,6 +44,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Failed to load items:", error)
     }
 });
+
+if (localStorage.getItem('lastSearchTerm') != 'null'){
+    console.log("inside if statement");
+    const retrievedSearchValue = localStorage.getItem('lastSearchTerm');
+    if (retrievedSearchValue.trim() !== '') {
+        setSearchBarValueAndTriggerSearch(retrievedSearchValue);
+    }
+}
+
+function setSearchBarValueAndTriggerSearch(value) {
+    searchBAR.value = value;
+    searchBAR.dispatchEvent(new Event('input'));
+}
 
 function sortItemsByPrice(order) {
     console.log("called sort");
@@ -104,8 +117,11 @@ function handleFilter(categoryId){
 
 
 function handleSearchBar() {
+    console.log("inside handleSearchBar");
     const filter = searchBAR.value.toLowerCase().trim()
+    console.log("filter word is : ",filter);
     if (filter) {
+        console.log("inside filter if");
         const filteredItems = items.filter(item => {
             // Safe check for title
             const titleMatch = item.title && typeof item.title === 'string' ? item.title.toLowerCase().includes(filter) : false;
@@ -114,12 +130,19 @@ function handleSearchBar() {
 
             return titleMatch || categoryMatch || artistMatch
         });
-
+        console.log(filteredItems);
         showItems(filteredItems)
     } else {
+        console.log("inside filter else");
         showItems(items) // Show all books when there's no filter
     }
+    if (localStorage.getItem('lastSearchTerm') != 'null') {
+        localStorage.setItem('lastSearchTerm', 'null');
+        searchBAR.value = filter;
+    }
 }
+
+
 
 function onPurchase(itemId){
 

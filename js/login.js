@@ -10,6 +10,7 @@ loginFORM.addEventListener('submit', handleLogin);
 document.addEventListener('DOMContentLoaded', async () => {
     
     try {
+        localStorage.setItem('lastSearchTerm', null);
         users = JSON.parse(localStorage.getItem('users'))
     
     } catch (error) {
