@@ -148,14 +148,14 @@ function deleteItem(itemId) {
     }
   }
 
-//   function updateItem(id) {
-//     window.location.href = `/html/add_item.html`;
-//     const item = items.find(i => i.ID == id);
-//     if (item) {
-//       const queryString = `?id=${id}`;
-//     } else {
-//       console.log("Item not found");
-//     }
-//   }
+  function updateItem(id) {
+    const item = items.find(i => i.ID == id);
+    if (item) {
+      const queryString = `?id=${id}`;
+      window.location.href = `/html/add_item.html${queryString}`;
+    } else {
+      console.log("Item not found");
+    }
+  }
   
   
