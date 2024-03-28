@@ -1,5 +1,6 @@
 const itemsURL = "/json/items.json"
 let items = []
+let itemOnSale =[]
 
 const uploadForm = document.querySelector("#upload-form")
 
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       nav.innerHTML = navHTML
 
       loadItems()
+      itemOnSale = JSON.parse(localStorage.getItem('itemOnSale'));
   
   } catch (error) {
       console.error("Failed to load nav or header:", error)
@@ -29,39 +31,70 @@ async function loadItems() {
 
 uploadForm.addEventListener("submit", handleSubmit)
 
-function handleSubmit(e) {
-  e.preventDefault()
-  //working
-  const item = formToObject(e.target)
-  console.log(item)
+// function handleSubmit(e) {
+//   e.preventDefault()
+//   //working
+//   const item = formToObject(e.target)
+//   console.log(item)
 
-  //working
+//   //working
+//   for (const [k, value] of Object.entries(item)) {
+//     if (value == "") {
+//       // validating = false
+//       alert("Please fill all fields")
+//       return
+//     }
+//   }
+//   const exist = items.findIndex(i => i.ID == item.ID)
+//   if (exist != -1) {
+//     //handle update
+//     updateItem(item.ID)
+//     alert("Already there !")
+//     items[exist] = item
+//   }
+//   setItemArtist(item)
+//   item.quantity_to_buy = 0
+  
+//   items.push(item);
+//   localStorage.setItem('items', JSON.stringify(items))
+//   localStorage.setItem('itemOnSale', JSON.stringify(itemOnSale))
+//   console.log("Item added")
+//   window.location.href = "/html/historySeller.html"
+// }
+
+
+
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const item = formToObject(e.target);
+
   for (const [k, value] of Object.entries(item)) {
     if (value == "") {
-      // validating = false
-      alert("Please fill all fields")
-      return
+      alert("Please fill all fields");
+      return;
     }
   }
 
-  setItemArtist(item)
-  item.quantity_to_buy = 0
+  const exist = items.findIndex(i => i.image_url === item.image_url);
+  if (exist !== -1) {
+    // Handle update
+    updateItem(item.image_url);
+    alert("Item updated !");
+    return; // Prevent further execution after updating
+  } else {
+    setItemArtist(item);
+    item.quantity_to_buy = 0;
 
-  // const exist = items.findIndex(i => i.ID == item.ID)
-  // if (exist != -1) {
-  //   //handle update
-  //   updateItem(item.ID)
-  //   alert("Already there !")
-  //   items[exist] = item
-  // } else {
-  //   // console.log(items)
-  // }
-  
-  items.push(item);
-  localStorage.setItem('items', JSON.stringify(items))
-  console.log("Item added")
-  window.location.href = "/html/all_Items.html"
+    items.push(item);
+    localStorage.setItem('items', JSON.stringify(items));
+    localStorage.setItem('itemOnSale', JSON.stringify(itemOnSale));
+    console.log("Item added");
+    window.location.href = "/html/historySeller.html";
+  }
 }
+
+
 
 
 
@@ -85,7 +118,6 @@ function setItemArtist(item) {
 }
 
 
-//!!!! not working 
 function formToObject(form) {
   const formData = new FormData(form);
   const data = {};
@@ -98,22 +130,45 @@ function formToObject(form) {
 
 
 
-function updateItem(id) {
-  const item = items.find(i => i.ID == id);
+// function updateItem(id) {
+//   const item = items.find(i => i.ID == id);
+//   if (item) {
+//     Object.entries(item).forEach(([key, value]) => {
+//       const element = document.querySelector(`#${key}`);
+//       if (element) {
+//         if (key !="quantity") {
+//           element.setAttribute("readonly", true);
+//         }
+//         element.value = value;
+//       }
+//     });
+//   } else {
+//     console.log("Item not found");
+//   }
+// }
+
+
+
+function updateItem(imageUrl) {
+  const item = items.find(i => i.image_url === imageUrl);
   if (item) {
-    Object.entries(item).forEach(([key, value]) => {
-      const element = document.querySelector(`#${key}`);
-      if (element) {
-        if (key !="quantity") {
-          element.setAttribute("readonly", true);
-        }
-        element.value = value;
+    const newQuantity = prompt("Item Exist! Enter new quantity:", item.available_quantity);
+    if (newQuantity !== null) {
+      const parsedQuantity = parseInt(newQuantity);
+      if (!isNaN(parsedQuantity) && parsedQuantity >= 0) {
+        item.available_quantity = parsedQuantity;
+        localStorage.setItem('items', JSON.stringify(items));
+        console.log("Item updated");
+        window.location.href = "/html/historySeller.html"; 
+      } else {
+        alert("Invalid quantity entered.");
       }
-    });
+    }
   } else {
     console.log("Item not found");
   }
 }
+
 
 
 

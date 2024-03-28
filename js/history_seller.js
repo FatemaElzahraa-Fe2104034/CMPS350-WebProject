@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     showitemsSold();
     completeSellerInfo();
     getTotalAmount();
+
   } catch (error) {
     console.error("Failed to load items:", error);
   }
@@ -146,4 +147,15 @@ function deleteItem(itemId) {
       console.log("Item not found");
     }
   }
+
+//   function updateItem(id) {
+//     window.location.href = `/html/add_item.html`;
+//     const item = items.find(i => i.ID == id);
+//     if (item) {
+//       const queryString = `?id=${id}`;
+//     } else {
+//       console.log("Item not found");
+//     }
+//   }
+  
   
