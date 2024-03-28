@@ -51,9 +51,9 @@ function handleSubmit(e) {
     alert("Already there !")
     items[exist] = item
   } else {
-    items.push(item);
     // console.log(items)
   }
+  items.push(item);
   localStorage.setItem('items', JSON.stringify(items))
   console.log("Item added")
   window.location.href = "/html/all_Items.html"
@@ -74,8 +74,7 @@ function setItemArtist(item) {
   item.currency = "QAR"
   item.artist = loggedInArtist.name
   item.artistID = Date.now()
-
-  // loggedInArtist.itemsOnSale.push(item)
+  loggedInArtist.itemsOnSale.push(item)
 }
 
 
