@@ -78,8 +78,8 @@ function setItemArtist(item) {
   item.currency = "QAR"
   item.artist = loggedInArtist.name
   item.artistID = loggedInArtist.id
-  // item.quantity_to_buy = 0
-  loggedInArtist.itemsOnSale.push(item)
+  
+  loggedInArtist.itemsOnSale.push(item.ID)
   localStorage.setItem('users', JSON.stringify(users))
 
 }
