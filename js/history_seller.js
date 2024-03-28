@@ -86,18 +86,19 @@ function itemsToHTML(item){
     const clientsHTML = clientsToHTML(item.clients);
     return `
     <div class="card">
-            <img src="${item.image_url}">
-            <div class="content">
-              <h3>${item.title}</h3>
-              <p>${item.description}</p>
-              <h4> Who bought this item :</h4>
-              <div class="hoverOverHere">Clients Usernames
-              <p class="hoverText">
+        <img src="${item.image_url}">
+        <div class="content">
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+            <h4> Who bought this item :</h4>
+            <span class="hoverOverHere">
+                <p>Clients Usernames</p>
+                <p class="hoverText">
                   ${item.clients.join(', ')}
-              </p>
-              </div>
-            </div>
-        </div>`
+                </p>
+            </span>
+        </div>
+    </div>`
 }
 
 function clientsToHTML(clientsArray){
