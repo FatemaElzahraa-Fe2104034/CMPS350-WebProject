@@ -96,8 +96,6 @@ function handleSubmit(e) {
 
 
 
-
-
 function setItemArtist(item) {
 
   let users = JSON.parse(localStorage.getItem('users'));
