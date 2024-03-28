@@ -55,10 +55,12 @@
         "id": 1,
         "name": "Rouaa",
         "soldItems": [],
-        "itemsOnSale": [],
+        "itemsOnSale": [
+            "001"
+        ],
         "isLoggedIn": false,
         "type": "seller",
-        "balance": 607.0503203589161,
+        "balance": 607,
         "purchaseHistory": []
     },
     {
@@ -67,10 +69,12 @@
         "id": 2,
         "name": "Hams",
         "soldItems": [],
-        "itemsOnSale": [],
+        "itemsOnSale": [
+            "002"
+        ],
         "isLoggedIn": false,
         "type": "seller",
-        "balance": 1258.3934981418054,
+        "balance": 1258,
         "purchaseHistory": []
     },
     {
@@ -79,10 +83,12 @@
         "id": 3,
         "name": "Fatma",
         "soldItems": [],
-        "itemsOnSale": [],
+        "itemsOnSale": [
+            "003"
+        ],
         "isLoggedIn": false,
         "type": "seller",
-        "balance": 861.1489126095338,
+        "balance": 861,
         "purchaseHistory": []
     },
     {
@@ -91,10 +97,12 @@
         "id": 4,
         "name": "Sara",
         "soldItems": [],
-        "itemsOnSale": [],
+        "itemsOnSale": [
+            "005"
+        ],
         "isLoggedIn": false,
         "type": "seller",
-        "balance": 751.2581286806011,
+        "balance": 751,
         "purchaseHistory": []
     },
     {
@@ -106,7 +114,7 @@
         "itemsOnSale": [],
         "isLoggedIn": false,
         "type": "seller",
-        "balance": 970.6083725509629,
+        "balance": 970,
         "purchaseHistory": []
     },
     {
@@ -115,10 +123,12 @@
         "id": 6,
         "name": "Josje",
         "soldItems": [],
-        "itemsOnSale": [],
+        "itemsOnSale": [
+            "006"
+        ],
         "isLoggedIn": false,
         "type": "seller",
-        "balance": 754.279926695209,
+        "balance": 754,
         "purchaseHistory": []
     },
     {
@@ -127,10 +137,12 @@
         "id": 7,
         "name": "Ally",
         "soldItems": [],
-        "itemsOnSale": [],
+        "itemsOnSale": [
+            "004"
+        ],
         "isLoggedIn": false,
         "type": "seller",
-        "balance": 524.3356536855113,
+        "balance": 524,
         "purchaseHistory": []
     }
 ]
