@@ -11,6 +11,7 @@
     --our_lightblue: #daeaf6;
     --our_lightgreen: #ddedea;
     --our_darkgreen:#49877c;
+    --our_darkgreen2:#6ab2a5;
     --our_lightyellow: #fcf4dd;
     --our_lightpurple: #e8dff5;
     --our_darkpurple:#ceabff;
@@ -118,27 +119,69 @@ body {
         }
     }
 
-    button{
+    button {
+
+        background-color: var(--our_darkgreen);
+        color: white;
+        border-radius: 25px;
+        font-size: 1.5rem;
+
+        padding: 1rem;
+
+        margin: 1rem 0rem;
+        
+
+    }
+
+    .addItemButton{
         /* width: 80%; */
         width: 150pt;
         height: 50pt;
         align-self: center;
 
-        background-color: var(--our_darkgreen);
-        color: white;
+        /* background-color: var(--our_darkgreen);
+        color: white; */
 
         /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
         /* border: 1px solid var(--our_maroon); */
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
         border: 0;
-        border-radius: 25px;
+        /* border-radius: 25px; */
 
-        font-size: 18pt;
+        /* font-size: 18pt; */
         /* font-weight: bold; */
 
-        padding: 1rem;
+        /* padding: 1rem;
 
-        margin: 1rem 0rem;
+        margin: 1rem 0rem; */
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0;
+    }
+
+    .button-container button {
+        width: 12rem; /* Adjust width of buttons */
+        height: 12rem; /* Adjust height of buttons */
+        border: 0;
+        border-radius: 20px;
+        font-size: 14px; /* Adjust font size */
+        padding: 0.5rem; /* Adjust padding */
+        margin: 0 5px; /* Adjust margin */
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: var(--our_darkgreen2);
+    }
+
+    #deleteBtn:hover {
+        background-color: var(--our_maroon);
+
+
     }
 
 }
