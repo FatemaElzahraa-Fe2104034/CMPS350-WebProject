@@ -192,7 +192,6 @@ function profileCheck() {
 }
 
 function searchFunction() {
-    console.log(searchText.value.toLowerCase());
-    localStorage.setItem("lastSearchTerm", searchText.value);
-    window.location.href ="/html/all_Items.html"
+    const parameterValue = searchText.value;
+    window.location.href = `/html/all_Items.html?parameter=${parameterValue}`;
 }
