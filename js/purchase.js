@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (itemId) {
         const items = JSON.parse(localStorage.getItem('items'));
-        currentItem = items.find(i => i.ID === itemId);
+        currentItem = items.find(i => i.ID == itemId);
         if (currentItem) {
             displayItemInfo();
         } else {
