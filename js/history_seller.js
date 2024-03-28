@@ -16,6 +16,8 @@ let itemsSold = users[loggedInUser].soldItems;
 let itemsOnSale = users[loggedInUser].itemsOnSale;
 let numberOfItemsSold = 0;
 
+let items = JSON.parse(localStorage.getItem("items")) 
+
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     // Load header
