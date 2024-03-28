@@ -101,6 +101,7 @@ function itemsSoldToHTML(item){
             <img src="${item.image_url}">
             <div class="content">
               <h3>${item.title}</h3>
+              <p>${item.description}</p>
               <p><b>Price: </b>${item.price}</p>
               <p><b>${item.sold}</b> Items got sold</p>
               <h4> Who bought this item :</h4>

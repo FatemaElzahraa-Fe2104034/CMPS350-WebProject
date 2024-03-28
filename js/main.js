@@ -141,8 +141,6 @@ function handleLogin() {
 }
 
 function showCategoriesDROPDOWN(){  
-    // const dropdownContent = document.getElementById('dropdown-content');
-    // dropdownContent.classList.toggle('show-dropdown');
     const mappedCategories = categories.map(c => `
         <a onclick="navigateToFilteredItems(${c.id})">${c.name}</a>
     `).join('\n')
@@ -153,19 +151,6 @@ function showCategoriesDROPDOWN(){
 function navigateToFilteredItems(categoryId){
     window.location.href = `/html/all_Items.html?id=${categoryId}`
 }
-
-// function profileCheck(){
-//     console.log("entered profilecheck");
-//     const users = JSON.parse(localStorage.getItem('users'))
-//     const nusersSeller = JSON.parse(localStorage.getItem('seller'))
-//     const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
-//     if (loggedInUser!=-1) {
-//         window.location.href = "/html/history.html"
-//     }
-//     else {
-//         window.location.href = "/html/historySeller.html"
-//     }
-// }
 
 function profileCheck() {
     // Retrieve customer data from local storage and parse it
@@ -194,29 +179,3 @@ function profileCheck() {
         window.location.href ="/html/login.html"
     }
 }
-
-
-
-
-// function profileCheck(){
-//     const loggedInUser = users.findIndex(u => u.isLoggedIn === true)
-//     console.log(loggedInUser);
-//     if(loggedInUser != -1){
-//         const user = users[loggedInUser]
-//         if(user.type=="customer"){
-//             //Handle customer here
-//             window.location.href = "/html/history.html"
-//         }
-//         else if(user.type=="seller"){
-//             //Handle seller here
-//             window.location.href = "/html/historySeller.html"
-//         }
-//         else{
-//             alert("An error occured")
-//         }
-//     }
-//     else{
-//         alert("Login before proceeding.")
-//         window.location.href ="/html/login.html"
-//     }
-// }
