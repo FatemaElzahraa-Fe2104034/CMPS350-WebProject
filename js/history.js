@@ -1,8 +1,8 @@
 const historyContainer = document.querySelector('#history_container');
 const customerInfo = document.querySelector('#customer_info');
 const totalAmount = document.querySelector('#totalAmount');
-const header = document.querySelector("#headerContainer")
-const nav = document.querySelector("#navContainer");
+const header = document.querySelector("#header")
+const nav = document.querySelector("#nav");
 const customerName = document.querySelector('#name');
 const customerAdd = document.querySelector('#shipAdd');
 const customerPurchaces = document.querySelector('#totalPur');
@@ -15,19 +15,14 @@ let items = users[loggedInUser].purchaseHistory;
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         // Load header
-        const headerResponse = await fetch("../html/common/header.html")
+        const headerResponse = await fetch("/html/common/header.html")
         const headerHTML = await headerResponse.text()
         header.innerHTML = headerHTML
         
         //  Load nav
-        const navResponse = await fetch("../html/common/nav.html")
+        const navResponse = await fetch("/html/common/nav.html")
         const navHTML = await navResponse.text()
         nav.innerHTML = navHTML
-
-        // items = loggedInUser.purchaseHistory;
-        // localStorage.items = JSON.stringify(items)
-        // console.log(items)
-
 
         showItems();
         getTotalAmount();
@@ -64,9 +59,9 @@ function itemsToHTML(item){
 
 function getTotalAmount() {
     console.log("in getTotalAmount function");
-    const sum = 0;
+    let sum = 0;
     if (items.length != 0) {
-        sum = items.reduce(((acc, b) => acc+b.price), 1);
+        sum = items.reduce(((acc, b) => acc+b.price), 0);
     }
     totalAmount.value = `${sum} $`;
 }

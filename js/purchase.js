@@ -105,6 +105,13 @@ function onPurchase(e){
         artist.soldItems.push(currentItem)
         currentItem.clients.push(loggedInUser.username)
 
+        const currentItemId = items.findIndex( i => i.ID == currentItem.ID);
+        const clientIndex = users.findIndex(u => u.username == loggedInUser.username);
+        users[clientIndex] = loggedInUser;
+        
+        localStorage.users = JSON.stringify(users);
+        localStorage.items = JSON.stringify(items);
+
         console.log(`purchase history ${loggedInUser.purchaseHistory.toString()}`)
         console.log(`sale history ${artist.soldItems.toString()}`)
 
