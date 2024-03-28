@@ -40,15 +40,37 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// function showItemsOnSale() {
+//     if (itemsOnSale.length != 0) {
+//         // const filteredItemsOnSale = itemsOnSale.filter(i => i.artistID == loggedInUser.id)
+//         // itemsOnSale.map()
+//         const itemsOnSaleHTML = filteredItemsOnSale.map(i => itemsToHTML(i)).join(' ')
+//         onsaleContainer.innerHTML = itemsOnSaleHTML
+//     }
+//     else{
+//         onsaleContainer.innerHTML += "<p>Currently No Items Are On-Sale!</p>"
+//     }
+// }
+
 function showItemsOnSale() {
-    if (itemsOnSale.length != 0) {
-        const itemsOnSaleHTML = itemsOnSale.map(i => itemsToHTML(i)).join(' ')
-        onsaleContainer.innerHTML = itemsOnSaleHTML
-    }
-    else{
-        onsaleContainer.innerHTML += "<p>Currently No Items Are On-Sale!</p>"
+    // Retrieve items from local storage
+    const allItems = JSON.parse(localStorage.getItem('items')) || [];
+    const sellerItemsOnSale = users[loggedInUser].itemsOnSale;
+
+    if (sellerItemsOnSale.length > 0) {
+        // Find the corresponding items in allItems array using the itemsOnSale IDs
+        const filteredItemsOnSale = allItems.filter(item => sellerItemsOnSale.includes(item.ID));
+
+        // Generate HTML for each item and join them into a single string
+        const itemsOnSaleHTML = filteredItemsOnSale.map(item => itemsToHTML(item)).join(' ');
+
+        // Insert the HTML into the onsaleContainer
+        onsaleContainer.innerHTML = itemsOnSaleHTML;
+    } else {
+        onsaleContainer.innerHTML += "<p>Currently No Items Are On-Sale!</p>";
     }
 }
+
 
 function showitemsSold(){
     if (itemsSold.length != 0) {
