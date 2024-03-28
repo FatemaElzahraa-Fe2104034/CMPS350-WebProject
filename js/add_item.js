@@ -30,10 +30,11 @@ async function loadItems() {
 uploadForm.addEventListener("submit", handleSubmit)
 
 function handleSubmit(e) {
-  // console.log("Inside handle submission");
   e.preventDefault()
-  // console.log("Form submitted")
+  //working
   const item = formToObject(e.target)
+  console.log(item)
+  //working
   setItemArtist(item)
   // let validating = true
   for (const [k, value] of Object.entries(item)) {
@@ -49,13 +50,12 @@ function handleSubmit(e) {
     updateItem(item.ID)
     alert("Already there !")
     items[exist] = item
-  } 
-
-  items.push(item)
-  localStorage.setItem("items", JSON.stringify(items))
-  
+  } else {
+    items.push(item);
+    // console.log(items)
+  }
+  localStorage.setItem('items', JSON.stringify(items))
   console.log("Item added")
-  
   window.location.href = "/html/all_Items.html"
 }
 
@@ -63,7 +63,7 @@ function handleSubmit(e) {
 
 function setItemArtist(item) {
 
-  let users = JSON.parse(localStorage.getItem("users"));
+  let users = JSON.parse(localStorage.getItem('users'));
   console.log(users)
 
   let artist = users.filter(u => u.type == "seller")

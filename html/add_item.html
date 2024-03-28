@@ -39,23 +39,23 @@
 
       <form id="upload-form">
         <label for="item-title">Item Title :</label>
-        <input type="text" id="item-title" name="item-title" required />
+        <input type="text" id="title" name="title" required />
 
         <label for="quantity">Quantity :</label>
-        <input type="number" id="quantity" name="quantity" required />
+        <input type="number" id="available_quantity" name="available_quantity" required />
 
         <label for="price">Price :</label>
         <input type="text" id="price" name="price" required />
 
         <label for="img">image URL :</label>
-        <input type="text" id="imgUrl" name="imgUrl" required />
+        <input type="text" id="image_url" name="image_url" required />
 
         <!-- <h2>Add Details</h2> -->
         <!-- ADD DROPDOWN -->
         <label for="category">Category :</label>
         <!-- <input type="" id="item-title" name="item-title" required> -->
-        <select name="categories" class="dropdown-categories">
-          <option id="category-placeholder" selected disabled hidden>
+        <select name="category" class="dropdown-categories">
+          <option id="category" selected disabled hidden>
             Choose a category
           </option>
           <option value="painting">Painting</option>
@@ -76,6 +76,7 @@
           rows="10"
           required
         ></textarea>
+
         <button type="submit" class="submit-button">Add to shop</button>
       </form>
     </section>
