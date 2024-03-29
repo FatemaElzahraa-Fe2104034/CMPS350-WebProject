@@ -7,8 +7,8 @@ const loginFORM = document.querySelector("#login-form");
 loginFORM.addEventListener('submit', handleLogin);
 
 // Add event listener to load the users
-document.addEventListener('DOMContentLoaded', async () => {
-    
+document.addEventListener('DOMContentLoaded', async () => {   
+
     try {
         localStorage.setItem('lastSearchTerm', null);
         users = JSON.parse(localStorage.getItem('users'))

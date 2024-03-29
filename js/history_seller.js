@@ -73,7 +73,7 @@ function showitemsSold() {
     const itemsSoldHTML = itemsSold.map((i) => itemsSoldToHTML(i)).join(" ");
     soldContainer.innerHTML = itemsSoldHTML;
   } else {
-    soldContainer.innerHTML += "<p>No Items Are Sold Yet!</p>";
+    soldContainer.innerHTML += "<p class='message'>No Items Are Sold Yet!</p>";
   }
 }
 
@@ -100,7 +100,7 @@ function itemsSoldToHTML(item) {
             <div class="content">
               <h3>${item.title}</h3>
               <p>${item.description}</p>
-              <p><b>Price: </b>${item.price}</p>
+              <p><b>Price: </b>${item.price} ${item.currency}</p>
               <p><b>${item.sold}</b> Items got sold</p>
               <h4> Who bought this item :</h4>
               <p>${item.clients.join(", ")}</p>
@@ -119,7 +119,7 @@ function getTotalAmount() {
   if (itemsSold.length != 0) {
     sum = itemsSold.reduce((acc, b) => acc + b.price, 0);
   }
-  totalAmountSold.value = `${sum} $`;
+  totalAmountSold.value = `${sum} QAR`;
 }
 
 // Function to fill in seller information

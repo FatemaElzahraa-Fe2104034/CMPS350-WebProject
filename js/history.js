@@ -52,7 +52,8 @@ function itemsToHTML(item){
             <img src="${item.image_url}">
             <div class="content">
               <h3>${item.title}</h3>
-              <p>Price: ${item.price} ${item.currency}</p>
+              <p><b>Price: </b>${item.price} ${item.currency}</p>
+              <p><b>Quantity Bought: </b>${item.quantity_to_buy}</p>
             </div>
         </div>`
 }
@@ -63,7 +64,7 @@ function getTotalAmount() {
     if (items.length != 0) {
         sum = items.reduce(((acc, b) => acc+(b.price*b.quantity_to_buy)), 0);
     }
-    totalAmount.value = `${sum} $`;
+    totalAmount.value = `${sum} QAR`;
 }
 
 function completeCustomerInfo(){
