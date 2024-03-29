@@ -44,17 +44,6 @@ body{
     font-family: 'Glacial Indifference', sans-serif;
 }
 
-/* .left-side{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    img{
-        border-radius: 0% 0% 10% 10%;
-        width: 100%;
-        height: auto;
-    }
-} */
-
 .left-side{
     h1{
         font-style: italic;
@@ -165,35 +154,15 @@ footer{
 /* Bigger Screen */
 @media (min-width : 60rem){
     .main{
-        flex-direction: column; /* Keep children aligned horizontally on larger screens */
-        justify-content: center; /* Ensure content is still centered */
-        align-items: center; /* Center content vertically */
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
         margin-top: 2rem;
     }
 
     .right-side{
         width: 50%;
         align-self: center;
-
-        form{
-            /* width: 50%; */
-            /* padding: 4rem;
-            input{
-                width: 50%;
-            } */
-        }
-    }
-    .left-side{
-        /* flex: 1;
-        display: flex;
-
-        margin-right: 1rem;
-        justify-content: center; */
-        /* img{
-            border-radius: 0% 10% 10% 0%;
-            width: 100%;
-            height: auto;
-        } */
     }
 }
 

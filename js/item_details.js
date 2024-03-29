@@ -75,7 +75,7 @@ function onPurchase(itemId){
         const users = JSON.parse(localStorage.getItem('users'))
         const loggedInUser = users.findIndex(u => u.isLoggedIn == true)
         if(loggedInUser!=-1){
-            alert(`purchase activated, user logged in ${users[loggedInUser].username}`)
+            // alert(`purchase activated, user logged in ${users[loggedInUser].username}`)
             window.location.href = `/html/purchase.html?id=${itemId}`
         }
         else{
