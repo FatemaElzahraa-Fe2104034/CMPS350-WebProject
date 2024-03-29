@@ -52,7 +52,7 @@ function itemsToHTML(item){
             <img src="${item.image_url}">
             <div class="content">
               <h3>${item.title}</h3>
-              <p>${item.description}</p>
+              <p>Price: ${item.price} ${item.currency}</p>
             </div>
         </div>`
 }
