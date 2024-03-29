@@ -225,6 +225,12 @@ li {
         box-shadow: 0 28px 36px 0 rgba(88, 11, 11, 0.2);
     }
 }
+footer{
+    padding: 1rem;
+    background-color: rgb(25, 24, 24);
+    color: white;
+    width: 100%;
+  }
 
 /* Bigger Screen */
 @media (min-width : 60rem){

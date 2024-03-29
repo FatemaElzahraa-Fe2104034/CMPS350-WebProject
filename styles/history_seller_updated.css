@@ -240,6 +240,13 @@ body {
     visibility: visible;
   }
 
+  footer{
+    padding: 1rem;
+    background-color: rgb(25, 24, 24);
+    color: white;
+    width: 100%;
+  }
+
   @media (min-width : 60rem) {
     .item-cards{
         /* display: grid; */
