@@ -61,7 +61,7 @@ function getTotalAmount() {
     console.log("in getTotalAmount function");
     let sum = 0;
     if (items.length != 0) {
-        sum = items.reduce(((acc, b) => acc+b.price), 0);
+        sum = items.reduce(((acc, b) => acc+(b.price*b.quantity_to_buy)), 0);
     }
     totalAmount.value = `${sum} $`;
 }
