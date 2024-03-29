@@ -1,3 +1,4 @@
+// Select elements from the DOM for manipulation
 const onsaleContainer = document.querySelector("#onsale_container");
 const soldContainer = document.querySelector("#sold_container");
 const customerInfo = document.querySelector("#customer_info");
@@ -9,27 +10,31 @@ const itemssold = document.querySelector("#totalSold");
 const cutsomerUsername = document.querySelector("#user_username");
 const totalAmountSold = document.querySelector("#totalAmount");
 
+// Retrieve the list of users and find the currently logged-in user
 const users = JSON.parse(localStorage.getItem("users"));
 const loggedInUser = users.findIndex((u) => u.isLoggedIn == true);
 
+// Extract information about items sold and items on sale from the logged-in user
 let itemsSold = users[loggedInUser].soldItems;
 let itemsOnSale = users[loggedInUser].itemsOnSale;
 let numberOfItemsSold = 0;
 
+// Retrieve the items from local storage
 let items = JSON.parse(localStorage.getItem("items")) 
 
+// When the content is loaded, perform these actions
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // Load header
+    // Load the common header and navigation content
     const headerResponse = await fetch("/html/common/header.html");
     const headerHTML = await headerResponse.text();
     header.innerHTML = headerHTML;
 
-    //  Load nav
     const navResponse = await fetch("/html/common/nav.html");
     const navHTML = await navResponse.text();
     nav.innerHTML = navHTML;
 
+    // Display the items on sale, items sold, seller info, and the total amount sold
     showItemsOnSale();
     showitemsSold();
     completeSellerInfo();
@@ -40,41 +45,28 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// function showItemsOnSale() {
-//     if (itemsOnSale.length != 0) {
-//         // const filteredItemsOnSale = itemsOnSale.filter(i => i.artistID == loggedInUser.id)
-//         // itemsOnSale.map()
-//         const itemsOnSaleHTML = filteredItemsOnSale.map(i => itemsToHTML(i)).join(' ')
-//         onsaleContainer.innerHTML = itemsOnSaleHTML
-//     }
-//     else{
-//         onsaleContainer.innerHTML += "<p>Currently No Items Are On-Sale!</p>"
-//     }
-// }
-
+// Function to display items that are currently on sale
 function showItemsOnSale() {
-  // Retrieve items from local storage
   const allItems = JSON.parse(localStorage.getItem("items")) || [];
   const sellerItemsOnSale = users[loggedInUser].itemsOnSale;
 
   if (sellerItemsOnSale.length > 0) {
-    // Find the corresponding items in allItems array using the itemsOnSale IDs
+    // Filter and display items that are on sale
     const filteredItemsOnSale = allItems.filter((item) =>
       sellerItemsOnSale.includes(item.ID)
     );
 
-    // Generate HTML for each item and join them into a single string
     const itemsOnSaleHTML = filteredItemsOnSale
       .map((item) => itemsToHTML(item))
       .join(" ");
 
-    // Insert the HTML into the onsaleContainer
     onsaleContainer.innerHTML = itemsOnSaleHTML;
   } else {
     onsaleContainer.innerHTML += "<p>Currently No Items Are On-Sale!</p>";
   }
 }
 
+// Function to display items that have been sold
 function showitemsSold() {
   if (itemsSold.length != 0) {
     const itemsSoldHTML = itemsSold.map((i) => itemsSoldToHTML(i)).join(" ");
@@ -84,8 +76,8 @@ function showitemsSold() {
   }
 }
 
+// Function to convert item details to HTML format
 function itemsToHTML(item) {
-  const clientsHTML = clientsToHTML(item.clients);
   return `
     <div class="card">
         <img src="${item.image_url}">
@@ -98,9 +90,8 @@ function itemsToHTML(item) {
     </div>`;
 }
 
+// Function to convert sold items details to HTML format
 function itemsSoldToHTML(item) {
-  const clientsHTML = clientsToHTML(item.clients);
-  console.log(`Clients array: ${item.clients}`);
   numberOfItemsSold += item.sold;
   return `
     <div class="card">
@@ -116,10 +107,12 @@ function itemsSoldToHTML(item) {
         </div>`;
 }
 
+// Function to compile client details into HTML list format
 function clientsToHTML(clientsArray) {
   return clientsArray.map((c) => `<li> ${c} </li>`).join("");
 }
 
+// Function to calculate the total amount from sold items
 function getTotalAmount() {
   let sum = 0;
   if (itemsSold.length != 0) {
@@ -128,6 +121,7 @@ function getTotalAmount() {
   totalAmountSold.value = `${sum} $`;
 }
 
+// Function to fill in seller information
 function completeSellerInfo() {
   cutsomerUsername.innerHTML = `${users[loggedInUser].username}`;
   customerName.value = users[loggedInUser].name;
@@ -135,29 +129,25 @@ function completeSellerInfo() {
   itemssold.value = numberOfItemsSold;
 }
 
-function addItemBEvent() {
-  window.location.href = "/html/add_item.html";
+// Function to handle item deletion
+function deleteItem(itemId) {
+  const allItems = JSON.parse(localStorage.getItem("items")) || [];
+  const index = allItems.findIndex((item) => item.ID == itemId);
+  if (index != -1) {
+    allItems.splice(index, 1);
+    localStorage.setItem("items", JSON.stringify(allItems));
+    showItemsOnSale();
+  } else {
+    console.log("Item not found");
+  }
 }
 
-function deleteItem(itemId) {
-    const allItems = JSON.parse(localStorage.getItem("items")) || [];
-    const index = allItems.findIndex((item) => item.ID == itemId);
-    if (index != -1) {
-      allItems.splice(index, 1);
-      localStorage.setItem("items", JSON.stringify(allItems));
-      showItemsOnSale();
-    } else {
-      console.log("Item not found");
-    }
+// Function to redirect for item update
+function updateItem(id) {
+  const item = items.find(i => i.ID == id);
+  if (item) {
+    window.location.href = `/html/add_item.html?id=${item.ID}`;
+  } else {
+    console.log("Item not found");
   }
-
-  function updateItem(id) {
-    const item = items.find(i => i.ID == id);
-    if (item) {
-      window.location.href = `/html/add_item.html?id=${item.ID}`
-    } else {
-      console.log("Item not found");
-    }
-  }
-  
-  
+}

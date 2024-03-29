@@ -134,47 +134,6 @@ function formToObject(form) {
   return data;
 }
 
-
-
-// function updateItem(id) {
-//   const item = items.find(i => i.ID == id);
-//   if (item) {
-//     Object.entries(item).forEach(([key, value]) => {
-//       const element = document.querySelector(`#${key}`);
-//       if (element) {
-//         if (key !="quantity") {
-//           element.setAttribute("readonly", true);
-//         }
-//         element.value = value;
-//       }
-//     });
-//   } else {
-//     console.log("Item not found");
-//   }
-// }
-
-
-
-// function updateItem(imageUrl) {
-//   const item = items.find(i => i.image_url == imageUrl);
-//   // if (item) {
-//   //   // const newQuantity = prompt("Item Exist! Enter new quantity:", item.available_quantity);
-//   //   if (newQuantity !== null) {
-//   //     const parsedQuantity = parseInt(newQuantity);
-//   //     if (!isNaN(parsedQuantity) && parsedQuantity >= 0) {
-//   //       item.available_quantity = parsedQuantity;
-//   //       localStorage.setItem('items', JSON.stringify(items));
-//   //       console.log("Item updated");
-//   //       window.location.href = "/html/historySeller.html"; 
-//   //     } else {
-//   //       alert("Invalid quantity entered.");
-//   //     }
-//   //   }
-//   // } else {
-//   //   console.log("Item not found");
-//   // }
-// }
-
 function updateItem(imageUrl) {
 
   const itemIndex = items.findIndex(i => i.image_url === imageUrl);

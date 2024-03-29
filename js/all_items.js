@@ -60,10 +60,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-// function setSearchBarValueAndTriggerSearch(value) {
-//     searchBAR.value = value;
-//     searchBAR.dispatchEvent(new Event('input'));
-// }
+function setSearchBarValueAndTriggerSearch(value) {
+    searchBAR.value = value;
+    searchBAR.dispatchEvent(new Event('input'));
+}
 
 function sortItemsByPrice(order) {
     console.log("called sort");
