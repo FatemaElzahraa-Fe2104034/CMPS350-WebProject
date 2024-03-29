@@ -17,14 +17,14 @@ categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
 profileB.addEventListener('click', profileCheck)
 
 // const profileB = document.querySelector('#profile');
-searchBar.addEventListener("keydown", function(event) {
-    if (event.key === "Enter" || event.keyCode === 13) {
-        // Execute your function here
-        // For example:
-        event.preventDefault()
-        searchFunction();
-    }
-});
+// searchBar.addEventListener("keydown", function(event) {
+//     if (event.key === "Enter" || event.keyCode === 13) {
+//         // Execute your function here
+//         // For example:
+//         event.preventDefault()
+//         searchFunction();
+//     }
+// });
 
 
 let categories =[]
@@ -192,7 +192,7 @@ function profileCheck() {
     }
 }
 
-function searchFunction() {
-    const parameterValue = searchText.value;
-    window.location.href = `/html/all_Items.html?parameter=${parameterValue}`;
-}
+// function searchFunction() {
+//     const parameterValue = searchText.value;
+//     window.location.href = `/html/all_Items.html?parameter=${parameterValue}`;
+// }
