@@ -9,6 +9,7 @@ const TotalitemsOnsale = document.querySelector("#totalOnsale");
 const itemssold = document.querySelector("#totalSold");
 const cutsomerUsername = document.querySelector("#user_username");
 const totalAmountSold = document.querySelector("#totalAmount");
+const addItem = document.querySelector("#addItemButton")
 
 // Retrieve the list of users and find the currently logged-in user
 const users = JSON.parse(localStorage.getItem("users"));
@@ -150,4 +151,10 @@ function updateItem(id) {
   } else {
     console.log("Item not found");
   }
+}
+
+addItem.addEventListener("click", addItemBEvent)
+
+function addItemBEvent() {
+  window.location.href = "/html/add_item.html";
 }
