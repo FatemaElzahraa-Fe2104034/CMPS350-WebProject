@@ -221,10 +221,24 @@ body {
 
 
 .message {
-    text-align: center;
-    border: 1px solid black;
-    font-size: 16pt;
+    grid-column: 1/3;
+    text-align: right;
+    font-size: 18pt;
     width: 100%;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+.mark {
+    grid-column: 3/4;
+    text-align: left;
+    font-size: 18pt;
+    width: 100%;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
   footer{

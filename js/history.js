@@ -38,7 +38,7 @@ function showItems() {
     console.log("in showItems function");
     items = users[loggedInUser].purchaseHistory;
     if (items.length == 0) {
-        historyContainer.innerHTML = `<p> You didn't buy items  yet!!</p>`
+        historyContainer.innerHTML = "<p class='message'>You didn't buy any</p><p class='mark'> items yet !</p>";
     }
     else{
         const itemsHTML = items.map(i => itemsToHTML(i)).join(' ');

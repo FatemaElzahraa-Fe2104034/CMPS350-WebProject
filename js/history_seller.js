@@ -63,7 +63,7 @@ function showItemsOnSale() {
 
     onsaleContainer.innerHTML = itemsOnSaleHTML;
   } else {
-    onsaleContainer.innerHTML += "<p>Currently No Items Are On-Sale!</p>";
+    onsaleContainer.innerHTML += "<p class='message'>Currently No Items</p><p class='mark'> Are On-Sale!</p>";
   }
 }
 
@@ -73,7 +73,7 @@ function showitemsSold() {
     const itemsSoldHTML = itemsSold.map((i) => itemsSoldToHTML(i)).join(" ");
     soldContainer.innerHTML = itemsSoldHTML;
   } else {
-    soldContainer.innerHTML += "<p class='message'>No Items Are Sold Yet!</p>";
+    soldContainer.innerHTML += "<p class='message'>No Items Are</p><p class='mark'> Sold Yet !</p>";
   }
 }
 
