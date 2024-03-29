@@ -15,6 +15,7 @@ const searchText = document.querySelector('#searchBar');
 
 categoryLINK.addEventListener("click", showCategoriesDROPDOWN)
 profileB.addEventListener('click', profileCheck)
+
 // const profileB = document.querySelector('#profile');
 searchBar.addEventListener("keydown", function(event) {
     if (event.key === "Enter" || event.keyCode === 13) {

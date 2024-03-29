@@ -83,8 +83,9 @@ li {
                 color: black;
             }
         }
-        li a:hover{
+        li:hover{
             color: var(--our_maroon);
+            cursor: pointer;
         }
     }
 }

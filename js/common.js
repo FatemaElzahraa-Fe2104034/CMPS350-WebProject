@@ -1,19 +1,21 @@
 let loginLINK;
 let categoryDD;
-let profileB;
-document.addEventListener('DOMContentLoaded', function() {
-    insertCommonElements();
+let profileB
+
+
+document.addEventListener('DOMContentLoaded', async function() {
+    await insertCommonElements()
+    profileB.addEventListener('click', profileCheck)
 });
+
 
 async function insertCommonElements() {
     await loadElement("header", "/html/common/header.html")
     await loadElement("nav", "/html/common/nav.html")
 
+    profileB = document.querySelector('#profile')
     loginLINK = document.querySelector("#login")
-    profileB = document.querySelector("#profile");
     updateLoginLink()
-    
-    profileB.addEventListener('click', profileCheck)
 }
 
 async function loadElement(elementId, url) {
@@ -70,33 +72,6 @@ function handleLogout(loggedInUser) {
 function handleLogin() {
     window.location.href = "/html/login.html"
 }
-
-// function showCategoriesDROPDOWN(){  
-//     // const dropdownContent = document.getElementById('dropdown-content');
-//     // dropdownContent.classList.toggle('show-dropdown');
-//     const mappedCategories = categories.map(c => `
-//         <a onclick="navigateToFilteredItems(${c.id})">${c.name}</a>
-//     `).join('\n')
-//     categoryDD.innerHTML = mappedCategories
-//     categoryDD.classList.toggle('show-dropdown')
-// }
-
-// function navigateToFilteredItems(categoryId){
-//     window.location.href = `/html/all_Items.html?id=${categoryId}`
-// }
-
-// function profileCheck(){
-//     console.log("entered profilecheck");
-//     const users = JSON.parse(localStorage.getItem('users'))
-//     const nusersSeller = JSON.parse(localStorage.getItem('seller'))
-//     const loggedInUser = usersCustomer.findIndex(u => u.isLoggedIn === true)
-//     if (loggedInUser!=-1) {
-//         window.location.href = "/html/history.html"
-//     }
-//     else {
-//         window.location.href = "/html/historySeller.html"
-//     }
-// }
 
 function profileCheck() {
     // Retrieve customer data from local storage and parse it
