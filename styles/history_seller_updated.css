@@ -178,19 +178,6 @@ body {
     color: white;
 }
 
-/* .solditems{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 5rem;
-    h2{
-        margin: 2rem;
-        width: 100%;
-    }
-
-
-} */
 
 
 .solditems .item-cards {
@@ -248,7 +235,39 @@ body {
     width: 100%;
   }
 
-  @media (min-width : 60rem) {
+  @media (max-width : 55rem) {
+    .solditems .item-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .onsale {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .message{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+    .mark{
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .section-title{
+        width: 100%;
+    }
+    .info {
+        width: 100%;
+        padding: 1rem;
+        form {
+            width: 100%;
+        }
+    }
 
   }
   

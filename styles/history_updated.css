@@ -152,3 +152,24 @@ footer{
   margin-bottom: 1rem;
   font-family: 'Courier New', Courier, monospace;
 }
+
+@media (max-width : 55rem) {
+    .history {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .history-header {
+      width: 100%;
+    }
+    .message{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0;
+  }
+  .mark{
+      display: flex;
+      justify-content: center;
+      margin-top: 0;
+  }
+}
